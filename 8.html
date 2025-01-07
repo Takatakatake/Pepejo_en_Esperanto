@@ -1,0 +1,55 @@
+<style>
+    .text-S_S_S {font-size: 12px;}
+    .text-M_M_M {font-size: 16px;}
+    .text-L_L_L {font-size: 20px;}
+    .text-X_X_X {font-size: 24px;}
+    .ruby-S_S_S { font-size: 0.33em; }
+    .ruby-M_M_M { font-size: 0.45em; }
+    .ruby-L_L_L { font-size: 0.60em; }
+    .ruby-X_X_X { font-size: 0.70em; }
+
+    ruby {
+    display: inline-block;
+    position: relative; /* 相対位置 */
+    white-space: nowrap; /* 改行防止 */
+  }
+/* PC等、ある程度広い画面 */
+@media (min-width: 768px) {
+  rt {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -0.80em;
+  }
+}
+
+/* スマホ・タブレット等、幅が狭い画面 */
+@media (max-width: 767px) {
+  rt {
+    position: static;   /* 絶対配置をやめる */
+    display: inline;    /* or block, center alignment */
+    text-align: center; /* 適宜 */
+    /* 多少のズレを容認しつつ、崩れにくいスタイルに */
+  }
+}
+
+
+
+</style>
+
+<p class="text-M_M_M">
+ Ĉi-<ruby>jar<rt class="ruby-X_X_X">年</rt></ruby>e <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>vol<rt class="ruby-S_S_S">意志がある</rt></ruby><ruby>as<rt class="ruby-S_S_S">現在形</rt></ruby> <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i <ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i <ruby>ĉiu<rt class="ruby-M_M_M">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-X_X_X">日</rt></ruby>e <ruby>iom<rt class="ruby-L_L_L">多少</rt></ruby> <ruby>post<rt class="ruby-M_M_M">(~の)後で</rt></ruby> <ruby>iom<rt class="ruby-L_L_L">多少</rt></ruby> <ruby>en<rt class="ruby-M_M_M">中で</rt></ruby> <ruby>Esperant<rt class="ruby-L_L_L">エスペラント</rt></ruby>o. <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>tut<rt class="ruby-M_M_M">全部の</rt></ruby>e <ruby>ne<rt class="ruby-M_M_M">ない</rt></ruby> <ruby>cert<rt class="ruby-L_L_L">確かな</rt></ruby><ruby>as<rt class="ruby-S_S_S">現在形</rt></ruby>, <ruby>kiom<rt class="ruby-S_S_S">何番目;どれほど</rt></ruby> <ruby>long<rt class="ruby-X_X_X">長い</rt></ruby>e <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>pov<rt class="ruby-M_M_M">できる</rt></ruby><ruby>os<rt class="ruby-S_S_S">未来形</rt></ruby> <ruby>daŭr<rt class="ruby-X_X_X">継続</rt></ruby><ruby>ig<rt class="ruby-S_S_S">させる</rt></ruby>i <ruby>tio<rt class="ruby-S_S_S">それ;あれ</rt></ruby>n, <ruby>sed<rt class="ruby-M_M_M">しかし</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby><ruby>os<rt class="ruby-S_S_S">未来形</rt></ruby>!<br>
+<ruby>Hodiaŭ<rt class="ruby-X_X_X">今日</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>sent<rt class="ruby-M_M_M">(を)感じる</rt></ruby><ruby>is<rt class="ruby-S_S_S">過去形</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby>n <ruby>lac<rt class="ruby-M_M_M">疲れた</rt></ruby>a, <ruby>ĉar<rt class="ruby-M_M_M">だから;車</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>ir<rt class="ruby-M_M_M">行く</rt></ruby><ruby>is<rt class="ruby-S_S_S">過去形</rt></ruby> <ruby>al<rt class="ruby-S_S_S">~の方へ</rt></ruby> <ruby>la<rt class="ruby-L_L_L">the</rt></ruby> <ruby>lern<rt class="ruby-S_S_S">(を)学習する</rt></ruby><ruby>ej<rt class="ruby-M_M_M">場所</rt></ruby>o <ruby>por<rt class="ruby-M_M_M">ために</rt></ruby> <ruby>la<rt class="ruby-L_L_L">the</rt></ruby> <ruby>unu<rt class="ruby-X_X_X">一</rt></ruby>a <ruby>foj<rt class="ruby-X_X_X">回</rt></ruby>o <ruby>en<rt class="ruby-M_M_M">中で</rt></ruby> ĉi <ruby>tiu<rt class="ruby-S_S_S">その;あのひと</rt></ruby> <ruby>jar<rt class="ruby-X_X_X">年</rt></ruby>o. <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>rimark<rt class="ruby-L_L_L">(に)気づく</rt></ruby><ruby>as<rt class="ruby-S_S_S">現在形</rt></ruby>, <ruby>ke<rt class="ruby-S_S_S">ということ</rt></ruby> <ruby>dum<rt class="ruby-S_S_S">(~する)間</rt></ruby> <ruby>la<rt class="ruby-L_L_L">the</rt></ruby> <ruby>jar<rt class="ruby-X_X_X">年</rt></ruby><ruby>ŝanĝ<rt class="ruby-L_L_L">(を)変える</rt></ruby>a <ruby>period<rt class="ruby-L_L_L">[理]周期</rt></ruby>o <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>renkont<rt class="ruby-L_L_L">(に)出会う</rt></ruby><ruby>is<rt class="ruby-S_S_S">過去形</rt></ruby> <ruby>mult<rt class="ruby-L_L_L">多くの</rt></ruby>ajn <ruby>hom<rt class="ruby-X_X_X">人</rt></ruby>ojn, <ruby>kaj<rt class="ruby-X_X_X">and</rt></ruby> <ruby>ver<rt class="ruby-M_M_M">本当の</rt></ruby><ruby>ŝajn<rt class="ruby-M_M_M">(~と)見える</rt></ruby>e <ruby>pro<rt class="ruby-M_M_M">ために</rt></ruby> <ruby>tio<rt class="ruby-S_S_S">それ;あれ</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby>a <ruby>lac<rt class="ruby-M_M_M">疲れた</rt></ruby><ruby>ec<rt class="ruby-M_M_M">性質</rt></ruby>o <ruby>amas<rt class="ruby-M_M_M">集積;大衆</rt></ruby><ruby>iĝ<rt class="ruby-S_S_S">なる</rt></ruby>is. Do, <ruby>hodiaŭ<rt class="ruby-X_X_X">今日</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>en<rt class="ruby-M_M_M">中で</rt></ruby><ruby>lit<rt class="ruby-M_M_M">ベッド</rt></ruby><ruby>iĝ<rt class="ruby-L_L_L">なる</rt></ruby><ruby>os<rt class="ruby-S_S_S">未来形</rt></ruby> <ruby>pli<rt class="ruby-L_L_L">より</rt></ruby> <ruby>fru<rt class="ruby-L_L_L">早い</rt></ruby>e <ruby>ol<rt class="ruby-S_S_S">~よりも</rt></ruby> <ruby>kutim<rt class="ruby-X_X_X">習慣</rt></ruby>e.<br>
+<ruby>Last<rt class="ruby-L_L_L">最後の</rt></ruby>a<ruby>temp<rt class="ruby-X_X_X">時間</rt></ruby>e, <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby>a <ruby>plej<rt class="ruby-X_X_X">最も</rt></ruby> <ruby>ŝat<rt class="ruby-S_S_S">価値を認める</rt></ruby><ruby>at<rt class="ruby-S_S_S">受動継続</rt></ruby>a <ruby>kutim<rt class="ruby-X_X_X">習慣</rt></ruby>o <ruby>est<rt class="ruby-S_S_S">(~)である</rt></ruby><ruby>as<rt class="ruby-S_S_S">現在形</rt></ruby> <ruby>praktik<rt class="ruby-X_X_X">実践</rt></ruby>i <ruby>Esperant<rt class="ruby-L_L_L">エスペラント</rt></ruby>an <ruby>konversaci<rt class="ruby-X_X_X">会話する</rt></ruby>on <ruby>per<rt class="ruby-M_M_M">よって</rt></ruby> <ruby>la<rt class="ruby-L_L_L">the</rt></ruby> <ruby>alt<rt class="ruby-L_L_L">高い</rt></ruby><ruby>nivel<rt class="ruby-X_X_X">水準</rt></ruby>a <ruby>voĉ<rt class="ruby-X_X_X">声</rt></ruby>a <ruby>funkci<rt class="ruby-X_X_X">機能</rt></ruby>o <ruby>de<rt class="ruby-S_S_S">の;から</rt></ruby> ChatGPT, <ruby>sed<rt class="ruby-M_M_M">しかし</rt></ruby> <ruby>hodiaŭ<rt class="ruby-X_X_X">今日</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>jam<rt class="ruby-L_L_L">既に</rt></ruby> <ruby>est<rt class="ruby-S_S_S">(~)である</rt></ruby><ruby>as<rt class="ruby-S_S_S">現在形</rt></ruby> <ruby>tro<rt class="ruby-M_M_M">見える</rt></ruby> <ruby>dorm<rt class="ruby-M_M_M">眠っている</rt></ruby><ruby>em<rt class="ruby-M_M_M">傾向</rt></ruby>a, <ruby>do<rt class="ruby-S_S_S">そこで</rt></ruby> <ruby>mi<rt class="ruby-X_X_X">私</rt></ruby> <ruby>ne<rt class="ruby-M_M_M">ない</rt></ruby> <ruby>pov<rt class="ruby-M_M_M">できる</rt></ruby><ruby>os<rt class="ruby-S_S_S">未来形</rt></ruby> <ruby>far<rt class="ruby-M_M_M">(を)する</rt></ruby>i <ruby>tio<rt class="ruby-S_S_S">それ;あれ</rt></ruby>n ĉi-<ruby>vesper<rt class="ruby-X_X_X">夕方</rt></ruby>e…<br>
+<br>
+<br>
+Ĉi-<ruby>年<rt>jar</rt></ruby>e mi <ruby>愿<rt>vol</rt></ruby>as <ruby>试<rt>prov</rt></ruby>i <ruby>书<rt>skrib</rt></ruby>i <ruby>全u<rt>ĉiu</rt></ruby><ruby>日<rt>tag</rt></ruby>e <ruby>i量<rt>iom</rt></ruby> <ruby>后<rt>post</rt></ruby> <ruby>i量<rt>iom</rt></ruby> en <ruby>语<rt>Esperant</rt></ruby>o. Mi <ruby>全<rt>tut</rt></ruby>e ne <ruby>确<rt>cert</rt></ruby>as, <ruby>何量<rt>kiom</rt></ruby> <ruby>长<rt>long</rt></ruby>e mi <ruby>能<rt>pov</rt></ruby>os <ruby>持<rt>daŭr</rt></ruby><ruby>使<rt>ig</rt></ruby>i tion, sed mi <ruby>试<rt>prov</rt></ruby>os!
+<ruby>今天<rt>Hodiaŭ</rt></ruby> mi <ruby>感<rt>sent</rt></ruby>is min <ruby>累<rt>lac</rt></ruby>a, <ruby>因<rt>ĉar</rt></ruby> mi <ruby>去<rt>ir</rt></ruby>is al la <ruby>学<rt>lern</rt></ruby><ruby>场<rt>ej</rt></ruby>o por la unua <ruby>次<rt>foj</rt></ruby>o en ĉi tiu <ruby>年<rt>jar</rt></ruby>o. mi <ruby>注意<rt>rimark</rt></ruby>as, ke <ruby>当间<rt>dum</rt></ruby> la <ruby>年<rt>jar</rt></ruby><ruby>变<rt>ŝanĝ</rt></ruby>a <ruby>时期<rt>period</rt></ruby>o mi <ruby>遇<rt>renkont</rt></ruby>is <ruby>多<rt>mult</rt></ruby>ajn <ruby>人<rt>hom</rt></ruby>ojn, kaj <ruby>真<rt>ver</rt></ruby><ruby>显<rt>ŝajn</rt></ruby>e <ruby>因<rt>pro</rt></ruby> tio <ruby>我<rt>mi</rt></ruby>a <ruby>累<rt>lac</rt></ruby><ruby>性<rt>ec</rt></ruby>o <ruby>群<rt>amas</rt></ruby><ruby>成<rt>iĝ</rt></ruby>is. Do, <ruby>今天<rt>hodiaŭ</rt></ruby> mi <ruby>中<rt>en</rt></ruby><ruby>床<rt>lit</rt></ruby><ruby>成<rt>iĝ</rt></ruby>os <ruby>于<rt>pli</rt></ruby> <ruby>早<rt>fru</rt></ruby>e ol <ruby>习惯<rt>kutim</rt></ruby>e.
+<ruby>末<rt>Last</rt></ruby>a<ruby>时间<rt>temp</rt></ruby>e, <ruby>我<rt>mi</rt></ruby>a <ruby>最<rt>plej</rt></ruby> <ruby>喜<rt>ŝat</rt></ruby>ata <ruby>习惯<rt>kutim</rt></ruby>o <ruby>是<rt>est</rt></ruby>as <ruby>实践<rt>praktik</rt></ruby>i <ruby>语<rt>Esperant</rt></ruby>an <ruby>交谈<rt>konversaci</rt></ruby>on <ruby>凭<rt>per</rt></ruby> la <ruby>高<rt>alt</rt></ruby><ruby>水平<rt>nivel</rt></ruby>a <ruby>声<rt>voĉ</rt></ruby>a <ruby>功能<rt>funkci</rt></ruby>o de ChatGPT, sed <ruby>今天<rt>hodiaŭ</rt></ruby> mi jam <ruby>是<rt>est</rt></ruby>as <ruby>过<rt>tro</rt></ruby> <ruby>睡<rt>dorm</rt></ruby>ema, do mi ne <ruby>能<rt>pov</rt></ruby>os <ruby>做<rt>far</rt></ruby>i tion ĉi-<ruby>夜<rt>vesper</rt></ruby>e…
+<br>
+<br>
+Ĉi-jare mi volas provi skribi ĉiutage iom post iom en Esperanto. Mi tute ne certas, kiom longe mi povos daŭrigi tion, sed mi provos!
+Hodiaŭ mi sentis min laca, ĉar mi iris al la lernejo por la unua fojo en ĉi tiu jaro. mi rimarkas, ke dum la jarŝanĝa periodo mi renkontis multajn homojn, kaj verŝajne pro tio mia laceco amasiĝis. Do, hodiaŭ mi enlitiĝos pli frue ol kutime.
+Lastatempe, mia plej ŝatata kutimo estas praktiki Esperantan konversacion per la altnivela voĉa funkcio de ChatGPT, sed hodiaŭ mi jam estas tro dormema, do mi ne povos fari tion ĉi-vespere…
+
+</p>
