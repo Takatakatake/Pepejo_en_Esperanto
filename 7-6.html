@@ -8,12 +8,17 @@
     .ruby-L_L_L { font-size: 0.60em; }
     .ruby-X_X_X { font-size: 0.70em; }
 
-    ruby {
-    display: inline-block;
-    position: relative; /* 相対位置 */
-    white-space: nowrap; /* 改行防止 */
-    overflow: visible;    /* はみ出しを許容して、重なりOKにする */
-  }
+    .ruby-container {
+  position: relative;  /* 子要素(.ruby-absolute)の配置基準 */
+  /* overflow: visible; が不要になるケースも */
+}
+.ruby-absolute {
+  position: absolute;
+  top: -0.8em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
   rt {
   position: absolute;
