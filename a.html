@@ -9,16 +9,14 @@
     .ruby-X_X_X { font-size: 0.70em; }
 
     ruby {
-    display: inline-block;/*PC,スマホ共通*/
-    position: relative; /* 相対位置 *//*PC,スマホ共通*/
-    white-space: nowrap; /* 改行防止 *//*PC,スマホ共通*/
+    display: inline-block;
+    position: relative; /* 相対位置 */
+    white-space: nowrap; /* 改行防止 */
+    line-height: 1.9; 
   }
   rt {
-  position: absolute;/*PC,スマホ共通*/
-  top: -0.80em;/*PCのみ*/
-  left: 50%; /* 左端を親要素の中央に合わせる *//*PCのみ*/
-  transform: translateX(-50%); /* 中央に揃える *//*PC,スマホ共通*/
-  line-height: 2.1;/*PCのみ*/
+  position: absolute;
+  transform: translateX(-0%) translateY(-0.25em); /* 中央に揃える */
 }
 
 
