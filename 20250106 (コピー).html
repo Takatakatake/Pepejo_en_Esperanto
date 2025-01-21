@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<style>
+  .text-S_S_S { font-size: 12px; }
+  .text-M_M_M { font-size: 16px; }
+  .text-L_L_L { font-size: 20px; }
+  /* ルビの初期サイズはとりあえず 1em とか何でも良い */
+  ruby rt {
+    font-size: 1em;
+    position: relative;
+    top: -0.75em;
+  }
+</style>
+</head>
+<body>
+
+<p class="text-M_M_M">
+  これは<ruby>例<rt>れいwaa</rt></ruby>文です
+</p>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // ルビ要素を全部取得
+  const allRubies = document.querySelectorAll("ruby");
+  
+  allRubies.forEach(rubyEl => {
+    // 親ruby自身のfont-sizeを取得 (computedStyle)
+    const rubyStyle = window.getComputedStyle(rubyEl);
+    const parentFontSize = parseFloat(rubyStyle.fontSize); // px単位の数値を取得
+
+    // ルビ文字(rt)の配列
+    const rtEls = rubyEl.querySelectorAll("rt");
+
+    rtEls.forEach(rtEl => {
+      // ここで「親フォントサイズ × 0.4」のように倍率指定
+      const rubySizePx = parentFontSize * 0.4; // 好みで変更
+      rtEl.style.fontSize = rubySizePx + "px";
+    });
+  });
+});
+</script>
+</body>
+</html>
