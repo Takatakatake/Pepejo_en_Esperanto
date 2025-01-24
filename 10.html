@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完璧なルビ表示</title>
+  <style>
+    /* ベーススタイル */
+    :root {
+      --ruby-color: blue;
+      --ruby-font-size: 50%;
+      --ruby-offset: -0.3em;
+      --base-line-compensation: calc(1em * (1 - var(--ruby-font-size)) * 0.45);
+    }
+
+    /* テキストサイズクラス */
+    .text-S_S_S { font-size: 12px; }
+    .text-M_M_M { font-size: 16px; }
+    .text-L_L_L { font-size: 20px; }
+    .text-X_X_X { font-size: 24px; }
+
+    /* ベースライン統一システム */
+    p {
+      line-height: 1.5 !important;
+      font-size: inherit !important;
+    }
+
+    /* ルビコアシステム */
+    ruby {
+      position: relative;
+      display: inline-block;
+      vertical-align: top !important;
+      line-height: 0 !important;
+      margin-top: var(--base-line-compensation);
+      box-sizing: border-box;
+    }
+
+    rt {
+      position: absolute;
+      bottom: calc(100% - 0.1em);
+      left: 50%;
+      transform: translateX(-50%) translateY(calc(var(--ruby-offset) * 0.8));
+      width: max-content;
+      font-size: var(--ruby-font-size);
+      color: var(--ruby-color);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* 未ルビテキスト用高さ補正 */
+    ruby:not(:has(rt))::before {
+      content: "";
+      display: inline-block;
+      vertical-align: top;
+      height: calc(1em + var(--base-line-compensation) * 1.2);
+      width: 0;
+    }
+
+    /* ルビサイズクラス */
+    .ruby-XS_S_S { --ruby-font-size: 30%; }
+    .ruby-S_S_S  { --ruby-font-size: 40%; }
+    .ruby-M_M_M  { --ruby-font-size: 50%; }
+    .ruby-L_L_L  { --ruby-font-size: 60%; }
+    .ruby-XL_L_L { --ruby-font-size: 70%; }
+    .ruby-XXL_L_L{ --ruby-font-size: 80%; }
+
+    /* ブラウザ別調整 */
+    @supports (-webkit-appearance:none) {
+      rt { transform: translateX(-50%) translateY(calc(var(--ruby-offset) * 0.8 - 0.03em)); }
+    }
+    @-moz-document url-prefix() {
+      rt { transform: translateX(-50%) translateY(calc(var(--ruby-offset) * 0.8 + 0.03em)); }
+    }
+  </style>
+</head>
+<body>
+  <p class="text-M_M_M">
+    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>o 
+    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>a <br>
+    Ĉi-<ruby>jar<rt class="ruby-XXL_L_L">年</rt></ruby>e 
+    <ruby>mi<rt class="ruby-XXL_L_L">私</rt></ruby> 
+    <ruby>vol<rt class="ruby-XS_S_S">意志がある</rt></ruby><ruby>as<rt class="ruby-XS_S_S">現在形</rt></ruby> 
+    <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i 
+    <ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i 
+    <ruby>ĉiu<rt class="ruby-XS_S_S">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-XXL_L_L">日</rt></ruby>e 
+    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby> 
+    <ruby>post<rt class="ruby-S_S_S">(~の)後で</rt></ruby> 
+    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby>
+  </p>
+
+  <!-- 古いブラウザ向けフォールバック -->
+  <script>
+    if (!('ruby' in document.createElement('ruby'))) {
+      document.querySelectorAll('ruby').forEach(ruby => {
+        const rt = ruby.querySelector('rt');
+        const rb = ruby.querySelector('rb');
+        if (rt && rb) {
+          ruby.innerHTML = `
+            <span style="display: inline-block; text-align: center;">
+              <span style="display: block; font-size: 0.5em; color: blue;">${rt.textContent}</span>
+              <span>${rb.textContent}</span>
+            </span>
+          `;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
