@@ -3,148 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>完璧なルビ表示（サイズ別余白調整）</title>
+  <title>絶対配置でルビを押し下げず重ねる</title>
   <style>
-    /* ベーススタイル */
-    :root {
-      --ruby-color: blue;
-      --ruby-offset: -0.1em;
-      --ruby-font-size: 50%;
-    }
-
+    /* ベースフォントサイズ */
     .text-S_S_S { font-size: 12px; }
     .text-M_M_M { font-size: 16px; }
     .text-L_L_L { font-size: 20px; }
     .text-X_X_X { font-size: 24px; }
 
-    /* ルビの基本スタイル */
+    /* ルビの大きさクラス (rt に付与する) */
+    rt.ruby-XS_S_S { font-size: 0.30em; }
+    rt.ruby-S_S_S  { font-size: 0.40em; }
+    rt.ruby-M_M_M  { font-size: 0.50em; }
+    rt.ruby-L_L_L  { font-size: 0.60em; }
+    rt.ruby-XL_L_L { font-size: 0.70em; }
+    rt.ruby-XXL_L_L{ font-size: 0.80em; }
+
+    /* -------------------------------------------
+       1) <ruby> は inline-block + position: relative 
+          → 自身をルビ配置の基準にする
+       ------------------------------------------- */
     ruby {
-      display: inline-flex;
-      flex-direction: column-reverse;
-      align-items: center;
-      justify-content: flex-end;
-      line-height: 1.2; /* ←元々指定されているが、下で !important が効くので今は実質無効化 */
-      vertical-align: top;
-      margin: 0 0.1em;
+      display: inline-block;
+      position: relative;  /* ここを基準に rt を absolute 配置 */
+      line-height: 1;      /* 行の高さをベーステキストだけに合わせる */
+      white-space: nowrap; /* 改行防止（折り返しが起きるとズレるため推奨） */
+      margin: 0 0.2em;     /* 文字の左右余白はお好みで */
+      vertical-align: middle; 
     }
 
+    /* -------------------------------------------
+       2) <rt> は absolute で上に重ねる
+          top, left, transform 等で位置を微調整
+       ------------------------------------------- */
     rt {
-      font-size: var(--ruby-font-size);
-      color: var(--ruby-color);
-      line-height: 1;
-      text-align: center;
-      order: 1; /* ルビを上に表示 */
-      transform: translateY(var(--ruby-offset));
+      position: absolute;
+      left: 50%;                 /* 親rubyの中央を基準に */
+      transform: translateX(-50%); /* 中央揃え */
+      color: blue;
+      line-height: 1;           /* ルビ自体の高さはコンパクトに */
     }
 
-    rb {
-      order: 2; /* ベーステキストを下に表示 */
-    }
-
-    /* ルビサイズクラス */
-    .ruby-XS_S_S { --ruby-font-size: 30%; }
-    .ruby-S_S_S  { --ruby-font-size: 40%; }
-    .ruby-M_M_M  { --ruby-font-size: 50%; }
-    .ruby-L_L_L  { --ruby-font-size: 60%; }
-    .ruby-XL_L_L { --ruby-font-size: 70%; }
-    .ruby-XXL_L_L{ --ruby-font-size: 80%; }
-
-    /* ここで上書きすることで、ブラウザ毎の挙動と衝突しないようにする */
-    ruby {
-      vertical-align: top !important;
-      line-height: 1 !important;  /* ベース行高を1固定 */
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-
+    /* デフォルトの位置調整 (全体) */
     rt {
-      display: block !important;
-      margin-top: -0.3em !important; /* ベースのマイナス余白 */
-      transform: none !important;
+      top: -0.7em; /* ルビをどれくらい上に配置するか(環境により微調整) */
     }
 
-    rb {
-      display: block !important;
-      margin: 0 !important;
-    }
+    /* ルビサイズごとの個別高さ調整例:
+       ルビの大きさに応じて top を変えたい場合に併用 */
+    rt.ruby-XS_S_S { top: -0.5em; }
+    rt.ruby-S_S_S  { top: -0.6em; }
+    rt.ruby-M_M_M  { top: -0.7em; }
+    rt.ruby-L_L_L  { top: -0.8em; }
+    rt.ruby-XL_L_L { top: -0.9em; }
+    rt.ruby-XXL_L_L{ top: -1.0em; }
 
-    /* ----------------------------------------------
-       ▼ ルビサイズクラスごとの「追加のマイナス余白」指定
-         （ルビが大きくなるほど、少し強めに上へ持ち上げる）
-       ---------------------------------------------- */
-/* あるいは <rt> 自身にクラスを付ける場合 */
-    rt.ruby-XS_S_S   { margin-top: -0.35em !important; }
-    rt.ruby-S_S_S   { margin-top: -0.40em !important; }
-    rt.ruby-M_M_M   { margin-top: -0.55em !important; }
-    rt.ruby-L_L_L   { margin-top: -0.65em !important; }
-    rt.ruby-XL_L_L  { margin-top: -0.70em !important; }
-    rt.ruby-XXL_L_L { margin-top: -0.70em !important; }
-
-    /*
-     ※ 上記の数値はあくまで一例です。実際にはご利用の環境・表示フォントに応じて
-       -0.05em くらいずつ上下しながら最適値を探してみてください。
-     */
-
-    /* ブラウザ固有の調整 */
-    @supports (-webkit-appearance:none) {
-      rt {
-        /* Chrome, Safari用の微調整 */
-        /* ベース -0.3em をさらに上書きしているので、大きいサイズ向けは
-           下のようにクラス別で個別指定してもOK */
-        transform: translateY(-0.1em);
-      }
-    }
-
-    @-moz-document url-prefix() {
-      rt {
-        /* Firefox用の微調整 */
-        transform: translateY(-0.1em);
-      }
-    }
-
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-      rt {
-        top: -0.5em; /* Edge用の微調整 */
-      }
-    }
-
-    /* モバイル用の調整 */
+    /* -------------------------------------------------
+       3) スマホなど画面幅が小さい時は別途調整が必要。
+          例: ルビサイズを少し大きく、top をさらに上げる等
+       ------------------------------------------------- */
     @media (max-width: 480px) {
       ruby {
-        line-height: 1.5;
+        /* 行間を少し広げないとルビが隣の行に衝突しやすい */
+        line-height: 1.2;
       }
       rt {
-        --ruby-font-size: 60%; /* モバイルではルビを少し大きく */
+        /* ルビを少し大きく, さらに上へ移動 */
+        font-size: 0.55em; /* 任意 */
+        top: -0.8em;
       }
     }
   </style>
 </head>
 <body>
   <p class="text-M_M_M">
-    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>o 
-    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>a <br>
-    Ĉi-<ruby>jar<rt class="ruby-XL_L_L">年</rt></ruby><ruby>e<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>mi<rt class="ruby-XL_L_L">私</rt></ruby><ruby>vol<rt class="ruby-XS_S_S">意志があリマ</rt></ruby><ruby>as<rt class="ruby-XS_S_S">現在形</rt></ruby> 
-    <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i<ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i<ruby>ĉiu<rt class="ruby-XS_S_S">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-XXL_L_L">日</rt></ruby>e<ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby> 
-    <ruby>post<rt class="ruby-S_S_S">(~の)後で</rt></ruby> 
-    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby>
-  </p>
+    <!-- 短文であれば折り返しリスクが少ないのでまだ安全 -->
 
-  <!-- 古いブラウザ向けのフォールバック -->
-  <script>
-    if (!('ruby' in document.createElement('ruby'))) {
-      document.querySelectorAll('ruby').forEach(ruby => {
-        const rt = ruby.querySelector('rt');
-        const rb = ruby.querySelector('rb');
-        if (rt && rb) {
-          ruby.innerHTML = `
-            <span style="display: inline-block; text-align: center;">
-              <span style="display: block; font-size: 0.5em; color: blue;">${rt.textContent}</span>
-              <span>${rb.textContent}</span>
-            </span>
-          `;
-        }
-      });
-    }
-  </script>
+    <!-- ルビ付き文字（例1）: ルビサイズ Small -->
+    <ruby>
+      fe
+      <rt class="ruby-S_S_S">妖精</rt>
+    </ruby>
+    <!-- メインテキストが続く -->
+    o 
+
+    <!-- ルビ付き文字（例2）: ルビサイズ Medium -->
+    <ruby>
+      fe
+      <rt class="ruby-M_M_M">妖精</rt>
+    </ruby>
+    a 
+
+    <!-- ルビ付き文字（例3）: XXL -->
+    <ruby>
+      jar
+      <rt class="ruby-XXL_L_L">年</rt>
+    </ruby>
+    e 
+
+    <ruby>
+      mi
+      <rt class="ruby-XXL_L_L">私</rt>
+    </ruby> 
+    <ruby>
+      vol
+      <rt class="ruby-XS_S_S">意志</rt>
+    </ruby>
+    <ruby>
+      as
+      <rt class="ruby-XS_S_S">現在</rt>
+    </ruby>
+
+    <ruby>
+      prov
+      <rt class="ruby-M_M_M">(を)試す</rt>
+    </ruby>
+    i
+    <ruby>
+      skrib
+      <rt class="ruby-L_L_L">(を)書く</rt>
+    </ruby>
+    i 
+    <ruby>
+      ĉiu
+      <rt class="ruby-XS_S_S">各々</rt>
+    </ruby>
+    <ruby>
+      tag
+      <rt class="ruby-XXL_L_L">日</rt>
+    </ruby>
+    e
+    <ruby>
+      iom
+      <rt class="ruby-XXL_L_L">多少</rt>
+    </ruby>
+    <ruby>
+      post
+      <rt class="ruby-S_S_S">後で</rt>
+    </ruby>
+    <ruby>
+      iom
+      <rt class="ruby-XXL_L_L">多少</rt>
+    </ruby>
+  </p>
 </body>
 </html>
