@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完璧なルビ表示</title>
+  <style>
+    /* ▼▼▼ 修正するスタイル ▼▼▼ */
+    :root {
+      --base-line-height: 1.5; /* ベースラインを統一 */
+    }
+    
+    ruby {
+      display: inline-block;
+      position: relative;
+      vertical-align: baseline !important; /* ベースライン揃え */
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: var(--base-line-height);
+    }
+    
+    rt {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      color: var(--ruby-color);
+      font-size: var(--ruby-font-size);
+      line-height: 1;
+      transform: none !important;
+      top: calc(-1.2em * var(--base-line-height)); /* 相対計算 */
+    }
+    
+    rb {
+      display: inline-block !important;
+      visibility: visible;
+      vertical-align: baseline !important; /* ベースライン統一 */
+    }
+    
+    /* ルビサイズクラスの調整 */
+    .ruby-XS_S_S { --ruby-font-size: 30%; top: calc(-0.8em * var(--base-line-height)) !important; }
+    .ruby-S_S_S  { --ruby-font-size: 40%; top: calc(-1.0em * var(--base-line-height)) !important; }
+    .ruby-M_M_M  { --ruby-font-size: 50%; top: calc(-1.2em * var(--base-line-height)) !important; }
+    .ruby-L_L_L  { --ruby-font-size: 60%; top: calc(-1.4em * var(--base-line-height)) !important; }
+    .ruby-XL_L_L { --ruby-font-size: 70%; top: calc(-1.6em * var(--base-line-height)) !important; }
+    .ruby-XXL_L_L{ --ruby-font-size: 80%; top: calc(-1.8em * var(--base-line-height)) !important; }
+    /* ▲▲▲ 修正終了 ▲▲▲ */
+    
+    /* ブラウザ固有の調整（削除）*/
+    </style>
+</head>
+<body>
+  <p class="text-M_M_M">
+    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>o 
+    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>a <br>
+    Ĉi-<ruby>jar<rt class="ruby-XXL_L_L">年</rt></ruby>e 
+    <ruby>mi<rt class="ruby-XXL_L_L">私</rt></ruby> 
+    <ruby>vol<rt class="ruby-XS_S_S">意志がある</rt></ruby><ruby>as<rt class="ruby-XS_S_S">現在形</rt></ruby> 
+    <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i 
+    <ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i 
+    <ruby>ĉiu<rt class="ruby-XS_S_S">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-XXL_L_L">日</rt></ruby>e 
+    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby> 
+    <ruby>post<rt class="ruby-S_S_S">(~の)後で</rt></ruby> 
+    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby>
+  </p>
+
+  <!-- 古いブラウザ向けのフォールバック -->
+  <script>
+    if (!('ruby' in document.createElement('ruby'))) {
+      document.querySelectorAll('ruby').forEach(ruby => {
+        const rt = ruby.querySelector('rt');
+        const rb = ruby.querySelector('rb');
+        if (rt && rb) {
+          ruby.innerHTML = `
+            <span style="display: inline-block; text-align: center;">
+              <span style="display: block; font-size: 0.5em; color: blue;">${rt.textContent}</span>
+              <span>${rb.textContent}</span>
+            </span>
+          `;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
