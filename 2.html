@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完璧なルビ表示</title>
+  <style>
+    /* ベーススタイル */
+    :root {
+      --ruby-color: blue;
+      --ruby-offset: -0.1em;
+      --ruby-font-size: 50%;
+    }
+
+    .text-S_S_S { font-size: 12px; }
+    .text-M_M_M { font-size: 16px; }
+    .text-L_L_L { font-size: 20px; }
+    .text-X_X_X { font-size: 24px; }
+
+    /* ルビの基本スタイル */
+    ruby {
+      display: inline-flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: flex-end;
+      line-height: 1.2;
+      vertical-align: top;
+      margin: 0 0.1em;
+    }
+
+    rt {
+      font-size: var(--ruby-font-size);
+      color: var(--ruby-color);
+      line-height: 1;
+      text-align: center;
+      order: 1; /* ルビを上に表示 */
+      transform: translateY(var(--ruby-offset));
+    }
+
+    rb {
+      order: 2; /* ベーステキストを下に表示 */
+    }
+
+    /* ルビサイズクラス */
+    .ruby-XS_S_S { --ruby-font-size: 30%; }
+    .ruby-S_S_S  { --ruby-font-size: 40%; }
+    .ruby-M_M_M  { --ruby-font-size: 50%; }
+    .ruby-L_L_L  { --ruby-font-size: 60%; }
+    .ruby-XL_L_L { --ruby-font-size: 70%; }
+    .ruby-XXL_L_L{ --ruby-font-size: 80%; }
+
+    /* ブラウザ固有の調整 */
+    @supports (-webkit-appearance:none) {
+      rt {
+        transform: translateY(-0.1em); /* Chrome, Safari用の微調整 */
+      }
+    }
+
+    @-moz-document url-prefix() {
+      rt {
+        transform: translateY(-0.1em); /* Firefox用の微調整 */
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      rt {
+        top: -0.5em; /* Edge用の微調整 */
+      }
+    }
+
+    /* モバイル用の調整 */
+    @media (max-width: 480px) {
+      ruby {
+        line-height: 1.5;
+      }
+      rt {
+        --ruby-font-size: 60%; /* モバイルではルビを少し大きく */
+      }
+    }
+  </style>
+</head>
+<body>
+  <p class="text-M_M_M">
+    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>o 
+    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>a <br>
+    Ĉi-<ruby>jar<rt class="ruby-XXL_L_L">年</rt></ruby>e 
+    <ruby>mi<rt class="ruby-XXL_L_L">私</rt></ruby> 
+    <ruby>vol<rt class="ruby-XS_S_S">意志がある</rt></ruby><ruby>as<rt class="ruby-XS_S_S">現在形</rt></ruby> 
+    <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i 
+    <ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i 
+    <ruby>ĉiu<rt class="ruby-XS_S_S">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-XXL_L_L">日</rt></ruby>e 
+    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby> 
+    <ruby>post<rt class="ruby-S_S_S">(~の)後で</rt></ruby> 
+    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby>
+  </p>
+
+  <!-- 古いブラウザ向けのフォールバック -->
+  <script>
+    if (!('ruby' in document.createElement('ruby'))) {
+      document.querySelectorAll('ruby').forEach(ruby => {
+        const rt = ruby.querySelector('rt');
+        const rb = ruby.querySelector('rb');
+        if (rt && rb) {
+          ruby.innerHTML = `
+            <span style="display: inline-block; text-align: center;">
+              <span style="display: block; font-size: 0.5em; color: blue;">${rt.textContent}</span>
+              <span>${rb.textContent}</span>
+            </span>
+          `;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
