@@ -59,8 +59,8 @@
 
     rt {
       display: block !important;
-      margin-top: -0.3em !important; /* ベースのマイナス余白 */
-      transform: none !important;
+      margin-top: -0.2em !important; /* ベースのマイナス余白 */
+      transform: translateY(0.4em) !important;
     }
 
     rb {
@@ -73,12 +73,38 @@
          （ルビが大きくなるほど、少し強めに上へ持ち上げる）
        ---------------------------------------------- */
 /* あるいは <rt> 自身にクラスを付ける場合 */
-    rt.ruby-XS_S_S   { margin-top: -0.35em !important; }
-    rt.ruby-S_S_S   { margin-top: -0.40em !important; }
-    rt.ruby-M_M_M   { margin-top: -0.55em !important; }
-    rt.ruby-L_L_L   { margin-top: -0.65em !important; }
-    rt.ruby-XL_L_L  { margin-top: -0.70em !important; }
-    rt.ruby-XXL_L_L { margin-top: -0.70em !important; }
+/* ベース (共通) 指定 */
+rt {
+  display: block !important;
+  margin-top: -0.2em !important;   /* 全体的な下げ量 */
+  transform: translateY(0.4em) !important; /* 全体の持ち上げ量 */
+}
+
+/* ▼ クラス別にさらに上書きする（margin-top と transform をペアで調整） */
+rt.ruby-XS_S_S {
+  margin-top: -0.35em !important;
+  transform: translateY(0.85em) !important;
+}
+rt.ruby-S_S_S {
+  margin-top: -0.50em !important;
+  transform: translateY(0.70em) !important;
+}
+rt.ruby-M_M_M {
+  margin-top: -0.60em !important;
+  transform: translateY(0.60em) !important;
+}
+rt.ruby-L_L_L {
+  margin-top: -0.65em !important;
+  transform: translateY(0.50em) !important;
+}
+rt.ruby-XL_L_L {
+  margin-top: -0.70em !important;
+  transform: translateY(0.45em) !important;
+}
+rt.ruby-XXL_L_L {
+  margin-top: -0.74em !important;
+  transform: translateY(0.40em) !important;
+}
 
     /*
      ※ 上記の数値はあくまで一例です。実際にはご利用の環境・表示フォントに応じて
@@ -117,17 +143,36 @@
         --ruby-font-size: 60%; /* モバイルではルビを少し大きく */
       }
     }
+
+    p.text-M_M_M {
+    line-height: 1.9 !important; /* あるいはお好みで 1.4, 1.6 など */
+  }
   </style>
 </head>
 <body>
-  <p class="text-M_M_M">
-    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>o 
-    <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>a <br>
-    <ruby>Ĉi-<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>e<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>jar<rt class="ruby-XL_L_L">年</rt></ruby><ruby>e<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>mi<rt class="ruby-XL_L_L">私</rt></ruby><ruby>vol<rt class="ruby-XS_S_S">意志があリマ</rt></ruby><ruby>as<rt class="ruby-XS_S_S">現在形</rt></ruby> 
-    <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i<ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i<ruby>ĉiu<rt class="ruby-XS_S_S">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-XXL_L_L">日</rt></ruby>e<ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby> 
-    <ruby>post<rt class="ruby-S_S_S">(~の)後で</rt></ruby> 
-    <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby>
-  </p>
+  <!DOCTYPE html>
+  <html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>3行比較サンプル</title>
+  </head>
+  <body>
+    <p class="text-M_M_M">
+      <ruby>aaaa<rt class="ruby-XS_S_S">XS</rt></ruby><ruby>aaaa<rt class="ruby-S_S_S">S</rt></ruby><ruby>aaaa<rt class="ruby-M_M_M">M</rt></ruby><ruby>aaaa<rt class="ruby-L_L_L">L</rt></ruby><ruby>aaaa<rt class="ruby-XL_L_L">XL</rt></ruby><ruby>aaaa<rt class="ruby-XXL_L_L">XXL</rt></ruby><br>
+      <ruby>aaaa<rt class="ruby-XS_S_S">XS</rt></ruby><ruby>aaaa<rt class="ruby-S_S_S">S</rt></ruby><ruby>aaaa<rt class="ruby-M_M_M">M</rt></ruby><ruby>aaaa<rt class="ruby-L_L_L">L</rt></ruby><ruby>aaaa<rt class="ruby-XL_L_L">XL</rt></ruby><ruby>aaaa<rt class="ruby-XXL_L_L">XXL</rt></ruby><br>
+      <ruby>aaaa<rt class="ruby-XS_S_S">XS</rt></ruby><ruby>aaaa<rt class="ruby-S_S_S">S</rt></ruby><ruby>aaaa<rt class="ruby-M_M_M">M</rt></ruby><ruby>aaaa<rt class="ruby-L_L_L">L</rt></ruby><ruby>aaaa<rt class="ruby-XL_L_L">XL</rt></ruby><ruby>aaaa<rt class="ruby-XXL_L_L">XXL</rt></ruby><br>
+      <ruby>aaaa<rt class="ruby-XS_S_S">XS</rt></ruby><ruby>aaaa<rt class="ruby-S_S_S">S</rt></ruby><ruby>aaaa<rt class="ruby-M_M_M">M</rt></ruby><ruby>aaaa<rt class="ruby-L_L_L">L</rt></ruby><ruby>aaaa<rt class="ruby-XL_L_L">XL</rt></ruby><ruby>aaaa<rt class="ruby-XXL_L_L">XXL</rt></ruby><br>
+    </p>
+
+    <p class="text-M_M_M">
+      <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>o 
+      <ruby>fe<rt class="ruby-S_S_S">妖精</rt></ruby>a <br>
+      <ruby>Ĉi-<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>e<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>jar<rt class="ruby-XL_L_L">年</rt></ruby><ruby>e<rt class="ruby-M_M_M">&nbsp;</rt></ruby><ruby>mi<rt class="ruby-XL_L_L">私</rt></ruby><ruby>vol<rt class="ruby-XS_S_S">意志があリマ</rt></ruby><ruby>as<rt class="ruby-XS_S_S">現在形</rt></ruby> 
+      <ruby>prov<rt class="ruby-M_M_M">(を)試す</rt></ruby>i<ruby>skrib<rt class="ruby-L_L_L">(を)書く</rt></ruby>i<ruby>ĉiu<rt class="ruby-XS_S_S">各々の;各~</rt></ruby><ruby>tag<rt class="ruby-XXL_L_L">日</rt></ruby>e<ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby> 
+      <ruby>post<rt class="ruby-S_S_S">(~の)後で</rt></ruby> 
+      <ruby>iom<rt class="ruby-XXL_L_L">多少</rt></ruby>
+    </p>
+  
 
   <!-- 古いブラウザ向けのフォールバック -->
   <script>
