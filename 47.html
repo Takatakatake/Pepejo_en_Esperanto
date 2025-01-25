@@ -32,10 +32,8 @@
       flex-direction: column-reverse;
       align-items: center;
       justify-content: flex-end;
-      vertical-align: top !important;;
-      margin: 0 !important;
-      line-height: 1 !important;
-      padding: 0 !important;
+      vertical-align: top;
+      margin: 0 0.1em;
     }
 
     rb {
@@ -52,6 +50,12 @@
     .ruby-XXL_L_L { --ruby-font-size: 80%; }
 
     /* ▼ デフォルト挙動リセット (強制上書き) */
+    ruby {
+      vertical-align: top !important;
+      line-height: 1 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
     rb {
       display: block !important;
@@ -102,8 +106,11 @@
     @media (max-width: 480px) {
       ruby {
         line-height: normal;/*変更してみた*/
-      }}
-
+      }
+      /* rt {
+        --ruby-font-size: 60%;
+      } */
+    }
 
     /* ▼ 行ラッピング用のラッパ (後述のJSで動的生成) */
     .line-wrapper {
@@ -154,6 +161,7 @@
       const lines = groupByLine(chunks);
 
       // 4. 各行の最大高さを調べ、line-wrapper で包み込む
+      // 変更部分のみ抜粋
       lines.forEach(lineGroup => {
         let maxH = 0;
         lineGroup.forEach(el => {
@@ -162,11 +170,18 @@
             maxH = rect.height;
           }
         });
-        // 新たにラッパを作り、 line-height を最大高さに指定
+        
+        // 最低行高を設定（例: 40px）
+        const MIN_LINE_HEIGHT = 40; 
+        const finalLineHeight = Math.max(maxH, MIN_LINE_HEIGHT);
+        
         const wrapper = document.createElement("span");
         wrapper.className = "line-wrapper";
-        // block化して改行を強制、行ごとに line-height を固定
-        wrapper.style.lineHeight = maxH + "px";
+        wrapper.style.lineHeight = `${finalLineHeight}px`;
+        
+        // 垂直位置調整用のpadding
+        wrapper.style.paddingTop = `${(finalLineHeight - maxH)/2}px`;
+        wrapper.style.paddingBottom = `${(finalLineHeight - maxH)/2}px`;
 
         // DOM再構築
         // lineGroup[0] の前に wrapper を挿入し、そこに lineGroup の要素を移動

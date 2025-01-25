@@ -18,7 +18,7 @@
       font-size: 16px; 
       font-family: Arial, sans-serif;
       /* JavaScriptで行高さを再計算するので、 ひとまず行高は最小に */
-      line-height: 1.5 !important; 
+      line-height: 6.5em !important; 
       /* 下で script により最適化される */
       display: block; /* ブロック要素として扱う */
       position: relative; /* offsetTop 取得のため */
@@ -39,7 +39,9 @@
     }
 
     rb {
-      order: 2; /* ベーステキストを下 */
+      order: 2;
+      display: block !important;
+      margin: 0 !important;
     }
 
     /* ▼ ルビサイズクラス（例） */
@@ -102,7 +104,7 @@
     @media (max-width: 480px) {
       ruby {
         line-height: normal;/*変更してみた*/
-      }}
+      }
 
 
     /* ▼ 行ラッピング用のラッパ (後述のJSで動的生成) */
@@ -133,7 +135,8 @@
 
   </p>
 
-
+</body>
+</html>
   <!-- ▼ JavaScript: 行ごとに高さを自動調整 -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
