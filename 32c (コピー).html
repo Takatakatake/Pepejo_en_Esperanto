@@ -76,39 +76,45 @@
 
     /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
     rt {
-      display: block !important;
-      margin-top: 0.2em !important;   
-      transform: translateY(0.4em) !important; 
-    }
-    rt.ruby-XXS_S_S {
-      margin-top: -2.65em !important;
-      transform: translateY(-2.65em) !important;
-    }
-    rt.ruby-XS_S_S {
-      margin-top: -2.15em !important;
-      transform: translateY(-2.15em) !important;
-    }
-    rt.ruby-S_S_S {
-      margin-top: -1.75em  !important;
-      transform: translateY(-1.75em) !important;
-    }
-    rt.ruby-M_M_M {
-      margin-top: -1.43em !important;
-      transform: translateY(-1.43em) !important;
-    }
-    rt.ruby-L_L_L {
-      margin-top: -1.3em !important;
-      transform: translateY(-1.30em) !important;
-    }
-    rt.ruby-XL_L_L {
-      margin-top: -1.2em !important;
-      transform: translateY(-1.20em) !important;
-    }
-    rt.ruby-XXL_L_L {
-      margin-top: -1.15em !important;
-      transform: translateY(-1.15em) !important;
-    }
+  display: block !important;
+  margin-top: calc(var(--ruby-offset-base) - 1.5em) !important; /* 初期値 */
+  transform: translateY(calc(-1.5em)) !important; /* 初期値 */
+}
 
+rt.ruby-XXS_S_S {
+  margin-top: calc(var(--ruby-offset-base) - 2.65em) !important;
+  transform: translateY(calc(-2.65em)) !important;
+}
+
+rt.ruby-XS_S_S {
+  margin-top: calc(var(--ruby-offset-base) - 2.15em) !important;
+  transform: translateY(calc(-2.15em)) !important;
+}
+
+rt.ruby-S_S_S {
+  margin-top: calc(var(--ruby-offset-base) - 1.75em) !important;
+  transform: translateY(calc(-1.75em)) !important;
+}
+
+rt.ruby-M_M_M {
+  margin-top: calc(var(--ruby-offset-base) - 1.43em) !important;
+  transform: translateY(calc(-1.43em)) !important;
+}
+
+rt.ruby-L_L_L {
+  margin-top: calc(var(--ruby-offset-base) - 1.3em) !important;
+  transform: translateY(calc(-1.3em)) !important;
+}
+
+rt.ruby-XL_L_L {
+  margin-top: calc(var(--ruby-offset-base) - 1.2em) !important;
+  transform: translateY(calc(-1.2em)) !important;
+}
+
+rt.ruby-XXL_L_L {
+  margin-top: calc(var(--ruby-offset-base) - 1.15em) !important;
+  transform: translateY(calc(-1.15em)) !important;
+}
     /* rt.ruby-XXS_S_S {
       margin-top: -5.00em !important;
       transform: translateY(0.0em) !important;
@@ -161,7 +167,7 @@
     <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
     <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
     <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>   <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby>
+    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><br><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby>
   
   </p>
 
