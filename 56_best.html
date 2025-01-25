@@ -54,7 +54,7 @@
       display: block !important;
       font-size: var(--ruby-font-size);
       color: var(--ruby-color);
-      line-height: 1.05;
+      line-height: 1.05;/*ルビを改行するケースにおけるルビの行間*/
       text-align: center;
       order: 1; /* ルビを上 */
       /* margin-top: 0.2em !important;   
@@ -62,7 +62,7 @@
     }
     rt.ruby-XXS_S_S {
       margin-top: -0em !important;
-      transform: translateY(-5.6em) !important;
+      transform: translateY(-5.6em) !important;/* ルビの位置はここで調節する。 */
     }
     rt.ruby-XS_S_S {
       margin-top: -0em !important;
@@ -111,12 +111,12 @@
   <!-- ▼ 試験対象の段落に auto-ruby-adjust クラスをつける -->
   <p class="text-M_M_M auto-ruby-adjust">
     <br>
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>国国<br>
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby>国国&nbsp;&nbsp;<ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>   <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby>
+    <ruby>WW<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XS_S_S">WW</rt></ruby></ruby><ruby>WW<rt class="ruby-S_S_S">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-M_M_M">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-L_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XL_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XXL_L_L">WW</rt></ruby>WW<br>
+    <ruby>WW<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XS_S_S">WW</rt></ruby></ruby><ruby>WW<rt class="ruby-S_S_S">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-M_M_M">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-L_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XL_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XXL_L_L">WW</rt></ruby><br>
+    <ruby>WW<rt class="ruby-XXS_S_S">国<br>国</rt></ruby>WW&nbsp;&nbsp;<ruby>WW<rt class="ruby-XS_S_S">WW</rt></ruby></ruby><ruby>WW<rt class="ruby-S_S_S">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-M_M_M">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-L_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XL_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XXL_L_L">WW</rt></ruby>   <ruby>WW<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XS_S_S">WW</rt></ruby></ruby><ruby>WW<rt class="ruby-S_S_S">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-M_M_M">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-L_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XL_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-XXL_L_L">WW</rt></ruby><br>
+    <ruby>WW<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WWWWWWWWWW</ruby><ruby>WW<rt class="ruby-XS_S_S">WW</rt></ruby></ruby><ruby>WW<rt class="ruby-S_S_S">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-M_M_M">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-L_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>WW<rt class="ruby-L_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-XL_L_L">WW</rt></ruby><ruby>WW<rt class="ruby-S_S_S">&nbsp;</rt></ruby>
   
-    <br><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>
+    <br><ruby>WW<rt class="ruby-XXL_L_L">WW</rt></ruby>
 
   </p>
 
