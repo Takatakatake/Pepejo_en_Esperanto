@@ -80,31 +80,31 @@
 
     /* ▼ クラス別にさらに上書きする（margin-top と transform をペアで調整） */
     rt.ruby-XXS_S_S {
-      margin-top: -1.35em !important;
+      margin-top: -0.50em !important;
       transform: translateY(0.40em) !important;
     }
     rt.ruby-XS_S_S {
-      margin-top: -0.35em !important;
+      margin-top: 0.50em !important;
       transform: translateY(0.40em) !important;
     }
     rt.ruby-S_S_S {
-      margin-top: -0.50em !important;
+      margin-top: 0.125em !important;
       transform: translateY(0.35em) !important;
     }
     rt.ruby-M_M_M {
-      margin-top: -0.60em !important;
+      margin-top: -0.1em !important;
       transform: translateY(0.30em) !important;
     }
     rt.ruby-L_L_L {
-      margin-top: -0.65em !important;
+      margin-top: -0.25em !important;
       transform: translateY(0.30em) !important;
     }
     rt.ruby-XL_L_L {
-      margin-top: -0.70em !important;
+      margin-top: -0.36em !important;
       transform: translateY(0.30em) !important;
     }
     rt.ruby-XXL_L_L {
-      margin-top: -0.74em !important;
+      margin-top: -0.44em !important;
       transform: translateY(0.30em) !important;
     }
 
@@ -124,9 +124,8 @@
         --ruby-font-size: 60%; /* モバイルではルビを少し大きく */
       }
     }
-
     p.text-M_M_M {
-      line-height: 1.9 !important; /* あるいはお好みで 1.4, 1.6 など */
+      line-height: 1.9 !important; /* メインテキスト(本文)の行間はここで調整。 */
     }
   </style>
 </head>
@@ -134,13 +133,11 @@
 
   <!-- 以下、サンプル本文はそのまま -->
   <p class="text-M_M_M">
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby>
-    <ruby>国国<rt class="ruby-S_S_S">国</rt></ruby>
-    <ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby>
-    <ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby>
-    <ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby>
-    <ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
-    　<ruby>aĝ<rt class="ruby-M_M_M">年齢</rt></ruby>i <ruby>aĝi<rt class="ruby-S_S_S">打ち歩</rt></ruby>o <ruby>aĝi<rt class="ruby-S_S_S">打ち歩</rt></ruby>a <ruby>aĝ<rt class="ruby-M_M_M">年齢</rt></ruby>i<br>
+    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby>国国<ruby>国国<rt class="ruby-S_S_S">国</rt></ruby>国国<ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby>国国<ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby>国国<ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby>国国<ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>国国<br>
+    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby>国国<ruby>国国<rt class="ruby-XS_S_S">国</rt></ruby>国国<ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby>国国<ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby>国国<ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby>国国<ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>国国<br>
+    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby>国国<ruby>国国<rt class="ruby-XS_S_S">国</rt></ruby>国国<ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby>国国<ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby>国国<ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby>国国<ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>国国<br>
+
+    <ruby>aĝ<rt class="ruby-M_M_M">年齢</rt></ruby>i <ruby>aĝi<rt class="ruby-S_S_S">打ち歩</rt></ruby>o <ruby>aĝi<rt class="ruby-S_S_S">打ち歩</rt></ruby>a <ruby>aĝ<rt class="ruby-M_M_M">年齢</rt></ruby>i<br>
       <ruby>ĵaluz<rt class="ruby-L_L_L">嫉妬深い</rt></ruby>i ĵaluzio ĵaluzia a <ruby>ĵaluz<rt class="ruby-L_L_L">嫉妬深い</rt></ruby>i<br>
       <ruby>arĝent<rt class="ruby-XXL_L_L">銀</rt></ruby>an <ruby>arĝent<rt class="ruby-XXL_L_L">銀</rt></ruby><ruby>an<rt class="ruby-M_M_M">会員</rt></ruby>o <ruby>arĝent<rt class="ruby-XXL_L_L">銀</rt></ruby><ruby>an<rt class="ruby-M_M_M">会員</rt></ruby>a <ruby>arĝent<rt class="ruby-XXL_L_L">銀</rt></ruby><ruby>an<rt class="ruby-M_M_M">会員</rt></ruby>a<br>
       <br>
