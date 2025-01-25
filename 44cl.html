@@ -10,7 +10,6 @@
     --------------------------------------- */
     :root {
       --ruby-color: blue;
-      --ruby-offset: -0.1em;
       --ruby-font-size: 50%;
     }
 
@@ -36,14 +35,7 @@
       vertical-align: top;
       margin: 0 0.1em;
     }
-    rt {
-      font-size: var(--ruby-font-size);
-      color: var(--ruby-color);
-      line-height: 1;
-      text-align: center;
-      order: 1; /* ルビを上 */
-      transform: translateY(var(--ruby-offset));
-    }
+
     rb {
       order: 2; /* ベーステキストを下 */
     }
@@ -64,11 +56,7 @@
       margin: 0 !important;
       padding: 0 !important;
     }
-    rt {
-      display: block !important;
-      margin-top: -0.2em !important; 
-      transform: translateY(0.4em) !important;
-    }
+
     rb {
       display: block !important;
       margin: 0 !important;
@@ -77,8 +65,13 @@
     /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
     rt {
       display: block !important;
+      font-size: var(--ruby-font-size);
+      color: var(--ruby-color);
+      line-height: 1;
+      text-align: center;
+      order: 1; /* ルビを上 */
       margin-top: 0.2em !important;   
-      transform: translateY(0.4em) !important; 
+      transform: translateY(0.4em) !important;
     }
     rt.ruby-XXS_S_S {
       margin-top: -0em !important;
@@ -108,26 +101,6 @@
       margin-top: -0em !important;
       transform: translateY(-2.3em) !important;
     }
-
-    /* rt.ruby-XXS_S_S {
-      margin-top: -5.00em !important;
-      transform: translateY(0.0em) !important;
-    }
-    rt.ruby-XS_S_S {
-      margin-top: -5.00em !important;
-      transform: translateY(0.5em) !important;
-    }
-    rt.ruby-S_S_S {
-      margin-top: -5.00em  !important;
-      transform: translateY(0.8em) !important;
-    }
-    rt.ruby-M_M_M {
-      margin-top: -4.00em !important;
-      transform: translateY(0.20em) !important; */
-
-    /*
-      ※ 上記数値は一例。環境に応じて微調整してください。
-    */
 
     /* ▼ モバイル向け (任意) */
     @media (max-width: 480px) {
