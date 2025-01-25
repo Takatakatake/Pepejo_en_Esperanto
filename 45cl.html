@@ -32,8 +32,10 @@
       flex-direction: column-reverse;
       align-items: center;
       justify-content: flex-end;
-      vertical-align: top;
-      margin: 0 0.1em;
+      vertical-align: top !important;;
+      margin: 0 !important;
+      line-height: 1 !important;
+      padding: 0 !important;
     }
 
     rb {
@@ -50,12 +52,6 @@
     .ruby-XXL_L_L { --ruby-font-size: 80%; }
 
     /* ▼ デフォルト挙動リセット (強制上書き) */
-    ruby {
-      vertical-align: top !important;
-      line-height: 1 !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
 
     rb {
       display: block !important;
@@ -107,10 +103,7 @@
       ruby {
         line-height: normal;/*変更してみた*/
       }
-      /* rt {
-        --ruby-font-size: 60%;
-      } */
-    }
+
 
     /* ▼ 行ラッピング用のラッパ (後述のJSで動的生成) */
     .line-wrapper {
@@ -131,7 +124,7 @@
   <!-- ▼ 試験対象の段落に auto-ruby-adjust クラスをつける -->
   <p class="text-M_M_M auto-ruby-adjust">
     <br>
-    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
+    <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>国国<br>
     <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
     <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>   <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
     <ruby>国国<rt class="ruby-XXS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby>
