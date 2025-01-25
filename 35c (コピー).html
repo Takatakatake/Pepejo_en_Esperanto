@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript基準の動的ルビ行高さ調整</title>
+  <style>
+    :root {
+      --ruby-color: blue;
+      --ruby-offset: -0.1em;
+      --ruby-font-size: 50%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    .text-M_M_M {
+      font-size: 16px;
+      position: relative; /* JavaScriptの高さ計算に必要 */
+    }
+
+    ruby {
+      display: inline-block; /* 高さ調整を簡単にする */
+      vertical-align: top;
+      margin: 0;
+      padding: 0;
+    }
+
+    rt {
+      font-size: var(--ruby-font-size);
+      color: var(--ruby-color);
+      display: block;
+      margin-top: 0.2em;
+      transform: translateY(var(--ruby-offset));
+    }
+
+    rb {
+      display: block;
+    }
+
+    .line-wrapper {
+      display: block;
+      width: 100%;
+    }
+
+    .inline-chunk {
+      display: inline-block; /* JavaScriptで高さを計算可能にする */
+      position: relative;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <p class="text-M_M_M auto-ruby-adjust">
+    <ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby>
+    <ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby>
+    <ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby>
+    <ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby>
+    <ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>
+  </p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const paragraphs = document.querySelectorAll(".auto-ruby-adjust");
+
+      paragraphs.forEach(paragraph => {
+        adjustParagraphHeight(paragraph);
+      });
+
+      // ページリサイズ時に高さを再調整
+      window.addEventListener("resize", () => {
+        paragraphs.forEach(paragraph => {
+          adjustParagraphHeight(paragraph);
+        });
+      });
+    });
+
+    function adjustParagraphHeight(paragraph) {
+      const chunks = paragraph.querySelectorAll(".inline-chunk");
+      resetInlineChunkStyles(chunks);
+
+      const lines = groupByLine(chunks);
+      lines.forEach(lineGroup => {
+        const maxHeight = getMaxHeight(lineGroup);
+        wrapLineWithHeight(lineGroup, maxHeight);
+      });
+    }
+
+    function resetInlineChunkStyles(chunks) {
+      chunks.forEach(chunk => {
+        chunk.style.display = "inline-block";
+        chunk.style.position = "relative";
+        chunk.style.lineHeight = "1"; // 初期化
+      });
+    }
+
+    function groupByLine(chunkList) {
+      let lines = [];
+      let currentLine = [];
+      let currentTop = null;
+
+      chunkList.forEach(chunk => {
+        const top = chunk.offsetTop;
+        if (currentTop === null || Math.abs(top - currentTop) < 2) {
+          currentLine.push(chunk);
+          currentTop = top;
+        } else {
+          lines.push(currentLine);
+          currentLine = [chunk];
+          currentTop = top;
+        }
+      });
+
+      if (currentLine.length > 0) lines.push(currentLine);
+
+      return lines;
+    }
+
+    function getMaxHeight(elements) {
+      return elements.reduce((maxHeight, el) => {
+        const rect = el.getBoundingClientRect();
+        return Math.max(maxHeight, rect.height);
+      }, 0);
+    }
+
+    function wrapLineWithHeight(elements, height) {
+      const wrapper = document.createElement("span");
+      wrapper.className = "line-wrapper";
+      wrapper.style.lineHeight = `${height}px`;
+      wrapper.style.display = "block";
+
+      elements[0].parentNode.insertBefore(wrapper, elements[0]);
+      elements.forEach(el => wrapper.appendChild(el));
+    }
+  </script>
+</body>
+</html>
