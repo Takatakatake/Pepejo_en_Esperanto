@@ -1,0 +1,42 @@
+<style>
+.text-S_S_S {font-size: 12px;}
+.text-M_M_M {font-size: 16px;}
+.text-L_L_L {font-size: 20px;}
+.text-X_X_X {font-size: 24px;}
+.ruby-XS_S_S { font-size: 0.30em; } /* Extra Small */
+.ruby-S_S_S  { font-size: 0.40em; } /* Small */
+.ruby-M_M_M  { font-size: 0.50em; } /* Medium */
+.ruby-L_L_L  { font-size: 0.60em; } /* Large */
+.ruby-XL_L_L { font-size: 0.70em; } /* Extra Large */
+.ruby-XXL_L_L { font-size: 0.80em; } /* Double Extra Large */
+
+ruby {
+  display: inline-block;
+  position: relative; /* 相対位置 */
+  white-space: nowrap; /* 改行防止 */
+  line-height: 1.9;
+}
+rt {
+  position: absolute;
+  top: -0.75em;
+  left: 50%; /* 左端を親要素の中央に合わせる */
+  transform: translateX(-50%); /* 中央に揃える */
+  line-height: 2.1;
+  color: blue; 
+}
+rt.ruby-XS_S_S { top: -0.20em; } /* ルビサイズに応じて、ルビを表示する高さを変える。 */
+rt.ruby-S_S_S  { top: -0.30em; }
+rt.ruby-M_M_M  { top: -0.40em; }
+rt.ruby-L_L_L  { top: -0.50em; }
+rt.ruby-XL_L_L { top: -0.65em; }
+rt.ruby-XXL_L_L{ top: -0.80em; }
+
+</style>
+<p class="text-M_M_M">
+  <ruby>国国<rt class="ruby-XS_S_S">国<br>国</rt></ruby><ruby>国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>国国<br>
+  <ruby>国国<rt class="ruby-XS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
+  <ruby>国国<rt class="ruby-XS_S_S">国<br>国</rt></ruby>国国&nbsp;&nbsp;<ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>   <ruby>国国<rt class="ruby-XS_S_S">国<br>国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby><br>
+  <ruby>国国<rt class="ruby-XS_S_S">国<br>国</rt></ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国国国国国国国国国</ruby><ruby>国国<rt class="ruby-XS_S_S">国国</rt></ruby></ruby><ruby>国国<rt class="ruby-S_S_S">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-M_M_M">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby><ruby>国国<rt class="ruby-L_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-XL_L_L">国国</rt></ruby><ruby>国国<rt class="ruby-S_S_S">&nbsp;</rt></ruby>
+
+  <br><ruby>国国<rt class="ruby-XXL_L_L">国国</rt></ruby>
+</p>
