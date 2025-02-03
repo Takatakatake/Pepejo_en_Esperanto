@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ほとんどの環境で動作するルビ表示</title>
+  <style>
+
+    :root {
+      --ruby-color: blue;
+      --ruby-font-size: 50%;
+    }
+
+    .text-S_S { font-size: 12px; }
+    .text-M_M {
+      font-size: 16px; 
+      font-family: Arial, sans-serif;
+      line-height: 1.6 !important; 
+      display: block; /* ブロック要素として扱う */
+      position: relative;
+    }
+    .text-L_L { font-size: 20px; }
+    .text-X_X { font-size: 24px; }
+
+    /* ▼ ルビ（フレックスでルビを上に表示） */
+    ruby {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: top !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
+    rt {
+      display: block !important;
+      font-size: var(--ruby-font-size);
+      color: var(--ruby-color);
+      line-height: 1.05;/*ルビを改行するケースにおけるルビの行間*/
+      text-align: center;
+      /* margin-top: 0.2em !important;   
+      transform: translateY(0.4em) !important; */
+    }
+    rt.XXXS_S {
+      --ruby-font-size: 30%;
+      margin-top: -0em !important;/*結局ここは0が一番良かった。 */
+      transform: translateY(-6.6em) !important;/* ルビの高さ位置はここで調節する。 */
+    }    
+    rt.XXS_S {
+      --ruby-font-size: 30%;
+      margin-top: -0em !important;/*結局ここは0が一番良かった。 */
+      transform: translateY(-5.6em) !important;/* ルビの高さ位置はここで調節する。 */
+    }
+    rt.XS_S {
+      --ruby-font-size: 30%;
+      transform: translateY(-4.6em) !important;
+    }
+    rt.S_S {
+      --ruby-font-size: 40%;
+      transform: translateY(-3.7em) !important;
+    }
+    rt.M_M {
+      --ruby-font-size: 50%;
+      transform: translateY(-3.1em) !important;
+    }
+    rt.L_L {
+      --ruby-font-size: 60%; 
+      transform: translateY(-2.8em) !important;
+    }
+    rt.XL_L {
+      --ruby-font-size: 70%;
+      transform: translateY(-2.5em) !important;
+    }
+    rt.XXL_L {
+      --ruby-font-size: 80%;
+      transform: translateY(-2.3em) !important;
+    }
+
+  </style>
+</head>
+<body>
+  <p class="text-M_M">
+<ruby>Hodiaŭ<rt class="XXL_L">今日</rt></ruby> <ruby>maten<rt class="XXL_L">朝</rt></ruby><ruby>e&nbsp;</ruby><ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>hav<rt class="XS_S">持っている</rt></ruby><ruby>is<rt class="XXS_S">過去<br/>形</rt></ruby> <ruby>grav<rt class="L_L">重要な</rt></ruby><ruby>an&nbsp;</ruby><ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>ven<rt class="S_S">(に)来る</rt></ruby><ruby>on&nbsp;</ruby><ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>laboratori<rt class="XXL_L">研究室</rt></ruby><ruby>o,&nbsp;</ruby><ruby>sed<rt class="M_M">しかし</rt></ruby> <ruby>bedaŭr<rt class="S_S">(を)残念に思う</rt></ruby><ruby>ind<rt class="L_L">価値</rt></ruby><ruby>e&nbsp;</ruby><ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>preter<rt class="XS_S">(~の)そばを通って</rt></ruby><ruby>dorm<rt class="S_S">眠っている</rt></ruby><ruby>is<rt class="XXS_S">過去<br/>形</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby><ruby>n&nbsp;💦&nbsp;(</ruby><ruby>part<rt class="XXL_L">部分</rt></ruby><ruby>e&nbsp;</ruby><ruby>pro<rt class="S_S">ために</rt></ruby> <ruby>mank<rt class="S_S">欠けている</rt></ruby><ruby>o&nbsp;</ruby><ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>klar<rt class="M_M">明瞭な</rt></ruby><ruby>a&nbsp;</ruby><ruby>intern<rt class="XL_L">内部の</rt></ruby><ruby>a&nbsp;</ruby><ruby>komunik<rt class="XL_L">(を)伝える</rt></ruby><ruby>ad<rt class="XXS_S">継続<br/>行為</rt></ruby><ruby>o...).</ruby><br/>
+<br/>
+<ruby>Post<rt class="S_S">(~の)後で</rt></ruby> <ruby>tag<rt class="XXL_L">日</rt></ruby><ruby>manĝ<rt class="S_S">(を)食べる</rt></ruby><ruby>o&nbsp;</ruby><ruby>mi<rt class="XXL_L">私</rt></ruby><ruby>&nbsp;eĉ&nbsp;</ruby><ruby>dorm<rt class="S_S">眠っている</rt></ruby><ruby>et<rt class="S_S">弱小</rt></ruby><ruby>is<rt class="XXS_S">過去<br/>形</rt></ruby> <ruby>preskaŭ<rt class="XXL_L">ほとんど</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby> <ruby>hor<rt class="L_L">時間</rt></ruby><ruby>on,&nbsp;</ruby><ruby>do<rt class="XS_S">そこで</rt></ruby> <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby> <ruby>far<rt class="XS_S">(を)する</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br/>形</rt></ruby> <ruby>iom<rt class="XL_L">多少</rt></ruby> <ruby>bedaŭr<rt class="S_S">(を)残念に思う</rt></ruby><ruby>ind<rt class="L_L">価値</rt></ruby><ruby>a&nbsp;</ruby><ruby>tag<rt class="XXL_L">日</rt></ruby><ruby>o.&nbsp;</ruby><ruby>Evident<rt class="XXL_L">明白な</rt></ruby><ruby>e&nbsp;</ruby><ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>bezon<rt class="XS_S">(を)必要とする</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>disciplin<rt class="XXL_L">規律</rt></ruby><ruby>e&nbsp;</ruby><ruby>viv<rt class="XXS_S">生きて<br/>いる</rt></ruby><ruby>i&nbsp;</ruby><ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>klopod<rt class="XL_L">奔走する</rt></ruby><ruby>i.</ruby><br/>
+<br/>
+<ruby>Ceter<rt class="XL_L">残りの</rt></ruby><ruby>e,&nbsp;ChatGPT</ruby><ruby>-o1&nbsp;</ruby><ruby>est<rt class="XS_S">(~)である</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ver<rt class="S_S">本当の</rt></ruby><ruby>e&nbsp;</ruby><ruby>mir<rt class="XXS_S">不思議<br/>に思う</rt></ruby><ruby>ind<rt class="L_L">価値</rt></ruby><ruby>a.&nbsp;</ruby><ruby>Ĝi<rt class="XS_S">それ</rt></ruby> <ruby>kapabl<rt class="XXL_L">有能な</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tuj<rt class="XS_S">すぐに</rt></ruby> <ruby>kre<rt class="XS_S">創造する</rt></ruby><ruby>i&nbsp;eĉ&nbsp;</ruby><ruby>plej<rt class="XL_L">最も</rt></ruby> <ruby>komplik<rt class="S_S">(を)複雑にする</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>program<rt class="XL_L">プログラム</rt></ruby><ruby>kodojn.&nbsp;</ruby><br/>
+<br/><ruby>
+Miaj&nbsp;</ruby><ruby>super<rt class="S_S">(~の)上方に</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby><ruby>oj&nbsp;</ruby><ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>laboratori<rt class="XXL_L">研究室</rt></ruby><ruby>o&nbsp;</ruby><ruby>verk<rt class="XXL_L">著作</rt></ruby><ruby>is<rt class="XXS_S">過去<br/>形</rt></ruby> <ruby>bril<rt class="L_L">輝く</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>scienc<rt class="XXL_L">科学</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>artikol<rt class="L_L">記事;冠詞</rt></ruby><ruby>ojn&nbsp;</ruby><ruby>sen<rt class="XS_S">(~)なしで</rt></ruby><ruby>&nbsp;ChatGPT,&nbsp;</ruby><ruby>do<rt class="XS_S">そこで</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>sent<rt class="XS_S">(を)感じる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby><ruby>,&nbsp;</ruby><ruby>ke<rt class="XXS_S">という<br/>こと</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ating<rt class="M_M">(に)着く</rt></ruby><ruby>i&nbsp;eĉ&nbsp;</ruby><ruby>pli<rt class="S_S">より</rt></ruby> <ruby>bon<rt class="XXL_L">良い</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>rezult<rt class="XL_L">起きる</rt></ruby><ruby>ojn,&nbsp;</ruby><ruby>ĉar<rt class="XS_S">だから;車</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>hav<rt class="XS_S">持っている</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ŝanc<rt class="XXL_L">機会</rt></ruby><ruby>on&nbsp;</ruby><ruby>uz<rt class="M_M">使う</rt></ruby><ruby>i&nbsp;</ruby><ruby>ĝi<rt class="XS_S">それ</rt></ruby><ruby>n!&nbsp;(Nu,&nbsp;</ruby><ruby>kvankam<rt class="L_L">(~だ)けれども</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>nur<rt class="XS_S">ただ~だけ</rt></ruby><ruby>&nbsp;'</ruby><ruby>pens<rt class="XXL_L">思う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tiel<rt class="XXS_S">その;あ<br/>の様に</rt></ruby><ruby>'&nbsp;</ruby><ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>sci<rt class="XXS_S">知って<br/>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby><ruby>,&nbsp;</ruby><ruby>ĉu<rt class="S_S">~か?</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>efektiv<rt class="XXL_L">現実の</rt></ruby><ruby>e&nbsp;</ruby><ruby>ag<rt class="XXS_S">行動<br/>する</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>laŭ<rt class="S_S">沿って</rt></ruby><ruby>e&nbsp;😄)</ruby><br/>
+</p></body></html>
