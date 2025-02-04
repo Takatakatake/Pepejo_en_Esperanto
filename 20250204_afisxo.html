@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ほとんどの環境で動作するルビ表示</title>
+  <style>
+
+    :root {
+      --ruby-color: blue;
+      --ruby-font-size: 50%;
+    }
+
+    .text-S_S { font-size: 12px; }
+    .text-M_M {
+      font-size: 16px; 
+      font-family: Arial, sans-serif;
+      line-height: 1.6 !important; 
+      display: block; /* ブロック要素として扱う */
+      position: relative;
+    }
+    .text-L_L { font-size: 20px; }
+    .text-X_X { font-size: 24px; }
+
+    /* ▼ ルビ（フレックスでルビを上に表示） */
+    ruby {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: top !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
+    rt {
+      display: block !important;
+      font-size: var(--ruby-font-size);
+      color: var(--ruby-color);
+      line-height: 1.05;/*ルビを改行するケースにおけるルビの行間*/
+      text-align: center;
+      /* margin-top: 0.2em !important;   
+      transform: translateY(0.4em) !important; */
+    }
+    rt.XXXS_S {
+      --ruby-font-size: 30%;
+      margin-top: -0em !important;/*結局ここは0が一番良かった。 */
+      transform: translateY(-6.6em) !important;/* ルビの高さ位置はここで調節する。 */
+    }    
+    rt.XXS_S {
+      --ruby-font-size: 30%;
+      margin-top: -0em !important;/*結局ここは0が一番良かった。 */
+      transform: translateY(-5.6em) !important;/* ルビの高さ位置はここで調節する。 */
+    }
+    rt.XS_S {
+      --ruby-font-size: 30%;
+      transform: translateY(-4.6em) !important;
+    }
+    rt.S_S {
+      --ruby-font-size: 40%;
+      transform: translateY(-3.7em) !important;
+    }
+    rt.M_M {
+      --ruby-font-size: 50%;
+      transform: translateY(-3.1em) !important;
+    }
+    rt.L_L {
+      --ruby-font-size: 60%; 
+      transform: translateY(-2.8em) !important;
+    }
+    rt.XL_L {
+      --ruby-font-size: 70%;
+      transform: translateY(-2.5em) !important;
+    }
+    rt.XXL_L {
+      --ruby-font-size: 80%;
+      transform: translateY(-2.3em) !important;
+    }
+    hr {
+      border: none;
+      border-top: 3px dashed red;
+      margin: 2em 0;
+    }
+  </style>
+</head>
+<body>
+  <p class="text-M_M">
+<ruby>La&nbsp;2-a&nbsp;</ruby><ruby>de<rt class="XXL_L">的</rt></ruby> <ruby>februar<rt class="XXL_L">二月</rt></ruby><ruby>o&nbsp;2025</ruby><br/>
+<br/><ruby>
+Mi&nbsp;</ruby><ruby>ĝoj<rt class="M_M">喜悦</rt></ruby><ruby>e&nbsp;</ruby><ruby>anonc<rt class="XXL_L">公告</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby><ruby>,&nbsp;</ruby><ruby>ke<rt class="XXL_L">连</rt></ruby> <ruby>fin<rt class="M_M">完结</rt></ruby><ruby>fin<rt class="M_M">完结</rt></ruby><ruby>e&nbsp;</ruby><ruby>pret<rt class="M_M">准备好</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby><ruby>a&nbsp;</ruby><ruby>aplik<rt class="XXL_L">应用</rt></ruby><ruby>aĵo,&nbsp;</ruby><ruby>kiu<rt class="XXL_L">谁</rt></ruby> <ruby>kapabl<rt class="XXL_L">能干的</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>trans<rt class="XXL_L">对面</rt></ruby><ruby>form<rt class="XXL_L">形状</rt></ruby><ruby>i&nbsp;</ruby><ruby>Esperant<rt class="XXL_L">世界语</rt></ruby><ruby>an&nbsp;</ruby><ruby>tekst<rt class="XXL_L">文本</rt></ruby><ruby>on&nbsp;</ruby><ruby>al<rt class="XL_L">向</rt></ruby><ruby>&nbsp;ĉinaj&nbsp;ide</ruby><ruby>ogramoj&nbsp;</ruby><ruby>aŭ<rt class="XXL_L">或</rt></ruby> <ruby>al<rt class="XL_L">向</rt></ruby><ruby>don<rt class="XXL_L">给</rt></ruby><ruby>i&nbsp;</ruby><ruby>help<rt class="XXL_L">帮</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>klar<rt class="XL_L">清楚</rt></ruby><ruby>ig<rt class="XL_L">使</rt></ruby><ruby>ojn&nbsp;(</ruby><ruby>rub<rt class="L_L">瓦砾</rt></ruby><ruby>iajn&nbsp;</ruby><ruby>not<rt class="L_L">注释</rt></ruby><ruby>ojn)&nbsp;</ruby><ruby>en<rt class="XXL_L">在</rt></ruby><ruby>&nbsp;HTML-</ruby><ruby>form<rt class="XXL_L">形状</rt></ruby><ruby>o!</ruby><br/>
+<br/><ruby>
+La&nbsp;</ruby><ruby>aplik<rt class="XXL_L">应用</rt></ruby><ruby>aĵo&nbsp;</ruby><ruby>hav<rt class="XL_L">持有</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>jen<rt class="S_S">看这里</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>ĉef<rt class="XXL_L">主</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>funkci<rt class="XXL_L">功能</rt></ruby><ruby>ojn:</ruby><br/>
+<br/><ruby>
+-&nbsp;</ruby><ruby>Liber<rt class="XXL_L">自由</rt></ruby><ruby>a&nbsp;</ruby><ruby>agord<rt class="XXL_L">调音</rt></ruby><ruby>ad<rt class="M_M">继续</rt></ruby><ruby>o&nbsp;</ruby><ruby>de<rt class="XXL_L">的</rt></ruby> <ruby>radik<rt class="XXL_L">根</rt></ruby><ruby>-</ruby><ruby>analiz<rt class="XXL_L">分析</rt></ruby><ruby>o</ruby><br/>
+<ruby>La<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>uz<rt class="XXL_L">用</rt></ruby><ruby>ant<rt class="S_S">进行中</rt></ruby><ruby>o&nbsp;</ruby><ruby>pov<rt class="XXL_L">能</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>mem<rt class="XXL_L">亲自</rt></ruby> <ruby>elekt<rt class="XXL_L">选举</rt></ruby><ruby>i,&nbsp;</ruby><ruby>kiel<rt class="XL_L">如何</rt></ruby> <ruby>divid<rt class="XXL_L">分割</rt></ruby><ruby>i&nbsp;</ruby><ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>analiz<rt class="XXL_L">分析</rt></ruby><ruby>i&nbsp;</ruby><ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby><ruby>&nbsp;E-</ruby><ruby>vort<rt class="XL_L">词语</rt></ruby><ruby>ojn.</ruby><br/><ruby>
+-&nbsp;</ruby><ruby>Adapt<rt class="XXL_L">适应</rt></ruby><ruby>ebl<rt class="XXL_L">能</rt></ruby><ruby>a&nbsp;</ruby><ruby>konvert<rt class="XXL_L">改宗</rt></ruby><ruby>ad<rt class="M_M">继续</rt></ruby><ruby>o</ruby><br/><ruby>
+La&nbsp;</ruby><ruby>anstataŭ<rt class="XXL_L">替代</rt></ruby><ruby>ig<rt class="XL_L">使</rt></ruby><ruby>itaj&nbsp;</ruby><ruby>sign<rt class="XXL_L">标记</rt></ruby><ruby>oj&nbsp;(</ruby><ruby>ekzempl<rt class="XXL_L">例子</rt></ruby><ruby>e,&nbsp;</ruby><ruby>per<rt class="XXL_L">用</rt></ruby><ruby>&nbsp;ĉinaj&nbsp;ide</ruby><ruby>ogramoj&nbsp;</ruby><ruby>aŭ<rt class="XXL_L">或</rt></ruby> <ruby>ali<rt class="XXL_L">另</rt></ruby><ruby>aj&nbsp;</ruby><ruby>sign<rt class="XXL_L">标记</rt></ruby><ruby>oj)&nbsp;</ruby><ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>plen<rt class="XXL_L">满的</rt></ruby><ruby>e&nbsp;</ruby><ruby>adapt<rt class="XXL_L">适应</rt></ruby><ruby>ebl<rt class="XXL_L">能</rt></ruby><ruby>aj.</ruby><br/><ruby>
+-&nbsp;</ruby><ruby>Tuj<rt class="M_M">马上</rt></ruby><ruby>a&nbsp;</ruby><ruby>antaŭ<rt class="XXL_L">前</rt></ruby><ruby>rigard<rt class="XXL_L">看</rt></ruby><ruby>o</ruby><br/>
+<ruby>Oni<rt class="L_L">人们</rt></ruby> <ruby>pov<rt class="XXL_L">能</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>tuj<rt class="M_M">马上</rt></ruby> <ruby>vid<rt class="XXL_L">看</rt></ruby><ruby>i&nbsp;</ruby><ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>rezult<rt class="XXL_L">结果</rt></ruby><ruby>on&nbsp;</ruby><ruby>en<rt class="XXL_L">在</rt></ruby><ruby>&nbsp;HTML-</ruby><ruby>format<rt class="XXL_L">印章</rt></ruby><ruby>o&nbsp;</ruby><ruby>antaŭ<rt class="XXL_L">前</rt></ruby> <ruby>el<rt class="XS_S">从中</rt></ruby><ruby>ŝut<rt class="XXL_L">撒</rt></ruby><ruby>ad<rt class="M_M">继续</rt></ruby><ruby>o.</ruby><br/><ruby>
+-&nbsp;</ruby><ruby>Rapid<rt class="XXL_L">快</rt></ruby><ruby>a&nbsp;</ruby><ruby>funkci<rt class="XXL_L">功能</rt></ruby><ruby>ad<rt class="M_M">继续</rt></ruby><ruby>o</ruby><br/>
+<ruby>La<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>aplik<rt class="XXL_L">应用</rt></ruby><ruby>aĵo&nbsp;</ruby><ruby>rapid<rt class="XXL_L">快</rt></ruby><ruby>e&nbsp;</ruby><ruby>pri<rt class="M_M">关于</rt></ruby><ruby>labor<rt class="XXL_L">工作</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>tekst<rt class="XXL_L">文本</rt></ruby><ruby>ojn&nbsp;</ruby><ruby>dank<rt class="XXL_L">谢</rt></ruby><ruby>e&nbsp;</ruby><ruby>al<rt class="XL_L">向</rt></ruby> <ruby>paralel<rt class="XXL_L">平行线</rt></ruby><ruby>a&nbsp;komput</ruby><ruby>ad<rt class="M_M">继续</rt></ruby><ruby>o.</ruby><br/>
+<br/><ruby>
+Mi&nbsp;</ruby><ruby>sincer<rt class="XXL_L">真诚</rt></ruby><ruby>e&nbsp;</ruby><ruby>fier<rt class="L_L">骄傲</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>pri<rt class="M_M">关于</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>nun<rt class="XXL_L">现</rt></ruby><ruby>a&nbsp;</ruby><ruby>stat<rt class="XL_L">状态</rt></ruby><ruby>o&nbsp;</ruby><ruby>de<rt class="XXL_L">的</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>aplik<rt class="XXL_L">应用</rt></ruby><ruby>aĵo&nbsp;</ruby><ruby>kun<rt class="XL_L">共に</rt></ruby> <ruby>ĉiu<rt class="M_M">每个</rt></ruby><ruby>j&nbsp;ĉi&nbsp;</ruby><ruby>funkci<rt class="XXL_L">功能</rt></ruby><ruby>oj,&nbsp;</ruby><ruby>kvankam<rt class="XXL_L">虽然</rt></ruby> <ruby>tio<rt class="XXL_L">那</rt></ruby> <ruby>ebl<rt class="XXL_L">能</rt></ruby><ruby>e&nbsp;</ruby><ruby>son<rt class="XXL_L">声</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>iom<rt class="XL_L">一些</rt></ruby> <ruby>mem<rt class="XXL_L">亲自</rt></ruby><ruby>laŭd<rt class="XXL_L">赞扬</rt></ruby><ruby>e.</ruby><br/>
+<br/>
+<ruby>Pri<rt class="M_M">关于</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>ont<rt class="L_L">将要</rt></ruby><ruby>a&nbsp;</ruby><ruby>evolu<rt class="XXL_L">进化</rt></ruby><ruby>o,&nbsp;</ruby><ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>hav<rt class="XL_L">持有</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby> <ruby>ĉef<rt class="XXL_L">主</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>plan<rt class="XXL_L">计划</rt></ruby><ruby>ojn:</ruby><br/><ruby>
+1.&nbsp;</ruby><ruby>Pli<rt class="XXL_L">更</rt></ruby><ruby>vast<rt class="XXL_L">宽广</rt></ruby><ruby>ig<rt class="XL_L">使</rt></ruby><ruby>i&nbsp;</ruby><ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>lingv<rt class="XXL_L">语言</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>sub<rt class="XXL_L">下</rt></ruby><ruby>ten<rt class="XXL_L">握</rt></ruby><ruby>ojn</ruby><br/>
+<ruby>Jam<rt class="XXL_L">已</rt></ruby><ruby>&nbsp;ha</ruby><ruby>ve<rt class="S_S">哎呀</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>tri<rt class="XXL_L">三</rt></ruby><ruby>lingv<rt class="XXL_L">语言</rt></ruby><ruby>aj&nbsp;versioj</ruby><ruby>:</ruby><br/><ruby>
+&nbsp;&nbsp;&nbsp;•&nbsp;</ruby><ruby>Por<rt class="XXL_L">为</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby><ruby>&nbsp;ĉina&nbsp;</ruby><ruby>lingv<rt class="XXL_L">语言</rt></ruby><ruby>o:</ruby><br/><ruby>
+https://e</ruby><ruby>speranto-h</ruby><ruby>anzi-conve</ruby><ruby>rter-and-r</ruby><ruby>uby-annota</ruby><ruby>tion-tool-</ruby><ruby>chinese-dg</ruby><ruby>w.streamli</ruby><ruby>t.app/</ruby><br/><ruby>
+&nbsp;&nbsp;&nbsp;•&nbsp;</ruby><ruby>Por<rt class="XXL_L">为</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby><ruby>&nbsp;korea&nbsp;</ruby><ruby>lingv<rt class="XXL_L">语言</rt></ruby><ruby>o:&nbsp;</ruby><br/><ruby>
+https://e</ruby><ruby>speranto-k</ruby><ruby>anji-conve</ruby><ruby>rter-and-r</ruby><ruby>uby-annota</ruby><ruby>tion-tool-</ruby><ruby>korean-yrr</ruby><ruby>x.streamli</ruby><ruby>t.app/</ruby><br/><ruby>
+•&nbsp;</ruby><ruby>Por<rt class="XXL_L">为</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby><ruby>&nbsp;japana&nbsp;</ruby><ruby>lingv<rt class="XXL_L">语言</rt></ruby><ruby>o:&nbsp;&nbsp;&nbsp;</ruby><br/><ruby>
+https://e</ruby><ruby>speranto-k</ruby><ruby>anji-conve</ruby><ruby>rter-and-r</ruby><ruby>uby-annota</ruby><ruby>tion-tool.</ruby><ruby>streamlit.</ruby><ruby>app/</ruby><br/>
+<br/><ruby>
+Mi&nbsp;</ruby><ruby>intenc<rt class="XXL_L">意图</rt></ruby><ruby>as<rt class="XXS_S">现在<br/>时尾</rt></ruby> <ruby>plu<rt class="L_L">继续</rt></ruby><ruby>e&nbsp;</ruby><ruby>dis<rt class="XXL_L">散</rt></ruby><ruby>vast<rt class="XXL_L">宽广</rt></ruby><ruby>ig<rt class="XL_L">使</rt></ruby><ruby>i&nbsp;</ruby><ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>aplik<rt class="XXL_L">应用</rt></ruby><ruby>aĵon&nbsp;</ruby><ruby>por<rt class="XXL_L">为</rt></ruby> <ruby>sub<rt class="XXL_L">下</rt></ruby><ruby>ten<rt class="XXL_L">握</rt></ruby><ruby>i&nbsp;</ruby><ruby>pli<rt class="XXL_L">更</rt></ruby> <ruby>da<rt class="M_M">的量</rt></ruby> <ruby>lingv<rt class="XXL_L">语言</rt></ruby><ruby>oj.</ruby><br/>
+<br/><ruby>
+2.&nbsp;</ruby><ruby>Profund<rt class="XXL_L">深刻</rt></ruby><ruby>ig<rt class="XL_L">使</rt></ruby><ruby>i&nbsp;</ruby><ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby><ruby>&nbsp;“世界语</ruby><ruby>汉字化”&nbsp;</ruby><ruby>projekt<rt class="XXL_L">计划</rt></ruby><ruby>on</ruby><br/><ruby>
+&nbsp;&nbsp;&nbsp;Ekde&nbsp;</ruby><ruby>la<rt class="XXS_S">定冠<br/>词</rt></ruby> <ruby>komenc<rt class="XXL_L">开始</rt></ruby><ruby>o,&nbsp;</ruby><ruby>mi<rt class="XXL_L">我</rt></ruby><ruby>a&nbsp;</ruby><ruby>ĉef<rt class="XXL_L">主</rt></ruby><ruby>a&nbsp;</ruby><ruby>cel<rt class="L_L">目标</rt></ruby><ruby>o&nbsp;</ruby><ruby>est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">過去<br/>式</rt></ruby> <ruby>en<rt class="XXL_L">在</rt></ruby><ruby>konduk<rt class="XXL_L">引领</rt></ruby><ruby>o&nbsp;</ruby><ruby>de<rt class="XXL_L">的</rt></ruby><ruby>&nbsp;ĉinaj&nbsp;ide</ruby><ruby>ogramoj&nbsp;</ruby><ruby>en<rt class="XXL_L">在</rt></ruby> <ruby>Esperant<rt class="XXL_L">世界语</rt></ruby><ruby>on.&nbsp;</ruby><ruby>Mi<rt class="XXL_L">我</rt></ruby> <ruby>nun<rt class="XXL_L">现</rt></ruby> <ruby>plan<rt class="XXL_L">计划</rt></ruby><ruby>as&nbsp;</ruby><ruby>pli<rt class="XXL_L">更</rt></ruby> <ruby>intens<rt class="XXL_L">强烈</rt></ruby><ruby>e&nbsp;</ruby><ruby>labor<rt class="XXL_L">工作</rt></ruby><ruby>i&nbsp;</ruby><ruby>pri<rt class="M_M">关于</rt></ruby><ruby>&nbsp;tiu&nbsp;ĉi&nbsp;</ruby><ruby>fundament<rt class="XXL_L">基础</rt></ruby><ruby>a&nbsp;</ruby><ruby>ide<rt class="L_L">观念</rt></ruby><ruby>o.</ruby><br/>
+</p>
+<hr />
+<p class="text-M_M">
+  <ruby>La&nbsp;2-a&nbsp;</ruby><ruby>的<rt class="XL_L">de</rt></ruby> <ruby>丑月<rt class="M_M">februar</rt></ruby><ruby>o&nbsp;2025</ruby><br/>
+  <br/><ruby>
+  Mi&nbsp;</ruby><ruby>乐<rt class="XL_L">ĝoj</rt></ruby><ruby>e&nbsp;</ruby><ruby>告<rt class="XS_S">anonc</rt></ruby><ruby>as,&nbsp;ke&nbsp;</ruby><ruby>终<rt class="XXL_L">fin</rt></ruby><ruby>终<rt class="XXL_L">fin</rt></ruby><ruby>e&nbsp;pretas&nbsp;</ruby><ruby>我<rt class="XL_L">mi</rt></ruby><ruby>a&nbsp;aplikaĵo</ruby><ruby>,&nbsp;kiu&nbsp;</ruby><ruby>能<rt class="XXS_S">kap<br/>abl</rt></ruby><ruby>as&nbsp;</ruby><ruby>跨<rt class="XS_S">trans</rt></ruby><ruby>形<rt class="S_S">form</rt></ruby><ruby>i&nbsp;Esperant</ruby><ruby>an&nbsp;tekston</ruby><ruby>&nbsp;</ruby><ruby>向<rt class="XXL_L">al</rt></ruby> <ruby>中<rt class="L_L">ĉin</rt></ruby><ruby>aj&nbsp;ideogra</ruby><ruby>moj&nbsp;</ruby><ruby>或<rt class="XXL_L">aŭ</rt></ruby> <ruby>向<rt class="XXL_L">al</rt></ruby><ruby>献<rt class="M_M">don</rt></ruby><ruby>i&nbsp;</ruby><ruby>助<rt class="S_S">help</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>清<rt class="M_M">klar</rt></ruby><ruby>使<rt class="XXL_L">ig</rt></ruby><ruby>ojn&nbsp;(rubia</ruby><ruby>jn&nbsp;notojn)</ruby><ruby>&nbsp;</ruby><ruby>在<rt class="XL_L">en</rt></ruby><ruby>&nbsp;HTML-</ruby><ruby>形<rt class="S_S">form</rt></ruby><ruby>o!</ruby><br/>
+  <br/><ruby>
+  La&nbsp;aplika</ruby><ruby>ĵo&nbsp;</ruby><ruby>有<rt class="M_M">hav</rt></ruby><ruby>as&nbsp;jenajn&nbsp;</ruby><ruby>主<rt class="L_L">ĉef</rt></ruby><ruby>ajn&nbsp;funkci</ruby><ruby>ojn:</ruby><br/>
+  <br/><ruby>
+  -&nbsp;Libera&nbsp;</ruby><ruby>agordado&nbsp;</ruby><ruby>的<rt class="XL_L">de</rt></ruby> <ruby>根<rt class="XS_S">radik</rt></ruby><ruby>-</ruby><ruby>析<rt class="XS_S">analiz</rt></ruby><ruby>o</ruby><br/><ruby>
+  &nbsp;&nbsp;La&nbsp;</ruby><ruby>用<rt class="XL_L">uz</rt></ruby><ruby>anto&nbsp;</ruby><ruby>能<rt class="M_M">pov</rt></ruby><ruby>as&nbsp;</ruby><ruby>自<rt class="XS_S">mem</rt></ruby> <ruby>选<rt class="S_S">elekt</rt></ruby><ruby>i,&nbsp;kiel&nbsp;</ruby><ruby>分<rt class="S_S">divid</rt></ruby><ruby>i&nbsp;</ruby><ruby>与<rt class="L_L">kaj</rt></ruby> <ruby>析<rt class="XS_S">analiz</rt></ruby><ruby>i&nbsp;la&nbsp;E-</ruby><ruby>词<rt class="M_M">vort</rt></ruby><ruby>ojn.</ruby><br/><ruby>
+  -&nbsp;Adapt</ruby><ruby>能<rt class="L_L">ebl</rt></ruby><ruby>a&nbsp;konvert</ruby><ruby>屡<rt class="XL_L">ad</rt></ruby><ruby>o</ruby><br/><ruby>
+  La&nbsp;</ruby><ruby>弗<rt class="XXS_S">anst<br/>ataŭ</rt></ruby><ruby>使<rt class="XXL_L">ig</rt></ruby><ruby>itaj&nbsp;</ruby><ruby>符<rt class="S_S">sign</rt></ruby><ruby>oj&nbsp;(</ruby><ruby>例<rt class="XXS_S">ekze<br/>mpl</rt></ruby><ruby>e,&nbsp;per&nbsp;</ruby><ruby>中<rt class="L_L">ĉin</rt></ruby><ruby>aj&nbsp;ideogra</ruby><ruby>moj&nbsp;</ruby><ruby>或<rt class="XXL_L">aŭ</rt></ruby> <ruby>另<rt class="XXL_L">ali</rt></ruby><ruby>aj&nbsp;</ruby><ruby>符<rt class="S_S">sign</rt></ruby><ruby>oj)&nbsp;</ruby><ruby>是<rt class="L_L">est</rt></ruby><ruby>as&nbsp;plene&nbsp;a</ruby><ruby>dapt</ruby><ruby>能<rt class="L_L">ebl</rt></ruby><ruby>aj.</ruby><br/><ruby>
+  -&nbsp;Tuja&nbsp;</ruby><ruby>昔<rt class="XS_S">antaŭ</rt></ruby><ruby>瞧<rt class="XS_S">rigard</rt></ruby><ruby>o</ruby><br/>
+  <ruby>人<rt class="L_L">Oni</rt></ruby> <ruby>能<rt class="M_M">pov</rt></ruby><ruby>as&nbsp;tuj&nbsp;</ruby><ruby>看<rt class="L_L">vid</rt></ruby><ruby>i&nbsp;la&nbsp;</ruby><ruby>结<rt class="XS_S">rezult</rt></ruby><ruby>on&nbsp;</ruby><ruby>在<rt class="XL_L">en</rt></ruby><ruby>&nbsp;HTML-form</ruby><ruby>ato&nbsp;</ruby><ruby>昔<rt class="XS_S">antaŭ</rt></ruby> <ruby>从<rt class="XXL_L">el</rt></ruby><ruby>撒<rt class="L_L">ŝut</rt></ruby><ruby>屡<rt class="XL_L">ad</rt></ruby><ruby>o.</ruby><br/><ruby>
+  -&nbsp;</ruby><ruby>快<rt class="XS_S">Rapid</rt></ruby><ruby>a&nbsp;funkci</ruby><ruby>屡<rt class="XL_L">ad</rt></ruby><ruby>o</ruby><br/><ruby>
+  &nbsp;&nbsp;La&nbsp;apli</ruby><ruby>kaĵo&nbsp;</ruby><ruby>快<rt class="XS_S">rapid</rt></ruby><ruby>e&nbsp;pri</ruby><ruby>劳<rt class="XS_S">labor</rt></ruby><ruby>as&nbsp;tekstoj</ruby><ruby>n&nbsp;</ruby><ruby>谢<rt class="S_S">dank</rt></ruby><ruby>e&nbsp;</ruby><ruby>向<rt class="XXL_L">al</rt></ruby><ruby>&nbsp;paralela&nbsp;</ruby><ruby>算<rt class="XXS_S">kom<br/>put</rt></ruby><ruby>屡<rt class="XL_L">ad</rt></ruby><ruby>o.</ruby><br/>
+  <br/><ruby>
+  Mi&nbsp;sincer</ruby><ruby>e&nbsp;fieras&nbsp;p</ruby><ruby>ri&nbsp;la&nbsp;nuna</ruby><ruby>&nbsp;stato&nbsp;</ruby><ruby>的<rt class="XL_L">de</rt></ruby><ruby>&nbsp;la&nbsp;aplika</ruby><ruby>ĵo&nbsp;kun&nbsp;ĉiu</ruby><ruby>j&nbsp;ĉi&nbsp;funkc</ruby><ruby>ioj,&nbsp;</ruby><ruby>虽<rt class="XXS_S">kvan<br/>kam</rt></ruby><ruby>&nbsp;tio&nbsp;</ruby><ruby>能<rt class="L_L">ebl</rt></ruby><ruby>e&nbsp;</ruby><ruby>响<rt class="M_M">son</rt></ruby><ruby>as&nbsp;iom&nbsp;</ruby><ruby>自<rt class="XS_S">mem</rt></ruby><ruby>赞<rt class="S_S">laŭd</rt></ruby><ruby>e.</ruby><br/>
+  <br/><ruby>
+  Pri&nbsp;la&nbsp;</ruby><ruby>是<rt class="L_L">est</rt></ruby><ruby>onta&nbsp;evolu</ruby><ruby>o,&nbsp;</ruby><ruby>我<rt class="XL_L">mi</rt></ruby> <ruby>有<rt class="M_M">hav</rt></ruby><ruby>as&nbsp;</ruby><ruby>二<rt class="XL_L">du</rt></ruby> <ruby>主<rt class="L_L">ĉef</rt></ruby><ruby>ajn&nbsp;p</ruby><ruby>lan</ruby><ruby>ojn:</ruby><br/><ruby>
+  1.&nbsp;</ruby><ruby>更<rt class="XXL_L">Pli</rt></ruby><ruby>敞<rt class="S_S">vast</rt></ruby><ruby>使<rt class="XXL_L">ig</rt></ruby><ruby>i&nbsp;la&nbsp;</ruby><ruby>语<rt class="S_S">lingv</rt></ruby><ruby>ajn&nbsp;</ruby><ruby>下<rt class="M_M">sub</rt></ruby><ruby>保<rt class="L_L">ten</rt></ruby><ruby>ojn</ruby><br/><ruby>
+  &nbsp;&nbsp;&nbsp;Jam&nbsp;</ruby><ruby>有<rt class="M_M">hav</rt></ruby><ruby>eas&nbsp;</ruby><ruby>三<rt class="XXL_L">tri</rt></ruby><ruby>语<rt class="S_S">lingv</rt></ruby><ruby>aj&nbsp;versioj</ruby><ruby>:</ruby><br/><ruby>
+  &nbsp;&nbsp;&nbsp;•&nbsp;Por&nbsp;</ruby><ruby>la&nbsp;</ruby><ruby>中<rt class="L_L">ĉin</rt></ruby><ruby>a&nbsp;</ruby><ruby>语<rt class="S_S">lingv</rt></ruby><ruby>o:</ruby><br/><ruby>
+  https://e</ruby><ruby>speranto-h</ruby><ruby>anzi-conve</ruby><ruby>rter-and-r</ruby><ruby>uby-annota</ruby><ruby>tion-tool-</ruby><ruby>chinese-dg</ruby><ruby>w.streamli</ruby><ruby>t.app/</ruby><br/><ruby>
+  &nbsp;&nbsp;&nbsp;•&nbsp;Por&nbsp;</ruby><ruby>la&nbsp;</ruby><ruby>高丽<rt class="XXL_L">kore</rt></ruby><ruby>a&nbsp;</ruby><ruby>语<rt class="S_S">lingv</rt></ruby><ruby>o:&nbsp;</ruby><br/><ruby>
+  https://e</ruby><ruby>speranto-k</ruby><ruby>anji-conve</ruby><ruby>rter-and-r</ruby><ruby>uby-annota</ruby><ruby>tion-tool-</ruby><ruby>korean-yrr</ruby><ruby>x.streamli</ruby><ruby>t.app/</ruby><br/><ruby>
+  •&nbsp;Por&nbsp;la&nbsp;</ruby><ruby>日本<rt class="L_L">japan</rt></ruby><ruby>a&nbsp;</ruby><ruby>语<rt class="S_S">lingv</rt></ruby><ruby>o:&nbsp;&nbsp;&nbsp;</ruby><br/><ruby>
+  https://e</ruby><ruby>speranto-k</ruby><ruby>anji-conve</ruby><ruby>rter-and-r</ruby><ruby>uby-annota</ruby><ruby>tion-tool.</ruby><ruby>streamlit.</ruby><ruby>app/</ruby><br/>
+  <br/><ruby>
+  Mi&nbsp;</ruby><ruby>意<rt class="XS_S">intenc</rt></ruby><ruby>as&nbsp;plue&nbsp;</ruby><ruby>散<rt class="L_L">dis</rt></ruby><ruby>敞<rt class="S_S">vast</rt></ruby><ruby>使<rt class="XXL_L">ig</rt></ruby><ruby>i&nbsp;la&nbsp;aplik</ruby><ruby>aĵon&nbsp;por&nbsp;</ruby><ruby>下<rt class="M_M">sub</rt></ruby><ruby>保<rt class="L_L">ten</rt></ruby><ruby>i&nbsp;</ruby><ruby>更<rt class="XXL_L">pli</rt></ruby> <ruby>个<rt class="XL_L">da</rt></ruby> <ruby>语<rt class="S_S">lingv</rt></ruby><ruby>oj.</ruby><br/>
+  <br/><ruby>
+  2.&nbsp;</ruby><ruby>深<rt class="XXS_S">Prof<br/>und</rt></ruby><ruby>使<rt class="XXL_L">ig</rt></ruby><ruby>i&nbsp;la&nbsp;“世界语</ruby><ruby>汉字化”&nbsp;pr</ruby><ruby>ojekton</ruby><br/><ruby>
+  &nbsp;&nbsp;&nbsp;Ekde&nbsp;l</ruby><ruby>a&nbsp;</ruby><ruby>始<rt class="XXS_S">kom<br/>enc</rt></ruby><ruby>o,&nbsp;</ruby><ruby>我<rt class="XL_L">mi</rt></ruby><ruby>a&nbsp;</ruby><ruby>主<rt class="L_L">ĉef</rt></ruby><ruby>a&nbsp;celo&nbsp;</ruby><ruby>是<rt class="L_L">est</rt></ruby><ruby>is&nbsp;</ruby><ruby>在<rt class="XL_L">en</rt></ruby><ruby>领<rt class="XXS_S">kon<br/>duk</rt></ruby><ruby>o&nbsp;</ruby><ruby>的<rt class="XL_L">de</rt></ruby> <ruby>中<rt class="L_L">ĉin</rt></ruby><ruby>aj&nbsp;ideogra</ruby><ruby>moj&nbsp;</ruby><ruby>在<rt class="XL_L">en</rt></ruby><ruby>&nbsp;Esperanto</ruby><ruby>n.&nbsp;</ruby><ruby>我<rt class="XL_L">Mi</rt></ruby><ruby>&nbsp;nun&nbsp;p</ruby><ruby>lan</ruby><ruby>as&nbsp;</ruby><ruby>更<rt class="XXL_L">pli</rt></ruby><ruby>&nbsp;intense&nbsp;</ruby><ruby>劳<rt class="XS_S">labor</rt></ruby><ruby>i&nbsp;pri&nbsp;tiu&nbsp;</ruby><ruby>ĉi&nbsp;fundame</ruby><ruby>nta&nbsp;ideo.</ruby><br/>
+  </p>
+
+</body></html>
