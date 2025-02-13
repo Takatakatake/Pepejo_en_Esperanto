@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大多数の环境中で正常に运行するRuby显示功能</title>
+    <style>
+  
+      :root {
+        --ruby-color: blue;
+        --ruby-font-size: 50%;
+      }
+  
+      .text-S_S { font-size: 12px; }
+      .text-M_M {
+        font-size: 16px; 
+        font-family: Arial, sans-serif;
+        line-height: 2.0 !important;  /* text-M_Mのline-heightとrubyのline-heightは一致させる必要がある。 */
+        display: block; /* ブロック要素として扱う */
+        position: relative;
+      }
+      .text-L_L { font-size: 20px; }
+      .text-X_X { font-size: 24px; }
+  
+      /* ▼ ルビ（フレックスでルビを上に表示） */
+      ruby {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: top !important;
+        line-height: 2.0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+  
+      /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
+      rt {
+        display: block !important;
+        font-size: var(--ruby-font-size);
+        color: var(--ruby-color);
+        line-height: 1.05;/*ルビを改行するケースにおけるルビの行間*/
+        text-align: center;
+        /* margin-top: 0.2em !important;   
+        transform: translateY(0.4em) !important; */
+      }
+      rt.XXXS_S {
+        --ruby-font-size: 30%;
+        margin-top: -8.3em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0em) !important;/* ルビの高さ位置はここで調節する。 */
+      }    
+      rt.XXS_S {
+        --ruby-font-size: 30%;
+        margin-top: -7.2em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0em) !important;/* ルビの高さ位置はここで調節する。 */
+      }
+      rt.XS_S {
+        --ruby-font-size: 30%;
+        margin-top: -6.1em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0em) !important;
+      }
+      rt.S_S {
+        --ruby-font-size: 40%;
+        margin-top: -4.85em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0em) !important;
+      }
+      rt.M_M {
+        --ruby-font-size: 50%;
+        margin-top: -4.00em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0.0em) !important;
+      }
+      rt.L_L {
+        --ruby-font-size: 60%; 
+        margin-top: -3.55em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0.0em) !important;
+      }
+      rt.XL_L {
+        --ruby-font-size: 70%;
+        margin-top: -3.20em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0.0em) !important;
+      }
+      rt.XXL_L {
+        --ruby-font-size: 80%;
+        margin-top: -2.80em !important;/*結局ここは0が一番良かった。 */
+        transform: translateY(-0.0em) !important;
+      }
+  
+    </style>
+  </head>
+  <body>
+
+  <!-- ▼ 試験対象の段落に auto-ruby-adjust クラスをつける -->
+  <p class="text-M_M">
+<RUBY>ANTAŬ<RT CLASS="M_M">(~の)前に</RT></RUBY><RUBY>PAROL<RT CLASS="S_S">話しをする</RT></RUBY>O<br>
+<ruby>Kar<rt class="S_S">親愛な</rt></ruby>a <ruby>leg<rt class="XS_S">(を)読む</rt></ruby><ruby>ant<rt class="XS_S">能動;継続</rt></ruby>o,<br>
+Vi <ruby>komenc<rt class="XL_L">(を)始める</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby>i <ruby>esperant<rt class="L_L">エスペラント</rt></ruby>on. <ruby>Kaj<rt class="XL_L">And</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>vi<rt class="XXS_S">あなた<br>(達)</rt></ruby> <ruby>vol<rt class="XXS_S">意志が<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby>i <ruby>plu<rt class="S_S">さらに</rt></ruby> <ruby>antaŭ<rt class="M_M">(~の)前に</rt></ruby>en. <ruby>Vi<rt class="XXS_S">あなた<br>(達)</rt></ruby> <ruby>dezir<rt class="M_M">(を)望む</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby><ruby>bon<rt class="XXL_L">良い</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i (<ruby>pli<rt class="S_S">より</rt></ruby>-<ruby>bon<rt class="XXL_L">良い</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i) <ruby>vi<rt class="XXS_S">あなた<br>(達)</rt></ruby>an <ruby>sci<rt class="XXS_S">知って<br>いる</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>lingv<rt class="XXL_L">言語</rt></ruby>o. Ĉi <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>libr<rt class="XXL_L">本</rt></ruby>o <ruby>est<rt class="XS_S">(~)である</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>por<rt class="S_S">ために</rt></ruby> vi. <ruby>Por<rt class="S_S">ために</rt></ruby> <ruby>pov<rt class="M_M">できる</rt></ruby>i <ruby>uz<rt class="M_M">使う</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>lingv<rt class="XXL_L">言語</rt></ruby>on <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>bon<rt class="XXL_L">良い</rt></ruby>e, <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby>n <ruby>pli<rt class="S_S">より</rt></ruby><br>
+<ruby>kar<rt class="S_S">親愛な</rt></ruby>-<ruby>memor<rt class="S_S">(を)覚えている</rt></ruby>a: <ruby>oni<rt class="L_L">人々</rt></ruby> <ruby>uz<rt class="M_M">使う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby>n <ruby>vort<rt class="L_L">[文]語</rt></ruby>on <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>esprim<rt class="M_M">(を)表現する</rt></ruby>i, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>person<rt class="XXL_L">人</rt></ruby>o <ruby>for<rt class="XS_S">離れて</rt></ruby>-<ruby>pas<rt class="XS_S">通過する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> (= <ruby>mort<rt class="XXL_L">死ぬ</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby>) <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>oni<rt class="L_L">人々</rt></ruby><br>
+<ruby>konserv<rt class="L_L">(を)保存する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kar<rt class="S_S">親愛な</rt></ruby>an <ruby>memor<rt class="S_S">(を)覚えている</rt></ruby>on <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>aŭ<rt class="XS_S">または</rt></ruby> ŝi<br>
+<ruby>trans<rt class="XS_S">(~の)向こうに</rt></ruby>-<ruby>form<rt class="XXL_L">形</rt></ruby>i: <ruby>ŝanĝ<rt class="S_S">(を)変える</rt></ruby>i (la <ruby>form<rt class="XXL_L">形</rt></ruby>on de)</p></body></html>
