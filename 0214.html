@@ -2,9 +2,26 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>大多数の环境中で正常に运行するRuby显示功能</title>
     <style>
+ruby, rb, rt, rp {
+  all: unset;
+  display: revert;
+  font-size: revert;
+  margin: 0; 
+  padding: 0;
+}
+
+
+
+      html, body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
   
       :root {
         --ruby-color: blue;
