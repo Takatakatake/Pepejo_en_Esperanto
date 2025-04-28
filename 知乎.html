@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruby 显示</title>
+<style>
+html, body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+:root {
+  --ruby-color: blue;
+  --ruby-font-size: 0.5em;
+}
+html {
+  font-size: 100%;
+}
+.text-M_M {
+  font-size: 1rem!important;
+  font-family: Arial, sans-serif;
+  line-height: 2.0 !important;
+  display: block;
+  position: relative;
+}
+ruby {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: top !important;
+  line-height: 2.0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1rem !important;
+}
+rt {
+  display: block !important;
+  font-size: var(--ruby-font-size);
+  color: var(--ruby-color);
+  line-height: 1.05;
+  text-align: center;
+}
+rt.XXXS_S {
+  --ruby-font-size: 0.3em;
+  margin-top: -8.3em !important;
+  transform: translateY(-0em) !important;
+}
+rt.XXS_S {
+  --ruby-font-size: 0.3em;
+  margin-top: -7.2em !important;
+  transform: translateY(-0em) !important;
+}
+rt.XS_S {
+  --ruby-font-size: 0.3em;
+  margin-top: -6.1em !important;
+  transform: translateY(-0em) !important;
+}
+rt.S_S {
+  --ruby-font-size: 0.4em;
+  margin-top: -4.85em !important;
+  transform: translateY(-0em) !important;
+}
+rt.M_M {
+  --ruby-font-size: 0.5em;
+  margin-top: -4.00em !important;
+  transform: translateY(-0.0em) !important;
+}
+rt.L_L {
+  --ruby-font-size: 0.6em;
+  margin-top: -3.55em !important;
+  transform: translateY(-0.0em) !important;
+}
+rt.XL_L {
+  --ruby-font-size: 0.7em;
+  margin-top: -3.20em !important;
+  transform: translateY(-0.0em) !important;
+}
+rt.XXL_L {
+  --ruby-font-size: 0.8em;
+  margin-top: -2.80em !important;
+  transform: translateY(-0.0em) !important;
+}
+</style>
+</head>
+<body>
+<p class="text-M_M">
+<br>
+<br>
+1. <RUBY>BON<RT CLASS="XXL_L">好</RT></RUBY>A <RUBY>RESTORACI<RT CLASS="XXL_L">餐馆</RT></RUBY>O, <RUBY>SED<RT CLASS="XXL_L">但</RT></RUBY> <RUBY>MULT<RT CLASS="XXL_L">多量</RT></RUBY>E<RUBY>KOST<RT CLASS="XXL_L">值钱</RT></RUBY>A<br>
+1. 不错的餐馆，但是太贵了<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>jam<rt class="XXL_L">已</rt></ruby> <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>pri<rt class="M_M">关于</rt></ruby> Afanti?<br>
+你听说过阿凡提吗？<br>
+<br>
+Afanti <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>an<rt class="M_M">成员</rt></ruby>o <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> ujgura <ruby>popol<rt class="XXL_L">人民</rt></ruby>o, <ruby>kiu<rt class="XXS_S">谁，<br>哪个</rt></ruby> <ruby>viv<rt class="XXL_L">活</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>viv<rt class="XXL_L">活</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>en<rt class="XXL_L">里</rt></ruby> <ruby>Centr<rt class="XXL_L">中心</rt></ruby>a <ruby>Azi<rt class="M_M">亚洲</rt></ruby>o.<br>
+阿凡提是维吾尔族人，过去和现在都生活在中亚。<br>
+<br>
+<ruby>Oni<rt class="L_L">人们</rt></ruby> <ruby>mult<rt class="XXL_L">多量</rt></ruby>e <ruby>rakont<rt class="XXL_L">叙述</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>pri<rt class="M_M">关于</rt></ruby> li, <ruby>ĉar<rt class="L_L">因为</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby> <ruby>hav<rt class="XXL_L">有</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>tre<rt class="M_M">非常</rt></ruby> <ruby>special<rt class="XXL_L">特别</rt></ruby>an, <ruby>tut<rt class="M_M">全体</rt></ruby>e <ruby>person<rt class="XXL_L">人</rt></ruby>an, <ruby>manier<rt class="XXL_L">方式</rt></ruby>on <ruby>el<rt class="XS_S">出于</rt></ruby><ruby>ir<rt class="M_M">去</rt></ruby>i <ruby>el<rt class="XS_S">出于</rt></ruby> <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>facil<rt class="XXL_L">容易</rt></ruby>aj <ruby>situaci<rt class="XXL_L">处境</rt></ruby>oj.<br>
+人们经常谈论他，因为他有非常特殊、完全个人化的方式来摆脱困境。<br>
+<br>
+<ruby>Foj<rt class="S_S">次回</rt></ruby>e, <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>riĉ<rt class="S_S">富裕</rt></ruby>a <ruby>amik<rt class="XXL_L">友人</rt></ruby>o <ruby>ven<rt class="XXL_L">来</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>al<rt class="XL_L">到</rt></ruby> li.<br>
+有一次，一个贫穷的朋友来找他。<br>
+<br>
+"Afanti, <ruby>kar<rt class="S_S">亲爱的</rt></ruby>a <ruby>amik<rt class="XXL_L">友人</rt></ruby>o," <ruby>li<rt class="S_S">他</rt></ruby> <ruby>dir<rt class="XXL_L">说</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, "mi <ruby>ven<rt class="XXL_L">来</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>pet<rt class="XXL_L">求</rt></ruby>i <ruby>vi<rt class="XS_S">你们</rt></ruby>an <ruby>help<rt class="XXL_L">帮忙</rt></ruby>on.<br>
+“阿凡提，亲爱的朋友，”他说，“我来请求你的帮助。<br>
+<br>
+<ruby>Hieraŭ<rt class="XXL_L">昨天</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>star<rt class="XL_L">站立</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>apud<rt class="XXL_L">近旁</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>en<rt class="XXL_L">里</rt></ruby><ruby>ir<rt class="M_M">去</rt></ruby><ruby>ej<rt class="XS_S">场所</rt></ruby>o <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby>o <ruby>por<rt class="S_S">为，给</rt></ruby> <ruby>riĉ<rt class="S_S">富裕</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>oj, <ruby>sur<rt class="L_L">上面</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>ĉef<rt class="S_S">主、首</rt></ruby>a <ruby>strat<rt class="XXL_L">街道</rt></ruby>o...<br>
+昨天我站在富人餐馆的入口处，在主要街道上……<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>sci<rt class="M_M">知晓</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, <ruby>pri<rt class="M_M">关于</rt></ruby> <ruby>kiu<rt class="XXS_S">谁，<br>哪个</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby>o <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>parol<rt class="XXL_L">说话</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>?<br>
+你知道我说的是哪家餐馆吗？<br>
+<br>
+Ĝi <ruby>hav<rt class="XXL_L">有</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby><ruby>ordinar<rt class="XXL_L">普通</rt></ruby>an <ruby>nom<rt class="XXL_L">名字</rt></ruby>on: <ruby>La<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>Bril<rt class="L_L">闪耀</rt></ruby>a <ruby>Sun<rt class="XL_L">太阳</rt></ruby>o <ruby>aŭ<rt class="XXL_L">或</rt></ruby> <ruby>La<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>Bril<rt class="L_L">闪耀</rt></ruby>a <ruby>Ĉiel<rt class="XS_S">多种方式</rt></ruby>o, <ruby>aŭ<rt class="XXL_L">或</rt></ruby> ion <ruby>simil<rt class="L_L">相似的</rt></ruby>an.<br>
+它有一个不寻常的名字：明亮的太阳或明亮的天空，或者类似的名字。<br>
+<br>
+Vi <ruby>loĝ<rt class="XXL_L">住</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>en<rt class="XXL_L">里</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>apud<rt class="XXL_L">近旁</rt></ruby>a <ruby>dom<rt class="XXL_L">房屋</rt></ruby>o <ruby>antaŭ<rt class="XXL_L">前面</rt></ruby> <ruby>kelk<rt class="XXL_L">一些</rt></ruby>aj <ruby>jar<rt class="XXL_L">年</rt></ruby>oj, <ruby>ĉu<rt class="S_S">是否</rt></ruby> ne?"<br>
+几年前你住在隔壁的房子里，对吗？”<br>
+<br>
+"<ruby>Jes<rt class="XXL_L">是</rt></ruby>," <ruby>respond<rt class="XXL_L">答复</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> Afanti, "mi <ruby>kon<rt class="XL_L">知晓</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>tiu<rt class="S_S">那人</rt></ruby>n <ruby>lok<rt class="M_M">地点</rt></ruby>on. <ruby>La<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>Bril<rt class="L_L">闪耀</rt></ruby>a <ruby>Ĉiel<rt class="XS_S">多种方式</rt></ruby>o <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>ĝi<rt class="XL_L">它</rt></ruby>a <ruby>nom<rt class="XXL_L">名字</rt></ruby>o."<br>
+“是的，”阿凡提回答说，“我知道那个地方。明亮的天空是它的名字。”<br>
+<br>
+"<ruby>Ĝust<rt class="XXL_L">正确</rt></ruby>e. <ruby>Mi<rt class="XXL_L">我</rt></ruby> <ruby>star<rt class="XL_L">站立</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>tie<rt class="S_S">那里</rt></ruby> <ruby>tut<rt class="M_M">全体</rt></ruby>e <ruby>trankvil<rt class="XXL_L">安静</rt></ruby>a.<br>
+“没错。我就静静地站在那里。<br>
+<br>
+Mi <ruby>far<rt class="XXL_L">做</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>nenio<rt class="XXL_L">无物</rt></ruby>n <ruby>special<rt class="XXL_L">特别</rt></ruby>an.<br>
+我没做什么特别的事。<br>
+<br>
+<ruby>Est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>muzik<rt class="XXL_L">音乐</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>oj <ruby>en<rt class="XXL_L">里</rt></ruby>e, <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>tie<rt class="S_S">那里</rt></ruby> <ruby>star<rt class="XL_L">站立</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>por<rt class="S_S">为，给</rt></ruby> <ruby>trankvil<rt class="XXL_L">安静</rt></ruby>e <ruby>aŭskult<rt class="XXL_L">听</rt></ruby>i <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>muzik<rt class="XXL_L">音乐</rt></ruby>on <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>rigard<rt class="XXL_L">看</rt></ruby>i <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>ojn, <ruby>kiu<rt class="XXS_S">谁，<br>哪个</rt></ruby>j <ruby>ir<rt class="M_M">去</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>ven<rt class="XXL_L">来</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>sur<rt class="L_L">上面</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>strat<rt class="XXL_L">街道</rt></ruby>o."<br>
+里面有音乐家，我就站在那里静静地听音乐，看着街上来来往往的人。”<br>
+<br>
+"<ruby>Kio<rt class="M_M">什么</rt></ruby> <ruby>okaz<rt class="XXL_L">发生</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>?"<br>
+“发生了什么事？”<br>
+<br>
+"Io ne-<ruby>kred<rt class="XXL_L">信任</rt></ruby><ruby>ebl<rt class="S_S">可…的</rt></ruby>a.<br>
+“一件难以置信的事。<br>
+<br>
+<ruby>Jen<rt class="XS_S">看，这里</rt></ruby> <ruby>el<rt class="XS_S">出于</rt></ruby><ruby>ven<rt class="XXL_L">来</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>to, <ruby>rigard<rt class="XXL_L">看</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby>n, <ruby>kiel<rt class="L_L">如同</rt></ruby> <ruby>oni<rt class="L_L">人们</rt></ruby> <ruby>rigard<rt class="XXL_L">看</rt></ruby><ruby>us<rt class="XXS_S">虚拟式<br>动词尾</rt></ruby> <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>amik<rt class="XXL_L">友人</rt></ruby>an <ruby>best<rt class="XXL_L">动物</rt></ruby>on <ruby>aŭ<rt class="XXL_L">或</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby> <ruby>el<rt class="XS_S">出于</rt></ruby> <ruby>tiu<rt class="S_S">那人</rt></ruby>j <ruby>kresk<rt class="XXL_L">生长</rt></ruby><ruby>aĵ<rt class="XS_S">物品</rt></ruby>oj, <ruby>kiu<rt class="XXS_S">谁，<br>哪个</rt></ruby>j <ruby>kaŭz<rt class="XXL_L">原因</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>san<rt class="XL_L">健康</rt></ruby>ojn, <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby> <ruby>demand<rt class="XXL_L">问询</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, <ruby>kio<rt class="M_M">什么</rt></ruby>n <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>far<rt class="XXL_L">做</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>tie<rt class="S_S">那里</rt></ruby>.<br>
+餐馆老板出来了，看着我，就像看一只有敌意的动物或那些致病的植物一样，问我在那里做什么。<br>
+<br>
+<ruby>Nenio<rt class="XXL_L">无物</rt></ruby>n, <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>respond<rt class="XXL_L">答复</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>.<br>
+什么也没做，我回答。<br>
+<br>
+<ruby>Jes<rt class="XXL_L">是</rt></ruby>, <ruby>jes<rt class="XXL_L">是</rt></ruby>, <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>far<rt class="XXL_L">做</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> ion, <ruby>li<rt class="S_S">他</rt></ruby> <ruby>dir<rt class="XXL_L">说</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>por<rt class="S_S">为，给</rt></ruby> <ruby>tio<rt class="XXS_S">那,那<br>个</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>dev<rt class="XL_L">必需</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>i..."<br>
+是的，是的，你在做什么，他说，为此你必须付钱……”<br>
+<br>
+"<ruby>Kio<rt class="M_M">什么</rt></ruby>n? <ruby>Li<rt class="S_S">他</rt></ruby> <ruby>vol<rt class="M_M">愿意</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>u, ĉu? <ruby>Ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>u <ruby>kio<rt class="M_M">什么</rt></ruby>n?"<br>
+“什么？他想让你付钱，是吗？让你付什么钱？”<br>
+<br>
+"<ruby>Ĝust<rt class="XXL_L">正确</rt></ruby>e <ruby>tio<rt class="XXS_S">那,那<br>个</rt></ruby>n <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>demand<rt class="XXL_L">问询</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>.<br>
+“我正是这么问的。<br>
+<br>
+<ruby>Kaj<rt class="XXL_L">和</rt></ruby> <ruby>ĉu<rt class="S_S">是否</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>sci<rt class="M_M">知晓</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, <ruby>kio<rt class="M_M">什么</rt></ruby>n <ruby>li<rt class="S_S">他</rt></ruby> <ruby>respond<rt class="XXL_L">答复</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>?"<br>
+你知道他回答了什么吗？”<br>
+<br>
+"<ruby>Kiel<rt class="L_L">如同</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>pov<rt class="XXL_L">能</rt></ruby><ruby>us<rt class="XXS_S">虚拟式<br>动词尾</rt></ruby>?"<br>
+“我怎么会知道？”<br>
+<br>
+"Li <ruby>respond<rt class="XXL_L">答复</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>: <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>star<rt class="XL_L">站立</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> ĉi <ruby>tie<rt class="S_S">那里</rt></ruby> <ruby>por<rt class="S_S">为，给</rt></ruby> <ruby>sent<rt class="XXL_L">感受</rt></ruby>i <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>bon<rt class="XXL_L">好</rt></ruby>an <ruby>odor<rt class="S_S">散发气味</rt></ruby>on <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby>aj <ruby>manĝ<rt class="XXL_L">吃</rt></ruby>oj; <ruby>tiu<rt class="S_S">那人</rt></ruby>n <ruby>odor<rt class="S_S">散发气味</rt></ruby>on <ruby>kaŭz<rt class="XXL_L">原因</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> mi; <ruby>tiu<rt class="S_S">那人</rt></ruby> <ruby>odor<rt class="S_S">散发气味</rt></ruby>o <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>ekzist<rt class="XXL_L">存在</rt></ruby><ruby>us<rt class="XXS_S">虚拟式<br>动词尾</rt></ruby> <ruby>sen<rt class="XXL_L">无</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby>a <ruby>labor<rt class="XXL_L">工作</rt></ruby>o; <ruby>tiu<rt class="S_S">那人</rt></ruby>n <ruby>odor<rt class="S_S">散发气味</rt></ruby>on <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>do<rt class="M_M">那么</rt></ruby> <ruby>dev<rt class="XL_L">必需</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>i <ruby>al<rt class="XL_L">到</rt></ruby> mi."<br>
+“他回答说：你站在这里是为了闻我食物的香味；这香味是我引起的；没有我的劳动，这香味就不会存在；所以你必须为这香味付钱给我。”<br>
+<br>
+"<ruby>Kio<rt class="M_M">什么</rt></ruby>n <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>far<rt class="XXL_L">做</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>?"<br>
+“你做了什么？”<br>
+<br>
+"Mi <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>konsent<rt class="XXL_L">同意</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>.<br>
+“我不同意。<br>
+<br>
+<ruby>Sed<rt class="XXL_L">但</rt></ruby> <ruby>tiam<rt class="XXL_L">那时</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby> <ruby>iĝ<rt class="XS_S">变成</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>eg<rt class="XXL_L">大</rt></ruby>e <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>kontent<rt class="XXL_L">满意</rt></ruby>a.<br>
+但那时他变得非常不高兴。<br>
+<br>
+Li <ruby>pli<rt class="XXL_L">更</rt></ruby> <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>pli<rt class="XXL_L">更</rt></ruby> <ruby>vol<rt class="M_M">愿意</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>u.<br>
+他越来越想让我付钱。<br>
+<br>
+Mi <ruby>plu<rt class="L_L">继续</rt></ruby> <ruby>respond<rt class="XXL_L">答复</rt></ruby><ruby>ad<rt class="M_M">持续</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>: ne.<br>
+我继续回答：不。<br>
+<br>
+<ruby>Tiam<rt class="XXL_L">那时</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby> <ruby>decid<rt class="XXL_L">决定</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>ir<rt class="M_M">去</rt></ruby>i <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o.<br>
+然后他决定去找法官。<br>
+<br>
+<ruby>Kaj<rt class="XXL_L">和</rt></ruby> <ruby>nun<rt class="XL_L">现在</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o <ruby>vol<rt class="M_M">愿意</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>ir<rt class="M_M">去</rt></ruby>u <ruby>al<rt class="XL_L">到</rt></ruby> li!<br>
+现在法官要我去找他！<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>bon<rt class="XXL_L">好</rt></ruby><ruby>vol<rt class="M_M">愿意</rt></ruby><ruby>os<rt class="XS_S">将来时</rt></ruby> <ruby>ven<rt class="XXL_L">来</rt></ruby>i <ruby>kun<rt class="XS_S">与…一起</rt></ruby> mi?<br>
+你愿意和我一起去吗？<br>
+<br>
+Mi <ruby>tim<rt class="XXL_L">怕</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, ke, <ruby>sol<rt class="XS_S">唯一的</rt></ruby>a, <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>sukces<rt class="XXL_L">成功</rt></ruby><ruby>os<rt class="XS_S">将来时</rt></ruby> <ruby>far<rt class="XXL_L">做</rt></ruby>i, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>tiu<rt class="S_S">那人</rt></ruby> <ruby>afer<rt class="XL_L">事物</rt></ruby>o <ruby>fin<rt class="S_S">完结</rt></ruby><ruby>iĝ<rt class="XS_S">变成</rt></ruby>u <ruby>bon<rt class="XXL_L">好</rt></ruby>e <ruby>por<rt class="S_S">为，给</rt></ruby> mi."<br>
+我担心，我一个人无法让这件事对我有利地结束。”<br>
+<br>
+Afanti <ruby>dum<rt class="XXL_L">期间</rt></ruby> <ruby>minut<rt class="XXL_L">分</rt></ruby>eto <ruby>pri<rt class="M_M">关于</rt></ruby><ruby>pens<rt class="XXL_L">思考</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, <ruby>nenio<rt class="XXL_L">无物</rt></ruby>n <ruby>dir<rt class="XXL_L">说</rt></ruby><ruby>ant<rt class="S_S">现分词</rt></ruby>e.<br>
+阿凡提想了一小会儿，什么也没说。<br>
+<br>
+"<ruby>Est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>bon<rt class="XXL_L">好</rt></ruby>a <ruby>ide<rt class="L_L">观念</rt></ruby>o <ruby>ven<rt class="XXL_L">来</rt></ruby>i <ruby>pet<rt class="XXL_L">求</rt></ruby>i <ruby>mi<rt class="XXL_L">我</rt></ruby>an <ruby>help<rt class="XXL_L">帮忙</rt></ruby>on," <ruby>li<rt class="S_S">他</rt></ruby> <ruby>fin<rt class="S_S">完结</rt></ruby>e <ruby>el<rt class="XS_S">出于</rt></ruby><ruby>parol<rt class="XXL_L">说话</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>.<br>
+“来请求我的帮助是个好主意，”他最后开口说道。<br>
+<br>
+"<ruby>Tiu<rt class="S_S">那人</rt></ruby> <ruby>afer<rt class="XL_L">事物</rt></ruby>o <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>ordinar<rt class="XXL_L">普通</rt></ruby>a. <ruby>Ĝi<rt class="XL_L">它</rt></ruby> <ruby>tre<rt class="M_M">非常</rt></ruby> <ruby>interes<rt class="L_L">引起兴趣</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby>n. <ruby>Ven<rt class="XXL_L">来</rt></ruby>u, <ruby>ni<rt class="XS_S">我们</rt></ruby> <ruby>ir<rt class="M_M">去</rt></ruby>u <ruby>kun<rt class="XS_S">与…一起</rt></ruby>e <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ej<rt class="XS_S">场所</rt></ruby>o."<br>
+“这件事不寻常。我对此很感兴趣。来吧，我们一起去法庭。”<br>
+<br>
+<ruby>Ĉiu<rt class="M_M">每个</rt></ruby>j <ruby>en<rt class="XXL_L">里</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>urb<rt class="L_L">市镇</rt></ruby>o <ruby>kon<rt class="XL_L">知晓</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> Afantin.<br>
+城里所有人都认识阿凡提。<br>
+<br>
+<ruby>Vid<rt class="XXL_L">看</rt></ruby><ruby>ant<rt class="S_S">现分词</rt></ruby>e <ruby>li<rt class="S_S">他</rt></ruby>n <ruby>ir<rt class="M_M">去</rt></ruby>i <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ej<rt class="XS_S">场所</rt></ruby>o, <ruby>mult<rt class="XXL_L">多量</rt></ruby>aj <ruby>hom<rt class="XXL_L">人</rt></ruby>oj <ruby>decid<rt class="XXL_L">决定</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>sekv<rt class="XXL_L">跟随</rt></ruby>i.<br>
+看到他去法庭，很多人决定跟着去。<br>
+<br>
+<ruby>Ili<rt class="XS_S">他们</rt></ruby> <ruby>sci<rt class="M_M">知晓</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> Afanti <ruby>ĝeneral<rt class="XXL_L">普遍的</rt></ruby>e <ruby>hav<rt class="XXL_L">有</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>special<rt class="XXL_L">特别</rt></ruby>an <ruby>manier<rt class="XXL_L">方式</rt></ruby>on <ruby>respond<rt class="XXL_L">答复</rt></ruby>i <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>riĉ<rt class="S_S">富裕</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>oj <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>grand<rt class="XXL_L">大</rt></ruby>-p<ruby>ov<rt class="XXL_L">蛋</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>oj, <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>ili<rt class="XS_S">他们</rt></ruby> <ruby>vol<rt class="M_M">愿意</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>perd<rt class="XXL_L">失去</rt></ruby>i <ruby>bon<rt class="XXL_L">好</rt></ruby>an <ruby>okaz<rt class="XXL_L">发生</rt></ruby>on <ruby>rid<rt class="XXL_L">笑</rt></ruby>i.<br>
+他们知道阿凡提通常有特殊的方式来回应富人和有权势的人，他们不想错过一个看热闹的好机会。<br>
+<br>
+<ruby>Kiam<rt class="XXL_L">何时</rt></ruby> Afanti, <ruby>li<rt class="S_S">他</rt></ruby>a <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>riĉ<rt class="S_S">富裕</rt></ruby>a <ruby>amik<rt class="XXL_L">友人</rt></ruby>o <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>mult<rt class="XXL_L">多量</rt></ruby>aj <ruby>urb<rt class="L_L">市镇</rt></ruby><ruby>an<rt class="M_M">成员</rt></ruby>oj <ruby>en<rt class="XXL_L">里</rt></ruby><ruby>ir<rt class="M_M">去</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>parol<rt class="XXL_L">说话</rt></ruby><ruby>ant<rt class="S_S">现分词</rt></ruby>a <ruby>plej<rt class="XXL_L">最</rt></ruby> <ruby>amik<rt class="XXL_L">友人</rt></ruby>e <ruby>kun<rt class="XS_S">与…一起</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>to.<br>
+当阿凡提、他贫穷的朋友和许多市民进来时，法官正非常友好地和餐馆老板说话。<br>
+<br>
+<ruby>Est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>klar<rt class="XL_L">清楚</rt></ruby>e, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>tiu<rt class="S_S">那人</rt></ruby>j <ruby>du<rt class="XXL_L">二</rt></ruby> <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>amik<rt class="XXL_L">友人</rt></ruby>oj.<br>
+很明显，他们俩是朋友。<br>
+<br>
+<ruby>Tio<rt class="XXS_S">那,那<br>个</rt></ruby>n <ruby>tuj<rt class="S_S">立刻</rt></ruby> <ruby>montr<rt class="XXL_L">示出</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby>aj <ruby>parol<rt class="XXL_L">说话</rt></ruby>oj <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o:<br>
+法官开头的话立刻就表明了这一点：<br>
+<br>
+"Mi <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>, <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>konsent<rt class="XXL_L">同意</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>i <ruby>al<rt class="XL_L">到</rt></ruby> ĉi <ruby>tiu<rt class="S_S">那人</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>to <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>prez<rt class="XXL_L">价</rt></ruby>on <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>odor<rt class="S_S">散发气味</rt></ruby>o, <ruby>kiu<rt class="XXS_S">谁，<br>哪个</rt></ruby>n <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>en<rt class="XXL_L">里</rt></ruby><ruby>ig<rt class="XXS_S">使成<br>为</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>en<rt class="XXL_L">里</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby>n <ruby>ĉe<rt class="XXL_L">在</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby>a <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby>o.<br>
+“我听说，你不同意向这位餐馆老板支付你在他餐馆吸入的气味的价钱。<br>
+<br>
+<ruby>Tio<rt class="XXS_S">那,那<br>个</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>akcept<rt class="XXL_L">接纳</rt></ruby><ruby>ebl<rt class="S_S">可…的</rt></ruby>a..."<br>
+这是不可接受的……”<br>
+<br>
+"<ruby>Minut<rt class="XXL_L">分</rt></ruby>e<ruby>ton<rt class="L_L">音调</rt></ruby>, <ruby>sinjor<rt class="XXL_L">先生</rt></ruby>o <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o, <ruby>bon<rt class="XXL_L">好</rt></ruby><ruby>vol<rt class="M_M">愿意</rt></ruby>u <ruby>atend<rt class="XXL_L">等候</rt></ruby>i <ruby>minut<rt class="XXL_L">分</rt></ruby>e<ruby>ton<rt class="L_L">音调</rt></ruby>," Afanti <ruby>inter<rt class="XXL_L">之间</rt></ruby>-<ruby>romp<rt class="XXL_L">破坏</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>.<br>
+“稍等，法官大人，请稍等片刻，”阿凡提打断道。<br>
+<br>
+"Ĉi <ruby>tiu<rt class="S_S">那人</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>o <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby>a <ruby>frat<rt class="L_L">兄弟</rt></ruby>o, <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby><ruby>os<rt class="XS_S">将来时</rt></ruby> <ruby>por<rt class="S_S">为，给</rt></ruby> li."<br>
+“这个人是我的兄弟，我会替他付钱。”<br>
+<br>
+Afanti <ruby>hav<rt class="XXL_L">有</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>kun<rt class="XS_S">与…一起</rt></ruby> <ruby>si<rt class="XS_S">自己</rt></ruby> <ruby>sak<rt class="XXL_L">袋</rt></ruby><ruby>et<rt class="XL_L">小</rt></ruby>on <ruby>plen<rt class="XXL_L">满</rt></ruby>an <ruby>je<rt class="XL_L">在</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>o.<br>
+阿凡提随身带着一个装满钱的袋子。<br>
+<br>
+<ruby>Nun<rt class="XL_L">现在</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby> <ruby>pren<rt class="XXL_L">取</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>ĝi<rt class="XL_L">它</rt></ruby>n, <ruby>ir<rt class="M_M">去</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>apud<rt class="XXL_L">近旁</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby><ruby>ton<rt class="L_L">音调</rt></ruby> <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>rapid<rt class="XXL_L">快</rt></ruby>e <ruby>mov<rt class="XXL_L">移动</rt></ruby><ruby>ad<rt class="M_M">持续</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>tie<rt class="S_S">那里</rt></ruby>n <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>re<rt class="XXL_L">再</rt></ruby>en <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>sak<rt class="XXL_L">袋</rt></ruby><ruby>et<rt class="XL_L">小</rt></ruby>on <ruby>antaŭ<rt class="XXL_L">前面</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby>a <ruby>vizaĝ<rt class="XXL_L">面部</rt></ruby>o, <ruby>tiel<rt class="M_M">如此</rt></ruby> <ruby>ke<rt class="XXS_S">（从<br>句）</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>o <ruby>bel<rt class="L_L">美丽</rt></ruby>e <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>ebl<rt class="S_S">可…的</rt></ruby>e <ruby>son<rt class="XXL_L">响</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>.<br>
+现在他拿出袋子，走到餐馆老板旁边，快速地在他的脸前晃来晃去，让钱发出悦耳的响声。<br>
+<br>
+"Ĉi <ruby>tiu<rt class="S_S">那人</rt></ruby> <ruby>sak<rt class="XXL_L">袋</rt></ruby><ruby>et<rt class="XL_L">小</rt></ruby>o <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>plen<rt class="XXL_L">满</rt></ruby>a <ruby>je<rt class="XL_L">在</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>o.<br>
+“这个袋子里装满了钱。<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>ĝi<rt class="XL_L">它</rt></ruby>n?<br>
+你听见了吗？<br>
+<br>
+<ruby>Bon<rt class="XXL_L">好</rt></ruby>e <ruby>aŭskult<rt class="XXL_L">听</rt></ruby>u.<br>
+好好听。<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>on?" <ruby>li<rt class="S_S">他</rt></ruby> <ruby>demand<rt class="XXL_L">问询</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>to.<br>
+你听见钱的声音了吗？”他问餐馆老板。<br>
+<br>
+"<ruby>Kompren<rt class="XXL_L">理解</rt></ruby><ruby>ebl<rt class="S_S">可…的</rt></ruby>e <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>on.<br>
+“当然我听见钱的声音了。<br>
+<br>
+Mia <ruby>aŭd<rt class="XXL_L">听</rt></ruby>-<ruby>pov<rt class="XXL_L">能</rt></ruby>o <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>tre<rt class="M_M">非常</rt></ruby> <ruby>bon<rt class="XXL_L">好</rt></ruby>a.<br>
+我的听力非常好。<br>
+<br>
+<ruby>Kaj<rt class="XXL_L">和</rt></ruby> eĉ <ruby>se<rt class="S_S">如果</rt></ruby> <ruby>ĝi<rt class="XL_L">它</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>us<rt class="XXS_S">虚拟式<br>动词尾</rt></ruby> <ruby>bon<rt class="XXL_L">好</rt></ruby>a, <ruby>je<rt class="XL_L">在</rt></ruby> <ruby>tia<rt class="XS_S">那样的</rt></ruby> <ruby>proksim<rt class="XXL_L">近</rt></ruby><ruby>ec<rt class="XXL_L">性</rt></ruby>o, <ruby>mi<rt class="XXL_L">我</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>pov<rt class="XXL_L">能</rt></ruby><ruby>us<rt class="XXS_S">虚拟式<br>动词尾</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>aŭd<rt class="XXL_L">听</rt></ruby>i <ruby>ĝi<rt class="XL_L">它</rt></ruby>n.<br>
+即使我的听力不好，在这么近的距离，我也不可能听不见。<br>
+<br>
+<ruby>Cert<rt class="M_M">确定的</rt></ruby>e <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>mult<rt class="XXL_L">多量</rt></ruby>e <ruby>da<rt class="M_M">的量</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>o <ruby>en<rt class="XXL_L">里</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby>a <ruby>sak<rt class="XXL_L">袋</rt></ruby>o.<br>
+你的袋子里肯定有很多钱。<br>
+<br>
+Mi <ruby>aŭd<rt class="XXL_L">听</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>pli<rt class="XXL_L">更</rt></ruby> <ruby>ol<rt class="XL_L">比</rt></ruby> <ruby>sufiĉ<rt class="XXL_L">足够</rt></ruby>e.<br>
+我听够了。<br>
+<br>
+Mi <ruby>bezon<rt class="XXL_L">需</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>, <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>aŭd<rt class="XXL_L">听</rt></ruby>i <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>mon<rt class="XXL_L">钱</rt></ruby>on, <ruby>sed<rt class="XXL_L">但</rt></ruby> <ruby>ricev<rt class="XXL_L">收取</rt></ruby>i <ruby>ĝi<rt class="XL_L">它</rt></ruby>n.<br>
+我需要的不是听钱的声音，而是收到钱。<br>
+<br>
+<ruby>Don<rt class="XXL_L">给</rt></ruby>u <ruby>ĝi<rt class="XL_L">它</rt></ruby>n <ruby>al<rt class="XL_L">到</rt></ruby> mi. <ruby>Kio<rt class="M_M">什么</rt></ruby>n <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>atend<rt class="XXL_L">等候</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby>?"<br>
+把它给我。你还在等什么？”<br>
+<br>
+"Mi <ruby>atend<rt class="XXL_L">等候</rt></ruby><ruby>as<rt class="XS_S">现在时</rt></ruby> <ruby>nenio<rt class="XXL_L">无物</rt></ruby>n.<br>
+“我什么也不等。<br>
+<br>
+Mia <ruby>frat<rt class="L_L">兄弟</rt></ruby>o <ruby>kapt<rt class="XXL_L">抓住</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>odor<rt class="S_S">散发气味</rt></ruby>on <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby>aj <ruby>manĝ<rt class="XXL_L">吃</rt></ruby>oj.<br>
+我的兄弟闻了你食物的香味。<br>
+<br>
+<ruby>Nun<rt class="XL_L">现在</rt></ruby> <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>kapt<rt class="XXL_L">抓住</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>son<rt class="XXL_L">响</rt></ruby>on <ruby>de<rt class="XXL_L">从</rt></ruby> <ruby>mi<rt class="XXL_L">我</rt></ruby>a <ruby>mon<rt class="XXL_L">钱</rt></ruby>o.<br>
+现在你听了我钱的声音。<br>
+<br>
+Vi <ruby>ricev<rt class="XXL_L">收取</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>pag<rt class="XL_L">付钱</rt></ruby>on <ruby>simil<rt class="L_L">相似的</rt></ruby>an <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>tio<rt class="XXS_S">那,那<br>个</rt></ruby>, <ruby>kio<rt class="M_M">什么</rt></ruby>n <ruby>vi<rt class="XS_S">你们</rt></ruby> <ruby>vend<rt class="XXL_L">卖</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>."<br>
+你收到了和你卖的东西相似的报酬。”<br>
+<br>
+Afanti <ruby>turn<rt class="XL_L">转动</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>si<rt class="XS_S">自己</rt></ruby>n <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> ĉe-<ruby>est<rt class="XXL_L">是</rt></ruby><ruby>ant<rt class="S_S">现分词</rt></ruby>oj .<br>
+阿凡提转向在场的人。<br>
+<br>
+"Ĉu <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>ĝust<rt class="XXL_L">正确</rt></ruby>e?"<br>
+“是不是这样？”<br>
+<br>
+"<ruby>Tut<rt class="M_M">全体</rt></ruby>e <ruby>ĝust<rt class="XXL_L">正确</rt></ruby>e!" <ruby>ĉiu<rt class="M_M">每个</rt></ruby>j <ruby>sam<rt class="XXL_L">同样</rt></ruby>-<ruby>temp<rt class="XXL_L">时间</rt></ruby>e <ruby>respond<rt class="XXL_L">答复</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>.<br>
+“完全正确！”所有人同时回答。<br>
+<br>
+La <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>plu<rt class="L_L">继续</rt></ruby> <ruby>pov<rt class="XXL_L">能</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>help<rt class="XXL_L">帮忙</rt></ruby>i <ruby>al<rt class="XL_L">到</rt></ruby> <ruby>si<rt class="XS_S">自己</rt></ruby>a <ruby>amik<rt class="XXL_L">友人</rt></ruby>o.<br>
+法官再也帮不了他的朋友了。<br>
+<br>
+La <ruby>popol<rt class="XXL_L">人民</rt></ruby>o <ruby>vid<rt class="XXL_L">看</rt></ruby><ruby>ebl<rt class="S_S">可…的</rt></ruby>e <ruby>est<rt class="XXL_L">是</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>kun<rt class="XS_S">与…一起</rt></ruby> Afanti <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>kun<rt class="XS_S">与…一起</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>mal<rt class="XXL_L">反</rt></ruby><ruby>riĉ<rt class="S_S">富裕</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>o, <ruby>kontraŭ<rt class="XXL_L">对抗</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby> <ruby>kaj<rt class="XXL_L">和</rt></ruby> <ruby>li<rt class="S_S">他</rt></ruby>a <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby>a <ruby>kun<rt class="XS_S">与…一起</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>o.<br>
+民众显然支持阿凡提和那个穷人，反对法官和他的餐馆老板同伴。<br>
+<br>
+<ruby>Ĉiu<rt class="M_M">每个</rt></ruby>j <ruby>el<rt class="XS_S">出于</rt></ruby><ruby>ir<rt class="M_M">去</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>el<rt class="XS_S">出于</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ej<rt class="XS_S">场所</rt></ruby>o <ruby>rid<rt class="XXL_L">笑</rt></ruby><ruby>ant<rt class="S_S">现分词</rt></ruby>e.<br>
+所有人都笑着走出了法庭。<br>
+<br>
+<ruby>Sed<rt class="XXL_L">但</rt></ruby> <ruby>ne<rt class="XXL_L">不</rt></ruby> <ruby>rid<rt class="XXL_L">笑</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>restoraci<rt class="XXL_L">餐馆</rt></ruby><ruby>is<rt class="XXS_S">过去<br>式</rt></ruby>to.<br>
+但餐馆老板没有笑。<br>
+<br>
+<ruby>Nek<rt class="XL_L">也不</rt></ruby> <ruby>la<rt class="XXS_S">定冠<br>词</rt></ruby> <ruby>juĝ<rt class="L_L">判决</rt></ruby><ruby>ist<rt class="XXL_L">者</rt></ruby>o.<br>
+法官也没有笑。</p></body></html>
