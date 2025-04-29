@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大多数の环境中で正常に运行するRuby显示功能</title>
+    <style>
+
+    html, body {
+      -webkit-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+  
+      :root {
+        --ruby-color: blue;
+        --ruby-font-size: 0.5em;
+      }
+      html {
+        font-size: 100%; /* 多くのブラウザは16px相当が標準 */
+      }
+
+      .text-M_M {
+        font-size: 1rem!important; 
+        font-family: Arial, sans-serif;
+        line-height: 2.0 !important;  /* text-M_Mのline-heightとrubyのline-heightは一致させる必要がある。 */
+        display: block; /* ブロック要素として扱う */
+        position: relative;
+      }
+  
+      /* ▼ ルビ（フレックスでルビを上に表示） */
+      ruby {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: top !important;
+        line-height: 2.0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 1rem !important;
+      }
+  
+      /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
+      rt {
+        display: block !important;
+        font-size: var(--ruby-font-size);
+        color: var(--ruby-color);
+        line-height: 1.05;/*ルビを改行するケースにおけるルビの行間*/
+        text-align: center;
+        /* margin-top: 0.2em !important;   
+        transform: translateY(0.4em) !important; */
+      }
+      rt.XXXS_S {
+        --ruby-font-size: 0.3em;
+        margin-top: -8.3em !important;/* ルビの高さ位置はここで調節する。 */
+        transform: translateY(-0em) !important;
+      }    
+      rt.XXS_S {
+        --ruby-font-size: 0.3em;
+        margin-top: -7.2em !important;/* ルビの高さ位置はここで調節する。 */
+        transform: translateY(-0em) !important;
+      }
+      rt.XS_S {
+        --ruby-font-size: 0.3em;
+        margin-top: -6.1em !important;
+        transform: translateY(-0em) !important;
+      }
+      rt.S_S {
+        --ruby-font-size: 0.4em;
+        margin-top: -4.85em !important;
+        transform: translateY(-0em) !important;
+      }
+      rt.M_M {
+        --ruby-font-size: 0.5em;
+        margin-top: -4.00em !important;
+        transform: translateY(-0.0em) !important;
+      }
+      rt.L_L {
+        --ruby-font-size: 0.6em; 
+        margin-top: -3.55em !important;
+        transform: translateY(-0.0em) !important;
+      }
+      rt.XL_L {
+        --ruby-font-size: 0.7em;
+        margin-top: -3.20em !important;
+        transform: translateY(-0.0em) !important;
+      }
+      rt.XXL_L {
+        --ruby-font-size: 0.8em;
+        margin-top: -2.80em !important;
+        transform: translateY(-0.0em) !important;
+      }
+  
+    </style>
+  </head>
+  <body>
+  <p class="text-M_M">
+はい、承知いたしました。「1. <RUBY>BON<RT CLASS="L_L">GOOD</RT></RUBY>A <RUBY>RESTORACI<RT CLASS="XXL_L">EATERY</RT></RUBY>O, <RUBY>SED<RT CLASS="XXL_L">BUT</RT></RUBY> <RUBY>MULT<RT CLASS="L_L">MANY</RT></RUBY>E<RUBY>KOST<RT CLASS="XXL_L">COST</RT></RUBY>A」の各文の下に英語訳を挿入します。<br>
+<br>
+1. <RUBY>BON<RT CLASS="L_L">GOOD</RT></RUBY>A <RUBY>RESTORACI<RT CLASS="XXL_L">EATERY</RT></RUBY>O, <RUBY>SED<RT CLASS="XXL_L">BUT</RT></RUBY> <RUBY>MULT<RT CLASS="L_L">MANY</RT></RUBY>E<RUBY>KOST<RT CLASS="XXL_L">COST</RT></RUBY>A<br>
+1. A GOOD <RUBY>REST<RT CLASS="XS_S">REMAINDER</RT></RUBY>AU<RUBY>RAN<RT CLASS="XL_L">FROG</RT></RUBY>T, BUT EX<RUBY>PENS<RT CLASS="XXL_L">THINK</RT></RUBY>IVE<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>jam<rt class="S_S">already</rt></ruby> <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>pri<rt class="S_S">about</rt></ruby> Afanti?<br>
+<ruby>Hav<rt class="XXL_L">Own</rt></ruby>e you he<ruby>ard<rt class="L_L">fiery</rt></ruby> about Afanti already?<br>
+<br>
+Afanti <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>an<rt class="XXS_S">mem<br>ber</rt></ruby>o <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> ujgura <ruby>popol<rt class="XL_L">people</rt></ruby>o, <ruby>kiu<rt class="L_L">who</rt></ruby> <ruby>viv<rt class="XL_L">live</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>viv<rt class="XL_L">live</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>en<rt class="XXL_L">in</rt></ruby> <ruby>Centr<rt class="XL_L">Center</rt></ruby>a <ruby>Azi<rt class="L_L">Asia</rt></ruby>o.<br>
+Afanti was a <ruby>mem<rt class="XXL_L">self</rt></ruby><ruby>ber<rt class="M_M">berry</rt></ruby> of the Uyghur people, who lived and live in <ruby>Central<rt class="S_S">Central facility</rt></ruby> A<ruby>si<rt class="S_S">self</rt></ruby>a.<br>
+<br>
+<ruby>Oni<rt class="S_S">People</rt></ruby> <ruby>mult<rt class="L_L">many</rt></ruby>e <ruby>rakont<rt class="XXL_L">tell</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>pri<rt class="S_S">about</rt></ruby> li, <ruby>ĉar<rt class="XS_S">because</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>hav<rt class="XXL_L">own</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>tre<rt class="M_M">very</rt></ruby> specialan, <ruby>tut<rt class="XS_S">whole</rt></ruby>e personan, <ruby>manier<rt class="XXL_L">way</rt></ruby>on <ruby>el<rt class="XS_S">from</rt></ruby><ruby>ir<rt class="S_S">go</rt></ruby>i <ruby>el<rt class="XS_S">from</rt></ruby> <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>facil<rt class="XL_L">easy</rt></ruby>aj <ruby>situaci<rt class="L_L">situation</rt></ruby>oj.<br>
+People tell <ruby>man<rt class="XL_L">hand</rt></ruby>y st<ruby>or<rt class="S_S">gold</rt></ruby><ruby>ies<rt class="XXS_S">some<br>one's</rt></ruby> about him, because <ruby>he<rt class="M_M">hey!</rt></ruby> had a <ruby>ver<rt class="S_S">TRUE</rt></ruby>y special, com<ruby>plet<rt class="XXL_L">tray</rt></ruby>ely personal way of gett<ruby>ing<rt class="S_S">holder</rt></ruby> out of difficult <ruby>situ<rt class="S_S">location</rt></ruby><ruby>at<rt class="XXS_S">ongo<br>ing</rt></ruby>ions.<br>
+<br>
+<ruby>Foj<rt class="XS_S">Times</rt></ruby>e, <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>riĉ<rt class="M_M">rich</rt></ruby>a <ruby>amik<rt class="XL_L">friend</rt></ruby>o <ruby>ven<rt class="M_M">arrive</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>al<rt class="XXL_L">to</rt></ruby> li.<br>
+Once, a <ruby>po<rt class="S_S">each</rt></ruby>or fri<ruby>end<rt class="L_L">must</rt></ruby> came to him.<br>
+<br>
+"Afanti, <ruby>kar<rt class="L_L">dear</rt></ruby>a <ruby>amik<rt class="XL_L">friend</rt></ruby>o," <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>dir<rt class="L_L">say</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, "mi <ruby>ven<rt class="M_M">arrive</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>pet<rt class="XL_L">ask</rt></ruby>i <ruby>vi<rt class="XS_S">your</rt></ruby>an <ruby>help<rt class="L_L">assist</rt></ruby>on.<br>
+"Afanti, dear fri<ruby>end<rt class="L_L">must</rt></ruby>," <ruby>he<rt class="M_M">hey!</rt></ruby> said, "I came to ask <ruby>for<rt class="XXL_L">far</rt></ruby> your <ruby>help<rt class="L_L">assist</rt></ruby>.<br>
+<br>
+<ruby>Hieraŭ<rt class="M_M">Yesterday</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>star<rt class="L_L">stand</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>apud<rt class="XXL_L">near</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>en<rt class="XXL_L">in</rt></ruby><ruby>ir<rt class="S_S">go</rt></ruby><ruby>ej<rt class="XXS_S">pla<br>ce</rt></ruby>o <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby>o <ruby>por<rt class="XXL_L">for</rt></ruby> <ruby>riĉ<rt class="M_M">rich</rt></ruby><ruby>ul<rt class="XXS_S">-per<br>son</rt></ruby>oj, <ruby>sur<rt class="XXL_L">on</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ĉef<rt class="M_M">main</rt></ruby>a <ruby>strat<rt class="XL_L">street</rt></ruby>o...<br>
+Y<ruby>est<rt class="XXL_L">be</rt></ruby><ruby>er<rt class="S_S">unit</rt></ruby>day I was <ruby>stan<rt class="XXL_L">tin</rt></ruby>d<ruby>ing<rt class="S_S">holder</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby>ar the <ruby>en<rt class="XXL_L">in</rt></ruby>trance of a <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t <ruby>for<rt class="XXL_L">far</rt></ruby> rich people, on the main s<ruby>tre<rt class="M_M">very</rt></ruby><ruby>et<rt class="XS_S">small</rt></ruby>...<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>sci<rt class="S_S">know</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, <ruby>pri<rt class="S_S">about</rt></ruby> <ruby>kiu<rt class="L_L">who</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby>o <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>parol<rt class="XL_L">speak</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>?<br>
+Do you know which <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t I'm <ruby>talk<rt class="S_S">talcum</rt></ruby>ing about?<br>
+<br>
+Ĝi <ruby>hav<rt class="XXL_L">own</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby><ruby>ordinar<rt class="XXL_L">usual</rt></ruby>an <ruby>nom<rt class="XL_L">name</rt></ruby>on: <ruby>La<rt class="M_M">The</rt></ruby> <ruby>Bril<rt class="M_M">Shine</rt></ruby>a Suno <ruby>aŭ<rt class="XXL_L">or</rt></ruby> <ruby>La<rt class="M_M">The</rt></ruby> <ruby>Bril<rt class="M_M">Shine</rt></ruby>a <ruby>Ĉiel<rt class="XXS_S">In ever<br>y way</rt></ruby>o, <ruby>aŭ<rt class="XXL_L">or</rt></ruby> ion <ruby>simil<rt class="L_L">similar</rt></ruby>an.<br>
+It has an <ruby>unu<rt class="XXL_L">one</rt></ruby>sual name: The Bright Sun or The Bright Sky, or so<ruby>met<rt class="XXL_L">put</rt></ruby>h<ruby>ing<rt class="S_S">holder</rt></ruby> <ruby>simil<rt class="L_L">similar</rt></ruby>ar.<br>
+<br>
+Vi <ruby>loĝ<rt class="S_S">reside</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>en<rt class="XXL_L">in</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>apud<rt class="XXL_L">near</rt></ruby>a <ruby>dom<rt class="XL_L">home</rt></ruby>o <ruby>antaŭ<rt class="XL_L">before</rt></ruby> <ruby>kelk<rt class="L_L">some</rt></ruby>aj <ruby>jar<rt class="M_M">year</rt></ruby>oj, <ruby>ĉu<rt class="S_S">is it?</rt></ruby> ne?"<br>
+You lived in the house next door a few years <ruby>ag<rt class="XL_L">act</rt></ruby>o, didn't you?"<br>
+<br>
+"<ruby>Jes<rt class="XL_L">Yes</rt></ruby>," <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> Afanti, "mi <ruby>kon<rt class="L_L">know</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby>n <ruby>lok<rt class="S_S">place</rt></ruby>on. <ruby>La<rt class="M_M">The</rt></ruby> <ruby>Bril<rt class="M_M">Shine</rt></ruby>a <ruby>Ĉiel<rt class="XXS_S">In ever<br>y way</rt></ruby>o <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>ĝi<rt class="L_L">its</rt></ruby>a <ruby>nom<rt class="XL_L">name</rt></ruby>o."<br>
+"Yes," Afanti <ruby>re<rt class="XS_S">again</rt></ruby><ruby>pli<rt class="S_S">more</rt></ruby>ed, "I know that <ruby>plac<rt class="M_M">square</rt></ruby>e. The Bright Sky is its name."<br>
+<br>
+"<ruby>Ĝust<rt class="XXL_L">Right</rt></ruby>e. <ruby>Mi<rt class="XL_L">My</rt></ruby> <ruby>star<rt class="L_L">stand</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>tie<rt class="S_S">there</rt></ruby> <ruby>tut<rt class="XS_S">whole</rt></ruby>e <ruby>trankvil<rt class="XXL_L">calm</rt></ruby>a.<br>
+"Exactly. I was <ruby>stan<rt class="XXL_L">tin</rt></ruby>d<ruby>ing<rt class="S_S">holder</rt></ruby> there quite peacefully.<br>
+<br>
+Mi <ruby>far<rt class="XXL_L">do</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>nenio<rt class="L_L">nothing</rt></ruby>n specialan.<br>
+I didn't <ruby>do<rt class="XXL_L">so</rt></ruby> anyth<ruby>ing<rt class="S_S">holder</rt></ruby> special.<br>
+<br>
+<ruby>Est<rt class="XXL_L">Be</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>muzik<rt class="XXL_L">music</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>oj <ruby>en<rt class="XXL_L">in</rt></ruby>e, <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>tie<rt class="S_S">there</rt></ruby> <ruby>star<rt class="L_L">stand</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>por<rt class="XXL_L">for</rt></ruby> <ruby>trankvil<rt class="XXL_L">calm</rt></ruby>e <ruby>aŭskult<rt class="XXL_L">listen</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>muzik<rt class="XXL_L">music</rt></ruby>on <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>rigard<rt class="XL_L">look at</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>hom<rt class="M_M">human</rt></ruby>ojn, <ruby>kiu<rt class="L_L">who</rt></ruby>j <ruby>ir<rt class="S_S">go</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>ven<rt class="M_M">arrive</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>sur<rt class="XXL_L">on</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>strat<rt class="XL_L">street</rt></ruby>o."<br>
+There were <ruby>mus<rt class="M_M">mouse</rt></ruby>icians <ruby>insid<rt class="L_L">entrap</rt></ruby>e, and I stood there to quietly listen to the <ruby>mus<rt class="M_M">mouse</rt></ruby>ic and watch the people who were com<ruby>ing<rt class="S_S">holder</rt></ruby> and go<ruby>ing<rt class="S_S">holder</rt></ruby> on the s<ruby>tre<rt class="M_M">very</rt></ruby><ruby>et<rt class="XS_S">small</rt></ruby>."<br>
+<br>
+"<ruby>Kio<rt class="M_M">What</rt></ruby> <ruby>okaz<rt class="M_M">happen</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>?"<br>
+"What hap<ruby>pen<rt class="L_L">strive</rt></ruby>ed?"<br>
+<br>
+"Io ne-<ruby>kred<rt class="M_M">believe</rt></ruby><ruby>ebl<rt class="XS_S">possible</rt></ruby>a.<br>
+"So<ruby>met<rt class="XXL_L">put</rt></ruby>h<ruby>ing<rt class="S_S">holder</rt></ruby> un<ruby>bel<rt class="XS_S">beautiful</rt></ruby>ievable.<br>
+<br>
+<ruby>Jen<rt class="S_S">Here is</rt></ruby> <ruby>el<rt class="XS_S">from</rt></ruby><ruby>ven<rt class="M_M">arrive</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>to, <ruby>rigard<rt class="XL_L">look at</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby>n, <ruby>kiel<rt class="XL_L">how</rt></ruby> <ruby>oni<rt class="S_S">people</rt></ruby> <ruby>rigard<rt class="XL_L">look at</rt></ruby><ruby>us<rt class="XXXS_S">conditi<br>onal e<br>nding</rt></ruby> <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>amik<rt class="XL_L">friend</rt></ruby>an <ruby>best<rt class="L_L">beast</rt></ruby>on <ruby>aŭ<rt class="XXL_L">or</rt></ruby> <ruby>unu<rt class="XXL_L">one</rt></ruby> <ruby>el<rt class="XS_S">from</rt></ruby> <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby>j <ruby>kresk<rt class="XXL_L">grow</rt></ruby><ruby>aĵ<rt class="S_S">thing</rt></ruby>oj, <ruby>kiu<rt class="L_L">who</rt></ruby>j <ruby>kaŭz<rt class="L_L">cause</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>san<rt class="S_S">healthy</rt></ruby>ojn, <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>demand<rt class="XXL_L">ask</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, <ruby>kio<rt class="M_M">what</rt></ruby>n <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>far<rt class="XXL_L">do</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>tie<rt class="S_S">there</rt></ruby>.<br>
+The <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t owner co<ruby>mes<rt class="XL_L">Mass</rt></ruby> out, looks at me as one would look at a <ruby>hosti<rt class="XXS_S">Eucharis<br>t bread</rt></ruby>le animal or one of those plants that cause <ruby>dis<rt class="M_M">apart</rt></ruby>ea<ruby>ses<rt class="XXL_L">six</rt></ruby>, and <ruby>he<rt class="M_M">hey!</rt></ruby> asks what I am do<ruby>ing<rt class="S_S">holder</rt></ruby> there.<br>
+<br>
+<ruby>Nenio<rt class="L_L">Nothing</rt></ruby>n, <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>.<br>
+<ruby>Not<rt class="L_L">Note</rt></ruby>h<ruby>ing<rt class="S_S">holder</rt></ruby>, I answer.<br>
+<br>
+<ruby>Jes<rt class="XL_L">Yes</rt></ruby>, <ruby>jes<rt class="XL_L">yes</rt></ruby>, <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>far<rt class="XXL_L">do</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> ion, <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>dir<rt class="L_L">say</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>por<rt class="XXL_L">for</rt></ruby> <ruby>tio<rt class="M_M">that</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>i..."<br>
+Yes, yes, you are do<ruby>ing<rt class="S_S">holder</rt></ruby> so<ruby>met<rt class="XXL_L">put</rt></ruby>h<ruby>ing<rt class="S_S">holder</rt></ruby>, <ruby>he<rt class="M_M">hey!</rt></ruby> says, and <ruby>for<rt class="XXL_L">far</rt></ruby> that you <ruby>hav<rt class="XXL_L">own</rt></ruby>e to pay..."<br>
+<br>
+"<ruby>Kio<rt class="M_M">What</rt></ruby>n? <ruby>Li<rt class="XS_S">His</rt></ruby> <ruby>vol<rt class="M_M">want</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>u, ĉu? <ruby>Ke<rt class="M_M">That</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>u <ruby>kio<rt class="M_M">what</rt></ruby>n?"<br>
+"What? <ruby>He<rt class="M_M">Hey!</rt></ruby> wan<ruby>ted<rt class="L_L">bore</rt></ruby> you to pay, did he? Pay <ruby>for<rt class="XXL_L">far</rt></ruby> what?"<br>
+<br>
+"<ruby>Ĝust<rt class="XXL_L">Right</rt></ruby>e <ruby>tio<rt class="M_M">that</rt></ruby>n <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>demand<rt class="XXL_L">ask</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>.<br>
+"That's exactly what I asked.<br>
+<br>
+<ruby>Kaj<rt class="XL_L">And</rt></ruby> <ruby>ĉu<rt class="S_S">is it?</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>sci<rt class="S_S">know</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, <ruby>kio<rt class="M_M">what</rt></ruby>n <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>?"<br>
+And <ruby>do<rt class="XXL_L">so</rt></ruby> you know what <ruby>he<rt class="M_M">hey!</rt></ruby> answered?"<br>
+<br>
+"<ruby>Kiel<rt class="XL_L">How</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>pov<rt class="XXL_L">can</rt></ruby><ruby>us<rt class="XXXS_S">conditi<br>onal e<br>nding</rt></ruby>?"<br>
+"How could I?"<br>
+<br>
+"Li <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>: <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>star<rt class="L_L">stand</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> ĉi <ruby>tie<rt class="S_S">there</rt></ruby> <ruby>por<rt class="XXL_L">for</rt></ruby> <ruby>sent<rt class="XXL_L">feel</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>bon<rt class="L_L">good</rt></ruby>an <ruby>odor<rt class="XXL_L">reek</rt></ruby>on <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby>aj <ruby>manĝ<rt class="XXL_L">eat</rt></ruby>oj; <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby>n <ruby>odor<rt class="XXL_L">reek</rt></ruby>on <ruby>kaŭz<rt class="L_L">cause</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> mi; <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby> <ruby>odor<rt class="XXL_L">reek</rt></ruby>o <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>ekzist<rt class="XXL_L">exist</rt></ruby><ruby>us<rt class="XXXS_S">conditi<br>onal e<br>nding</rt></ruby> <ruby>sen<rt class="S_S">without</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby>a <ruby>labor<rt class="XXL_L">work</rt></ruby>o; <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby>n <ruby>odor<rt class="XXL_L">reek</rt></ruby>on <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>do<rt class="XXL_L">so</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>i <ruby>al<rt class="XXL_L">to</rt></ruby> mi."<br>
+"He answered: you are <ruby>stan<rt class="XXL_L">tin</rt></ruby>d<ruby>ing<rt class="S_S">holder</rt></ruby> here to s<ruby>mel<rt class="S_S">badger</rt></ruby>l the good <ruby>odor<rt class="XXL_L">reek</rt></ruby> of my food; I cause that <ruby>odor<rt class="XXL_L">reek</rt></ruby>; that <ruby>odor<rt class="XXL_L">reek</rt></ruby> would <ruby>not<rt class="L_L">note</rt></ruby> exist without my work; the<ruby>re<rt class="XS_S">again</rt></ruby><ruby>for<rt class="XXL_L">far</rt></ruby>e you <ruby>mus<rt class="M_M">mouse</rt></ruby>t pay me <ruby>for<rt class="XXL_L">far</rt></ruby> that <ruby>odor<rt class="XXL_L">reek</rt></ruby>."<br>
+<br>
+"<ruby>Kio<rt class="M_M">What</rt></ruby>n <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>far<rt class="XXL_L">do</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>?"<br>
+"What did you do?"<br>
+<br>
+"Mi <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>konsent<rt class="XXL_L">Agree</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>.<br>
+"I <ruby>dis<rt class="M_M">apart</rt></ruby>agreed.<br>
+<br>
+<ruby>Sed<rt class="XXL_L">But</rt></ruby> <ruby>tiam<rt class="XXL_L">then</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>iĝ<rt class="XXS_S">beco<br>me</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>eg<rt class="XXS_S">extre<br>mely</rt></ruby>e <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>kontent<rt class="XL_L">satisfied</rt></ruby>a.<br>
+But then <ruby>he<rt class="M_M">hey!</rt></ruby> became <ruby>ver<rt class="S_S">TRUE</rt></ruby>y <ruby>dis<rt class="M_M">apart</rt></ruby>plea<ruby>sed<rt class="XXL_L">but</rt></ruby>.<br>
+<br>
+Li <ruby>pli<rt class="S_S">more</rt></ruby> <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>pli<rt class="S_S">more</rt></ruby> <ruby>vol<rt class="M_M">want</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>u.<br>
+He wan<ruby>ted<rt class="L_L">bore</rt></ruby> me to pay <ruby>mor<rt class="S_S">customs</rt></ruby>e and <ruby>mor<rt class="S_S">customs</rt></ruby>e.<br>
+<br>
+Mi <ruby>plu<rt class="M_M">more</rt></ruby> <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>ad<rt class="XXS_S">continu<br>ously</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>: ne.<br>
+I <ruby>kep<rt class="XXS_S">militar<br>y cap</rt></ruby>t answering: no.<br>
+<br>
+<ruby>Tiam<rt class="XXL_L">Then</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>decid<rt class="XL_L">decide</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>ir<rt class="S_S">go</rt></ruby>i <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o.<br>
+Then <ruby>he<rt class="M_M">hey!</rt></ruby> <ruby>decid<rt class="XL_L">decide</rt></ruby>ed to go to the <ruby>jud<rt class="L_L">Jew</rt></ruby>ge.<br>
+<br>
+<ruby>Kaj<rt class="XL_L">And</rt></ruby> <ruby>nun<rt class="XXL_L">now</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o <ruby>vol<rt class="M_M">want</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>ir<rt class="S_S">go</rt></ruby>u <ruby>al<rt class="XXL_L">to</rt></ruby> li!<br>
+And now the <ruby>jud<rt class="L_L">Jew</rt></ruby>ge wants me to go to him!<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>bon<rt class="L_L">good</rt></ruby><ruby>vol<rt class="M_M">want</rt></ruby><ruby>os<rt class="L_L">will</rt></ruby> <ruby>ven<rt class="M_M">arrive</rt></ruby>i <ruby>kun<rt class="XXL_L">with</rt></ruby> mi?<br>
+Would you please come with me?<br>
+<br>
+Mi <ruby>tim<rt class="XL_L">fear</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, ke, <ruby>sol<rt class="L_L">sole</rt></ruby>a, <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>sukces<rt class="XL_L">succeed</rt></ruby><ruby>os<rt class="L_L">will</rt></ruby> <ruby>far<rt class="XXL_L">do</rt></ruby>i, <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby> <ruby>afer<rt class="M_M">matter</rt></ruby>o <ruby>fin<rt class="M_M">end</rt></ruby><ruby>iĝ<rt class="XXS_S">beco<br>me</rt></ruby>u <ruby>bon<rt class="L_L">good</rt></ruby>e <ruby>por<rt class="XXL_L">for</rt></ruby> mi."<br>
+I'm afraid that, <ruby>al<rt class="XXL_L">to</rt></ruby>one, I won't succeed in mak<ruby>ing<rt class="S_S">holder</rt></ruby> this <ruby>mat<rt class="L_L">mate</rt></ruby><ruby>ter<rt class="S_S">earth</rt></ruby> <ruby>end<rt class="L_L">must</rt></ruby> well <ruby>for<rt class="XXL_L">far</rt></ruby> me."<br>
+<br>
+Afanti <ruby>dum<rt class="XL_L">while</rt></ruby> <ruby>minut<rt class="XL_L">minute</rt></ruby>eto <ruby>pri<rt class="S_S">about</rt></ruby><ruby>pens<rt class="XXL_L">think</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, <ruby>nenio<rt class="L_L">nothing</rt></ruby>n <ruby>dir<rt class="L_L">say</rt></ruby><ruby>ant<rt class="XXS_S">present p<br>articiple</rt></ruby>e.<br>
+Afanti thought <ruby>for<rt class="XXL_L">far</rt></ruby> a <ruby>minut<rt class="XL_L">minute</rt></ruby>e, say<ruby>ing<rt class="S_S">holder</rt></ruby> <ruby>not<rt class="L_L">note</rt></ruby>h<ruby>ing<rt class="S_S">holder</rt></ruby>.<br>
+<br>
+"<ruby>Est<rt class="XXL_L">Be</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>bon<rt class="L_L">good</rt></ruby>a <ruby>ide<rt class="L_L">idea</rt></ruby>o <ruby>ven<rt class="M_M">arrive</rt></ruby>i <ruby>pet<rt class="XL_L">ask</rt></ruby>i <ruby>mi<rt class="XL_L">my</rt></ruby>an <ruby>help<rt class="L_L">assist</rt></ruby>on," <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>fin<rt class="M_M">end</rt></ruby>e <ruby>el<rt class="XS_S">from</rt></ruby><ruby>parol<rt class="XL_L">speak</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>.<br>
+"It was a good <ruby>ide<rt class="L_L">idea</rt></ruby>a to come ask <ruby>for<rt class="XXL_L">far</rt></ruby> my <ruby>help<rt class="L_L">assist</rt></ruby>," <ruby>he<rt class="M_M">hey!</rt></ruby> <ruby>final<rt class="L_L">finale</rt></ruby>ly spoke.<br>
+<br>
+"<ruby>Tiu<rt class="XXS_S">That <br>one</rt></ruby> <ruby>afer<rt class="M_M">matter</rt></ruby>o <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>ordinar<rt class="XXL_L">usual</rt></ruby>a. <ruby>Ĝi<rt class="L_L">Its</rt></ruby> <ruby>tre<rt class="M_M">very</rt></ruby> <ruby>interes<rt class="XXL_L">interest</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby>n. <ruby>Ven<rt class="M_M">Arrive</rt></ruby>u, <ruby>ni<rt class="S_S">our</rt></ruby> <ruby>ir<rt class="S_S">go</rt></ruby>u <ruby>kun<rt class="XXL_L">with</rt></ruby>e <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ej<rt class="XXS_S">pla<br>ce</rt></ruby>o."<br>
+"This <ruby>mat<rt class="L_L">mate</rt></ruby><ruby>ter<rt class="S_S">earth</rt></ruby> is <ruby>not<rt class="L_L">note</rt></ruby> <ruby>ordinar<rt class="XXL_L">usual</rt></ruby>y. It <ruby>interes<rt class="XXL_L">interest</rt></ruby>ts me greatly. Come, let's go <ruby>tog<rt class="L_L">toga</rt></ruby><ruby>et<rt class="XS_S">small</rt></ruby>her to the courthouse."<br>
+<br>
+<ruby>Ĉiu<rt class="M_M">Each</rt></ruby>j <ruby>en<rt class="XXL_L">in</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>urb<rt class="XXL_L">city</rt></ruby>o <ruby>kon<rt class="L_L">know</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> Afantin.<br>
+E<ruby>ver<rt class="S_S">TRUE</rt></ruby>yone in the <ruby>cit<rt class="M_M">cite</rt></ruby>y knew Afanti.<br>
+<br>
+<ruby>Vid<rt class="XL_L">See</rt></ruby><ruby>ant<rt class="XXS_S">present p<br>articiple</rt></ruby>e <ruby>li<rt class="XS_S">his</rt></ruby>n <ruby>ir<rt class="S_S">go</rt></ruby>i <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ej<rt class="XXS_S">pla<br>ce</rt></ruby>o, <ruby>mult<rt class="L_L">many</rt></ruby>aj <ruby>hom<rt class="M_M">human</rt></ruby>oj <ruby>decid<rt class="XL_L">decide</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>sekv<rt class="XL_L">follow</rt></ruby>i.<br>
+See<ruby>ing<rt class="S_S">holder</rt></ruby> him go to the courthouse, <ruby>man<rt class="XL_L">hand</rt></ruby>y people <ruby>decid<rt class="XL_L">decide</rt></ruby>ed to follow.<br>
+<br>
+<ruby>Ili<rt class="XS_S">Their</rt></ruby> <ruby>sci<rt class="S_S">know</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, <ruby>ke<rt class="M_M">that</rt></ruby> Afanti <ruby>ĝeneral<rt class="XXL_L">general</rt></ruby>e <ruby>hav<rt class="XXL_L">own</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> specialan <ruby>manier<rt class="XXL_L">way</rt></ruby>on <ruby>respond<rt class="XXL_L">answer</rt></ruby>i <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>riĉ<rt class="M_M">rich</rt></ruby><ruby>ul<rt class="XXS_S">-per<br>son</rt></ruby>oj <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>grand<rt class="XXL_L">big</rt></ruby>-p<ruby>ov<rt class="M_M">egg</rt></ruby><ruby>ul<rt class="XXS_S">-per<br>son</rt></ruby>oj, <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>ili<rt class="XS_S">their</rt></ruby> <ruby>vol<rt class="M_M">want</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>perd<rt class="XXL_L">lose</rt></ruby>i <ruby>bon<rt class="L_L">good</rt></ruby>an <ruby>okaz<rt class="M_M">happen</rt></ruby>on <ruby>rid<rt class="S_S">laugh</rt></ruby>i.<br>
+They knew that Afanti generally had a special way of <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>ing<rt class="S_S">holder</rt></ruby> to the rich and powerful, and they didn't want to <ruby>mis<rt class="M_M">wrong</rt></ruby>s a good op<ruby>port<rt class="L_L">carry</rt></ruby>unity to laugh.<br>
+<br>
+<ruby>Kiam<rt class="XXL_L">When</rt></ruby> Afanti, <ruby>li<rt class="XS_S">his</rt></ruby>a <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>riĉ<rt class="M_M">rich</rt></ruby>a <ruby>amik<rt class="XL_L">friend</rt></ruby>o <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mult<rt class="L_L">many</rt></ruby>aj <ruby>urb<rt class="XXL_L">city</rt></ruby><ruby>an<rt class="XXS_S">mem<br>ber</rt></ruby>oj <ruby>en<rt class="XXL_L">in</rt></ruby><ruby>ir<rt class="S_S">go</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>parol<rt class="XL_L">speak</rt></ruby><ruby>ant<rt class="XXS_S">present p<br>articiple</rt></ruby>a <ruby>plej<rt class="L_L">most</rt></ruby> <ruby>amik<rt class="XL_L">friend</rt></ruby>e <ruby>kun<rt class="XXL_L">with</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>to.<br>
+When Afanti, his <ruby>po<rt class="S_S">each</rt></ruby>or fri<ruby>end<rt class="L_L">must</rt></ruby>, and the <ruby>man<rt class="XL_L">hand</rt></ruby>y townspeople <ruby>en<rt class="XXL_L">in</rt></ruby><ruby>ter<rt class="S_S">earth</rt></ruby>ed, the <ruby>jud<rt class="L_L">Jew</rt></ruby>ge was speak<ruby>ing<rt class="S_S">holder</rt></ruby> <ruby>most<rt class="XS_S">grape juice</rt></ruby> fri<ruby>end<rt class="L_L">must</rt></ruby>ly with the <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t owner.<br>
+<br>
+<ruby>Est<rt class="XXL_L">Be</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>klar<rt class="L_L">clear</rt></ruby>e, <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby>j <ruby>du<rt class="L_L">two</rt></ruby> <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>amik<rt class="XL_L">friend</rt></ruby>oj.<br>
+It was clear that those two were fri<ruby>end<rt class="L_L">must</rt></ruby>s.<br>
+<br>
+<ruby>Tio<rt class="M_M">That</rt></ruby>n <ruby>tuj<rt class="XXS_S">at o<br>nce</rt></ruby> <ruby>montr<rt class="XXL_L">show</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>unu<rt class="XXL_L">one</rt></ruby>aj <ruby>parol<rt class="XL_L">speak</rt></ruby>oj <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o:<br>
+The first w<ruby>ord<rt class="M_M">order</rt></ruby>s of the <ruby>jud<rt class="L_L">Jew</rt></ruby>ge im<ruby>medi<rt class="XL_L">enviro</rt></ruby>a<ruby>te<rt class="M_M">tea</rt></ruby>ly showed this:<br>
+<br>
+"Mi <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>, <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>konsent<rt class="XXL_L">Agree</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>i <ruby>al<rt class="XXL_L">to</rt></ruby> ĉi <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>to <ruby>la<rt class="M_M">the</rt></ruby> <ruby>prez<rt class="XXL_L">price</rt></ruby>on <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>odor<rt class="XXL_L">reek</rt></ruby>o, <ruby>kiu<rt class="L_L">who</rt></ruby>n <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>en<rt class="XXL_L">in</rt></ruby><ruby>ig<rt class="XXS_S">cau<br>se</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>en<rt class="XXL_L">in</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby>n <ruby>ĉe<rt class="XXL_L">at</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby>a <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby>o.<br>
+"I he<ruby>ard<rt class="L_L">fiery</rt></ruby> that you <ruby>dis<rt class="M_M">apart</rt></ruby>agree to pay this <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t owner the <ruby>pri<rt class="S_S">about</rt></ruby>ce <ruby>for<rt class="XXL_L">far</rt></ruby> the s<ruby>mel<rt class="S_S">badger</rt></ruby>l you inhaled at his <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t.<br>
+<br>
+<ruby>Tio<rt class="M_M">That</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>akcept<rt class="XXL_L">accept</rt></ruby><ruby>ebl<rt class="XS_S">possible</rt></ruby>a..."<br>
+This is <ruby>not<rt class="L_L">note</rt></ruby> ac<ruby>cep<rt class="M_M">onion</rt></ruby><ruby>tabl<rt class="L_L">table</rt></ruby>e..."<br>
+<br>
+"<ruby>Minut<rt class="XL_L">Minute</rt></ruby>e<ruby>ton<rt class="L_L">tone</rt></ruby>, <ruby>sinjor<rt class="S_S">gentleman</rt></ruby>o <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o, <ruby>bon<rt class="L_L">good</rt></ruby><ruby>vol<rt class="M_M">want</rt></ruby>u <ruby>atend<rt class="XXL_L">wait</rt></ruby>i <ruby>minut<rt class="XL_L">minute</rt></ruby>e<ruby>ton<rt class="L_L">tone</rt></ruby>," Afanti <ruby>inter<rt class="S_S">between</rt></ruby>-<ruby>romp<rt class="XXL_L">break</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>.<br>
+"One <ruby>moment<rt class="XXL_L">instant</rt></ruby>, Mr. <ruby>Jud<rt class="L_L">Jew</rt></ruby>ge, please wait a <ruby>moment<rt class="XXL_L">instant</rt></ruby>," Afanti <ruby>inter<rt class="S_S">between</rt></ruby>rup<ruby>ted<rt class="L_L">bore</rt></ruby>.<br>
+<br>
+"Ĉi <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby> <ruby>hom<rt class="M_M">human</rt></ruby>o <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby>a <ruby>frat<rt class="S_S">brother</rt></ruby>o, <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby><ruby>os<rt class="L_L">will</rt></ruby> <ruby>por<rt class="XXL_L">for</rt></ruby> li."<br>
+"This <ruby>man<rt class="XL_L">hand</rt></ruby> is my b<ruby>rot<rt class="XS_S">squad</rt></ruby>her, and I will pay <ruby>for<rt class="XXL_L">far</rt></ruby> him."<br>
+<br>
+Afanti <ruby>hav<rt class="XXL_L">own</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>kun<rt class="XXL_L">with</rt></ruby> <ruby>si<rt class="S_S">self</rt></ruby> <ruby>sak<rt class="XXL_L">bag</rt></ruby><ruby>et<rt class="XS_S">small</rt></ruby>on <ruby>plen<rt class="XXL_L">full</rt></ruby>an <ruby>je<rt class="XXL_L">at</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>o.<br>
+Afanti had a bag full of <ruby>mon<rt class="M_M">money</rt></ruby>ey with him.<br>
+<br>
+<ruby>Nun<rt class="XXL_L">Now</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>pren<rt class="XL_L">grasp</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>ĝi<rt class="L_L">its</rt></ruby>n, <ruby>ir<rt class="S_S">go</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>apud<rt class="XXL_L">near</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby><ruby>ton<rt class="L_L">tone</rt></ruby> <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>rapid<rt class="XXL_L">fast</rt></ruby>e <ruby>mov<rt class="L_L">move</rt></ruby><ruby>ad<rt class="XXS_S">continu<br>ously</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>tie<rt class="S_S">there</rt></ruby>n <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>re<rt class="XS_S">again</rt></ruby>en <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sak<rt class="XXL_L">bag</rt></ruby><ruby>et<rt class="XS_S">small</rt></ruby>on <ruby>antaŭ<rt class="XL_L">before</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby>a <ruby>vizaĝ<rt class="XXL_L">face</rt></ruby>o, <ruby>tiel<rt class="L_L">thus</rt></ruby> <ruby>ke<rt class="M_M">that</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>o <ruby>bel<rt class="XS_S">beautiful</rt></ruby>e <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>ebl<rt class="XS_S">possible</rt></ruby>e <ruby>son<rt class="M_M">sound</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>.<br>
+Now <ruby>he<rt class="M_M">hey!</rt></ruby> took it, went next to the <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t owner and quickly <ruby>mov<rt class="L_L">move</rt></ruby>ed the bag back and <ruby>fort<rt class="S_S">strong</rt></ruby>h in front of his <ruby>fac<rt class="L_L">face</rt></ruby>e, so that the <ruby>mon<rt class="M_M">money</rt></ruby>ey sounded ni<ruby>cel<rt class="XL_L">aim</rt></ruby>y audible.<br>
+<br>
+"Ĉi <ruby>tiu<rt class="XXS_S">that <br>one</rt></ruby> <ruby>sak<rt class="XXL_L">bag</rt></ruby><ruby>et<rt class="XS_S">small</rt></ruby>o <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>plen<rt class="XXL_L">full</rt></ruby>a <ruby>je<rt class="XXL_L">at</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>o.<br>
+"This bag is full of <ruby>mon<rt class="M_M">money</rt></ruby>ey.<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>ĝi<rt class="L_L">its</rt></ruby>n?<br>
+Do you hear it?<br>
+<br>
+<ruby>Bon<rt class="L_L">Good</rt></ruby>e <ruby>aŭskult<rt class="XXL_L">listen</rt></ruby>u.<br>
+Listen well.<br>
+<br>
+Ĉu <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>on?" <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>demand<rt class="XXL_L">ask</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>to.<br>
+Do you hear the <ruby>mon<rt class="M_M">money</rt></ruby>ey?" <ruby>he<rt class="M_M">hey!</rt></ruby> asked the <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t owner.<br>
+<br>
+"<ruby>Kompren<rt class="XL_L">Understand</rt></ruby><ruby>ebl<rt class="XS_S">possible</rt></ruby>e <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>on.<br>
+"Of co<ruby>urs<rt class="L_L">bear</rt></ruby>e I hear the <ruby>mon<rt class="M_M">money</rt></ruby>ey.<br>
+<br>
+Mia <ruby>aŭd<rt class="XL_L">hear</rt></ruby>-<ruby>pov<rt class="XXL_L">can</rt></ruby>o <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>tre<rt class="M_M">very</rt></ruby> <ruby>bon<rt class="L_L">good</rt></ruby>a.<br>
+My hearing <ruby>abi<rt class="XXL_L">fir</rt></ruby><ruby>lit<rt class="S_S">bed</rt></ruby>y is <ruby>ver<rt class="S_S">TRUE</rt></ruby>y good.<br>
+<br>
+<ruby>Kaj<rt class="XL_L">And</rt></ruby> eĉ <ruby>se<rt class="XXL_L">if</rt></ruby> <ruby>ĝi<rt class="L_L">its</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>us<rt class="XXXS_S">conditi<br>onal e<br>nding</rt></ruby> <ruby>bon<rt class="L_L">good</rt></ruby>a, <ruby>je<rt class="XXL_L">at</rt></ruby> <ruby>tia<rt class="S_S">such</rt></ruby> <ruby>proksim<rt class="XXL_L">nearby</rt></ruby><ruby>ec<rt class="XS_S">-ness</rt></ruby>o, <ruby>mi<rt class="XL_L">my</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>pov<rt class="XXL_L">can</rt></ruby><ruby>us<rt class="XXXS_S">conditi<br>onal e<br>nding</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>aŭd<rt class="XL_L">hear</rt></ruby>i <ruby>ĝi<rt class="L_L">its</rt></ruby>n.<br>
+And e<ruby>ven<rt class="M_M">arrive</rt></ruby> if it we<ruby>ren<rt class="S_S">kidney</rt></ruby>'t good, at such <ruby>pro<rt class="S_S">due to</rt></ruby>x<ruby>imit<rt class="M_M">mimic</rt></ruby>y, I couldn't <ruby>not<rt class="L_L">note</rt></ruby> hear it.<br>
+<br>
+<ruby>Cert<rt class="XL_L">Sure</rt></ruby>e <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>mult<rt class="L_L">many</rt></ruby>e <ruby>da<rt class="XXL_L">of</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>o <ruby>en<rt class="XXL_L">in</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby>a <ruby>sak<rt class="XXL_L">bag</rt></ruby>o.<br>
+There is <ruby>cert<rt class="XL_L">sure</rt></ruby>a<ruby>in<rt class="XXS_S">fem<br>ale</rt></ruby>ly a <ruby>lot<rt class="S_S">draw</rt></ruby> of <ruby>mon<rt class="M_M">money</rt></ruby>ey in your bag.<br>
+<br>
+Mi <ruby>aŭd<rt class="XL_L">hear</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>pli<rt class="S_S">more</rt></ruby> <ruby>ol<rt class="XS_S">than</rt></ruby> <ruby>sufiĉ<rt class="M_M">enough</rt></ruby>e.<br>
+I've he<ruby>ard<rt class="L_L">fiery</rt></ruby> <ruby>mor<rt class="S_S">customs</rt></ruby>e than <ruby>en<rt class="XXL_L">in</rt></ruby>ough.<br>
+<br>
+Mi <ruby>bezon<rt class="XXL_L">need</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>, <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>aŭd<rt class="XL_L">hear</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mon<rt class="M_M">money</rt></ruby>on, <ruby>sed<rt class="XXL_L">but</rt></ruby> <ruby>ricev<rt class="M_M">receive</rt></ruby>i <ruby>ĝi<rt class="L_L">its</rt></ruby>n.<br>
+I <ruby>ne<rt class="XL_L">not</rt></ruby>ed, <ruby>not<rt class="L_L">note</rt></ruby> to hear the <ruby>mon<rt class="M_M">money</rt></ruby>ey, but to receive it.<br>
+<br>
+<ruby>Don<rt class="XXL_L">Give</rt></ruby>u <ruby>ĝi<rt class="L_L">its</rt></ruby>n <ruby>al<rt class="XXL_L">to</rt></ruby> mi. <ruby>Kio<rt class="M_M">What</rt></ruby>n <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>atend<rt class="XXL_L">wait</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby>?"<br>
+Give it to me. What are you wait<ruby>ing<rt class="S_S">holder</rt></ruby> <ruby>for<rt class="XXL_L">far</rt></ruby>?"<br>
+<br>
+"Mi <ruby>atend<rt class="XXL_L">wait</rt></ruby><ruby>as<rt class="XXS_S">presen<br>t tense</rt></ruby> <ruby>nenio<rt class="L_L">nothing</rt></ruby>n.<br>
+"I am wait<ruby>ing<rt class="S_S">holder</rt></ruby> <ruby>for<rt class="XXL_L">far</rt></ruby> <ruby>not<rt class="L_L">note</rt></ruby>h<ruby>ing<rt class="S_S">holder</rt></ruby>.<br>
+<br>
+Mia <ruby>frat<rt class="S_S">brother</rt></ruby>o <ruby>kapt<rt class="XL_L">seize</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>odor<rt class="XXL_L">reek</rt></ruby>on <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby>aj <ruby>manĝ<rt class="XXL_L">eat</rt></ruby>oj.<br>
+My b<ruby>rot<rt class="XS_S">squad</rt></ruby>her caught the s<ruby>mel<rt class="S_S">badger</rt></ruby>l of your food.<br>
+<br>
+<ruby>Nun<rt class="XXL_L">Now</rt></ruby> <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>kapt<rt class="XL_L">seize</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>son<rt class="M_M">sound</rt></ruby>on <ruby>de<rt class="XS_S">of/from</rt></ruby> <ruby>mi<rt class="XL_L">my</rt></ruby>a <ruby>mon<rt class="M_M">money</rt></ruby>o.<br>
+Now you caught the sound of my <ruby>mon<rt class="M_M">money</rt></ruby>ey.<br>
+<br>
+Vi <ruby>ricev<rt class="M_M">receive</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>pag<rt class="XXL_L">pay</rt></ruby>on <ruby>simil<rt class="L_L">similar</rt></ruby>an <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>tio<rt class="M_M">that</rt></ruby>, <ruby>kio<rt class="M_M">what</rt></ruby>n <ruby>vi<rt class="XS_S">your</rt></ruby> <ruby>vend<rt class="XXL_L">sell</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>."<br>
+You received pay<ruby>ment<rt class="XXL_L">mint</rt></ruby> <ruby>simil<rt class="L_L">similar</rt></ruby>ar to what you <ruby>sold<rt class="XS_S">military pay</rt></ruby>."<br>
+<br>
+Afanti <ruby>turn<rt class="XXL_L">spin</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>si<rt class="S_S">self</rt></ruby>n <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> ĉe-<ruby>est<rt class="XXL_L">be</rt></ruby><ruby>ant<rt class="XXS_S">present p<br>articiple</rt></ruby>oj .<br>
+Afanti <ruby>turn<rt class="XXL_L">spin</rt></ruby>ed to the by<ruby>stan<rt class="XXL_L">tin</rt></ruby>ders.<br>
+<br>
+"Ĉu <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>ĝust<rt class="XXL_L">right</rt></ruby>e?"<br>
+"Isn't that right?"<br>
+<br>
+"<ruby>Tut<rt class="XS_S">Whole</rt></ruby>e <ruby>ĝust<rt class="XXL_L">right</rt></ruby>e!" <ruby>ĉiu<rt class="M_M">each</rt></ruby>j <ruby>sam<rt class="L_L">same</rt></ruby>-<ruby>temp<rt class="XXL_L">time</rt></ruby>e <ruby>respond<rt class="XXL_L">answer</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>.<br>
+"<ruby>Absolut<rt class="XL_L">Absolute</rt></ruby>ely right!" e<ruby>ver<rt class="S_S">TRUE</rt></ruby>yone answered at the <ruby>sam<rt class="L_L">same</rt></ruby>e <ruby>tim<rt class="XL_L">fear</rt></ruby>e.<br>
+<br>
+La <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>plu<rt class="M_M">more</rt></ruby> <ruby>pov<rt class="XXL_L">can</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>help<rt class="L_L">assist</rt></ruby>i <ruby>al<rt class="XXL_L">to</rt></ruby> <ruby>si<rt class="S_S">self</rt></ruby>a <ruby>amik<rt class="XL_L">friend</rt></ruby>o.<br>
+The <ruby>jud<rt class="L_L">Jew</rt></ruby>ge could no longer <ruby>help<rt class="L_L">assist</rt></ruby> his fri<ruby>end<rt class="L_L">must</rt></ruby>.<br>
+<br>
+La <ruby>popol<rt class="XL_L">people</rt></ruby>o <ruby>vid<rt class="XL_L">see</rt></ruby><ruby>ebl<rt class="XS_S">possible</rt></ruby>e <ruby>est<rt class="XXL_L">be</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>kun<rt class="XXL_L">with</rt></ruby> Afanti <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>kun<rt class="XXL_L">with</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mal<rt class="XS_S">opposite</rt></ruby><ruby>riĉ<rt class="M_M">rich</rt></ruby><ruby>ul<rt class="XXS_S">-per<br>son</rt></ruby>o, <ruby>kontraŭ<rt class="XXL_L">against</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby> <ruby>kaj<rt class="XL_L">and</rt></ruby> <ruby>li<rt class="XS_S">his</rt></ruby>a <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby>a <ruby>kun<rt class="XXL_L">with</rt></ruby><ruby>ul<rt class="XXS_S">-per<br>son</rt></ruby>o.<br>
+The people were vi<ruby>sibl<rt class="XL_L">hiss</rt></ruby>y with Afanti and the <ruby>po<rt class="S_S">each</rt></ruby>or <ruby>man<rt class="XL_L">hand</rt></ruby>, <ruby>ag<rt class="XL_L">act</rt></ruby>a<ruby>in<rt class="XXS_S">fem<br>ale</rt></ruby>st him and his <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t com<ruby>pan<rt class="M_M">bread</rt></ruby>ion.<br>
+<br>
+<ruby>Ĉiu<rt class="M_M">Each</rt></ruby>j <ruby>el<rt class="XS_S">from</rt></ruby><ruby>ir<rt class="S_S">go</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>el<rt class="XS_S">from</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ej<rt class="XXS_S">pla<br>ce</rt></ruby>o <ruby>rid<rt class="S_S">laugh</rt></ruby><ruby>ant<rt class="XXS_S">present p<br>articiple</rt></ruby>e.<br>
+E<ruby>ver<rt class="S_S">TRUE</rt></ruby>yone left the courthouse laugh<ruby>ing<rt class="S_S">holder</rt></ruby>.<br>
+<br>
+<ruby>Sed<rt class="XXL_L">But</rt></ruby> <ruby>ne<rt class="XL_L">not</rt></ruby> <ruby>rid<rt class="S_S">laugh</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>restoraci<rt class="XXL_L">eatery</rt></ruby><ruby>is<rt class="XS_S">was</rt></ruby>to.<br>
+But the <ruby>rest<rt class="XS_S">remainder</rt></ruby>au<ruby>ran<rt class="XL_L">frog</rt></ruby>t owner didn't laugh.<br>
+<br>
+<ruby>Nek<rt class="S_S">Neither</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>juĝ<rt class="S_S">judge</rt></ruby><ruby>ist<rt class="XXS_S">practit<br>ioner</rt></ruby>o.<br>
+Nor the <ruby>jud<rt class="L_L">Jew</rt></ruby>ge.</p></body></html>
