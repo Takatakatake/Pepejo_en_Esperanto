@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大多数の环境中で正常に运行するRuby显示功能</title>
+    <style>
+
+    html, body {
+      -webkit-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+  
+      :root {
+        --ruby-color: blue;
+        --ruby-font-size: 0.5em;
+      }
+      html {
+        font-size: 100%; /* 多くのブラウザは16px相当が標準 */
+      }
+
+      .text-M_M {
+        font-size: 1rem!important; 
+        font-family: Arial, sans-serif;
+        line-height: 2.0 !important;  /* text-M_Mのline-heightとrubyのline-heightは一致させる必要がある。 */
+        display: block; /* ブロック要素として扱う */
+        position: relative;
+      }
+  
+      /* ▼ ルビ（フレックスでルビを上に表示） */
+      ruby {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: top !important;
+        line-height: 2.0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 1rem !important;
+      }
+  
+      /* ▼ 追加マイナス余白（ルビサイズ別に上書き） */
+      rt {
+        display: block !important;
+        font-size: var(--ruby-font-size);
+        color: var(--ruby-color);
+        line-height: 1.05;/*ルビを改行するケースにおけるルビの行間*/
+        text-align: center;
+        /* margin-top: 0.2em !important;   
+        transform: translateY(0.4em) !important; */
+      }
+      rt.XXXS_S {
+        --ruby-font-size: 0.3em;
+        margin-top: -8.3em !important;/* ルビの高さ位置はここで調節する。 */
+        transform: translateY(-0em) !important;
+      }    
+      rt.XXS_S {
+        --ruby-font-size: 0.3em;
+        margin-top: -7.2em !important;/* ルビの高さ位置はここで調節する。 */
+        transform: translateY(-0em) !important;
+      }
+      rt.XS_S {
+        --ruby-font-size: 0.3em;
+        margin-top: -6.1em !important;
+        transform: translateY(-0em) !important;
+      }
+      rt.S_S {
+        --ruby-font-size: 0.4em;
+        margin-top: -4.85em !important;
+        transform: translateY(-0em) !important;
+      }
+      rt.M_M {
+        --ruby-font-size: 0.5em;
+        margin-top: -4.00em !important;
+        transform: translateY(-0.0em) !important;
+      }
+      rt.L_L {
+        --ruby-font-size: 0.6em; 
+        margin-top: -3.55em !important;
+        transform: translateY(-0.0em) !important;
+      }
+      rt.XL_L {
+        --ruby-font-size: 0.7em;
+        margin-top: -3.20em !important;
+        transform: translateY(-0.0em) !important;
+      }
+      rt.XXL_L {
+        --ruby-font-size: 0.8em;
+        margin-top: -2.80em !important;
+        transform: translateY(-0.0em) !important;
+      }
+  
+    </style>
+  </head>
+  <body>
+  <p class="text-M_M">
+はい、承知いたしました。添付PDFの各ページに書かれているエスペラント文を抽出し、その下に日本語訳を丁寧に追加していきます。ページごとに分けて、複数回にわたって回答させていただきます。<br>
+<br>
+まずは1ページ目からです。<br>
+<br>
+---<br>
+<br>
+**【1ページ目】**<br>
+<br>
+<ruby>Kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>raport<rt class="S_S">(を)報告する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>e <ruby>sur<rt class="XXS_S">(~の)<br>上に</rt></ruby> p.17-18, <ruby>jam<rt class="XL_L">既に</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby>a<ruby>foj<rt class="XXL_L">回</rt></ruby>e JEI <ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>bud<rt class="M_M">仮小屋</rt></ruby>on <ruby>dum<rt class="S_S">(~する)間</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>jar<rt class="XXL_L">年</rt></ruby><ruby>konferenc<rt class="XXL_L">会議</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Japana Konsilio <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>Instru<rt class="S_S">(を)教える</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Fremd<rt class="XL_L">他国の</rt></ruby>aj <ruby>Lingv<rt class="XXL_L">言語</rt></ruby>oj (<ruby>angl<rt class="XS_S">イギリス人</rt></ruby>a<ruby>lingv<rt class="XXL_L">言語</rt></ruby>a siglo: JACTFL), <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> ĉi-<ruby>jar<rt class="XXL_L">年</rt></ruby>e <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> 9-an <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mart<rt class="XXL_L">３月</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> Sophia-<ruby>Universitat<rt class="XXL_L">大学</rt></ruby>o, Tokio.<br>
+（日本語訳）17-18ページで報告されたように、すでに二度目になりますが、JEI（日本エスペラント協会）は、今年は3月9日に東京のソフィア大学（上智大学）で開催された外国語教育学会（英語の略称：JACTFL）の年次大会でブースを設けました。<br>
+<br>
+Eta “<ruby>brigad<rt class="XL_L">[軍]旅団</rt></ruby>o” <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>tri<rt class="XL_L">三</rt></ruby> <ruby>jun<rt class="L_L">若い</rt></ruby>aj <ruby>deĵor<rt class="M_M">当直する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>nur<rt class="XXS_S">ただ~<br>だけ</rt></ruby> <ruby>sid<rt class="XXS_S">座って<br>いる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> ĉe<ruby>tabl<rt class="XS_S">テーブル</rt></ruby>e, <ruby>sed<rt class="S_S">しかし</rt></ruby> eĉ <ruby>invad<rt class="M_M">侵入する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>preleg<rt class="S_S">(を)講演する</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> ĉi-<ruby>jar<rt class="XXL_L">年</rt></ruby>a <ruby>gast<rt class="XXL_L">客</rt></ruby><ruby>preleg<rt class="S_S">(を)講演する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>o, d-ro <RUBY>NOM<RT CLASS="XXL_L">名前</RT></RUBY>A H<ruby>ide<rt class="L_L">観念</rt></ruby>ki.<br>
+（日本語訳）3人の若い担当者からなる小さな「ブリガード（班）」は、テーブルに座っていただけでなく、今年のゲスト講演者である野間秀樹博士の講演にも乗り込みました。<br>
+<br>
+Dank' <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> li, <ruby>du<rt class="XXL_L">二</rt></ruby> <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>super<rt class="S_S">(~の)上方に</rt></ruby>a <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>super<rt class="S_S">(~の)上方に</rt></ruby>a <ruby>mez<rt class="M_M">まん中</rt></ruby><ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>oj <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>prezent<rt class="M_M">(を)差し出す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>aj <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>publik<rt class="XXL_L">公衆</rt></ruby>o <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>esperant<rt class="M_M">エスペラント</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby>oj.<br>
+（日本語訳）彼のおかげで、高校生と中学生の2人の生徒がエスペランティストとして一般に紹介されました。<br>
+<br>
+**[写真キャプション 右上]**<br>
+今日この場にも<br>
+エスペラントを学ぶ<br>
+中高生の方々が<br>
+（日本語訳）今日この場にもエスペラントを学ぶ中高生の方々が<br>
+<br>
+**En <ruby>fak<rt class="L_L">専門</rt></ruby>a <ruby>konferenc<rt class="XXL_L">会議</rt></ruby>o <ruby>aktiv<rt class="S_S">活動的な</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>jun<rt class="L_L">若い</rt></ruby>a “<ruby>brigad<rt class="XL_L">[軍]旅団</rt></ruby>o”!**<br>
+（日本語訳）専門会議で若い「ブリガード」が活躍！<br>
+<br>
+<ruby>Dum<rt class="S_S">(~する)間</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>konferenc<rt class="XXL_L">会議</rt></ruby>o <ruby>last<rt class="S_S">最後の</rt></ruby>- <ruby>kaj<rt class="L_L">and</rt></ruby> ĉi-<ruby>jar<rt class="XXL_L">年</rt></ruby>e <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>apart<rt class="L_L">別々の</rt></ruby>a <ruby>fak<rt class="L_L">専門</rt></ruby><ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>sid<rt class="XXS_S">座って<br>いる</rt></ruby>o, <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>super<rt class="S_S">(~の)上方に</rt></ruby><ruby>mez<rt class="M_M">まん中</rt></ruby><ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby><ruby>an<rt class="M_M">会員</rt></ruby>oj <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>aj <ruby>divers<rt class="XXL_L">様々な</rt></ruby>ajn <ruby>lingv<rt class="XXL_L">言語</rt></ruby>ojn <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>oj <ruby>parol<rt class="S_S">話しをする</rt></ruby>u <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>si<rt class="XS_S">自分</rt></ruby>a <ruby>ĝoj<rt class="L_L">喜ぶ</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>lingv<rt class="XXL_L">言語</rt></ruby>o-<ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o.<br>
+（日本語訳）昨年と今年の会議では、学校で様々な言語を学んでいる高校生が言語学習の喜びについて語る特別分科会が開かれました。<br>
+<br>
+<ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> eksklud<ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby>a <ruby>ĉar<rt class="XXS_S">だから<br>;車</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby><ruby>temp<rt class="XXL_L">時間</rt></ruby>e <ruby>en<rt class="M_M">中で</rt></ruby> japanaj <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>super<rt class="S_S">(~の)上方に</rt></ruby>aj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>super<rt class="S_S">(~の)上方に</rt></ruby>aj <ruby>mez<rt class="M_M">まん中</rt></ruby><ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>oj <ruby>preskaŭ<rt class="XXL_L">ほとんど</rt></ruby> <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>instru<rt class="S_S">(を)教える</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o (<ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kelk<rt class="S_S">幾つかの</rt></ruby>aj <ruby>escept<rt class="S_S">(を)除外する</rt></ruby>oj).<br>
+（日本語訳）現在、日本の中学・高校ではエスペラントの指導がほとんど行われていないため（いくつかの例外はあります）、エスペラントは除外されていました。<br>
+<br>
+<ruby>Pro<rt class="S_S">ために</rt></ruby> <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>neces<rt class="XXL_L">必要な</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>iom<rt class="XL_L">多少</rt></ruby> <ruby>da<rt class="XXL_L">の</rt></ruby> truko <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>montr<rt class="L_L">(を)示す</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby><ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>esperant<rt class="M_M">エスペラント</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby>aj <ruby>sam<rt class="M_M">同一の</rt></ruby><ruby>generaci<rt class="XXL_L">世代</rt></ruby>anoj, <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>pen<rt class="XS_S">努力する</rt></ruby>o <ruby>valor<rt class="XXL_L">価値</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> i.a. <ruby>ĉar<rt class="XXS_S">だから<br>;車</rt></ruby> Sugawa Soichiro, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>jam<rt class="XL_L">既に</rt></ruby> <ruby>menci<rt class="S_S">(を)言及する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>super<rt class="S_S">(~の)上方に</rt></ruby>a <ruby>mez<rt class="M_M">まん中</rt></ruby><ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>o, <ruby>esprim<rt class="S_S">(を)表現する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>si<rt class="XS_S">自分</rt></ruby>an <ruby>dezir<rt class="M_M">(を)望む</rt></ruby>on <ruby>parol<rt class="S_S">話しをする</rt></ruby>i <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>si<rt class="XS_S">自分</rt></ruby>a <ruby>lingv<rt class="XXL_L">言語</rt></ruby>o-<ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>okaz<rt class="L_L">起こる</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ven<rt class="XS_S">(に)来る</rt></ruby><ruby>ont<rt class="XXS_S">能動;<br>将然</rt></ruby><ruby>jar<rt class="XXL_L">年</rt></ruby>a <ruby>konferenc<rt class="XXL_L">会議</rt></ruby>o.<br>
+（日本語訳）そのため、同世代のエスペランティストの存在を示すには多少の工夫が必要でしたが、その努力は報われました。とりわけ、すでに言及した中学生の須川蒼一郎君が、来年の会議の際に自身の言語学習について話したいという希望を表明したからです。<br>
+<br>
+La <ruby>ĝeneral<rt class="XXL_L">全般の</rt></ruby>a <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>ven<rt class="XS_S">(に)来る</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nagoja <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o-<ruby>Centr<rt class="XXL_L">中心</rt></ruby>o <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>a <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> 9-a <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mart<rt class="XXL_L">３月</rt></ruby>o <ruby>konstat<rt class="M_M">(を)確認する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>organiz<rt class="M_M">(を)組織する</rt></ruby><ruby>aĵ<rt class="XS_S">事物</rt></ruby>o <ruby>sukces<rt class="XL_L">成功する</rt></ruby>e <ruby>tra<rt class="XS_S">通って</rt></ruby><ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>financ<rt class="XXL_L">財政</rt></ruby>an <ruby>kriz<rt class="XL_L">危機</rt></ruby>on <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby><ruby>ord<rt class="L_L">順序</rt></ruby>e <ruby>dis<rt class="M_M">分散</rt></ruby><ruby>volv<rt class="S_S">(を)巻く</rt></ruby>i <ruby>si<rt class="XS_S">自分</rt></ruby>ajn <ruby>divers<rt class="XXL_L">様々な</rt></ruby>ajn <ruby>ag<rt class="XXS_S">行動<br>する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>ojn, i.a. <ruby>or<rt class="XS_S">[化]金</rt></ruby><ruby>dig<rt class="L_L">堤防</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>bibliotek<rt class="XXL_L">図書館</rt></ruby>o.<br>
+（日本語訳）3月9日に開催された名古屋エスペラントセンターの総会では、同センターが財政危機を無事に乗り越え、図書館の整理など様々な活動を順調に展開できるようになったことが確認されました。<br>
+<br>
+Ĉi <ruby>last<rt class="S_S">最後の</rt></ruby>a <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>labor<rt class="XXL_L">働く</rt></ruby>o, <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>okup<rt class="XS_S">占めている</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o Jokohama <ruby>kaj<rt class="L_L">and</rt></ruby> JEI.<br>
+（日本語訳）この後者の作業は、現在横浜エスペラント会とJEIも取り組んでいるものです。<br>
+<br>
+<ruby>Ali<rt class="S_S">他の</rt></ruby>a “<ruby>brigad<rt class="XL_L">[軍]旅団</rt></ruby>ano” <ruby>dum<rt class="S_S">(~する)間</rt></ruby> JACTFL-<ruby>konferenc<rt class="XXL_L">会議</rt></ruby>o, <ruby>super<rt class="S_S">(~の)上方に</rt></ruby><ruby>mez<rt class="M_M">まん中</rt></ruby><ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby><ruby>an<rt class="M_M">会員</rt></ruby>o ISHIWARA Taiga, <ruby>parol<rt class="S_S">話しをする</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>Lingv<rt class="XXL_L">言語</rt></ruby>aj Olimpikoj <ruby>okaz<rt class="L_L">起こる</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Jun<rt class="L_L">若い</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>stud<rt class="XS_S">(を)研究する</rt></ruby>-<ruby>renkont<rt class="L_L">(に)出会う</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>o <ruby>je<rt class="XS_S">(~)に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>nom<rt class="XXL_L">名前</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> SOJO, <ruby>la<rt class="M_M">the</rt></ruby> 15-an <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mart<rt class="XXL_L">３月</rt></ruby>o.<br>
+（日本語訳）JACTFL会議のもう一人の「ブリガードメンバー」である高校生の石原大雅君は、3月15日にSOJO（青少年研修会）の名で開催された青少年学習会で言語オリンピックについて話しました。<br>
+<br>
+<ruby>Post<rt class="S_S">(~の)後で</rt></ruby>e iuj <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby><ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby>i simpozie<ruby>ton<rt class="XS_S">[楽]楽音</rt></ruby> <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> jida <ruby>lingv<rt class="XXL_L">言語</rt></ruby>o.<br>
+（日本語訳）その後、何人かはエスペラントとイディッシュ語に関する小シンポジウムに出席しました。<br>
+<br>
+(Vd. p.18 <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> ĉi <ruby>last<rt class="S_S">最後の</rt></ruby>a.)<br>
+（日本語訳）（この後者については18ページ参照。）<br>
+<br>
+**<ruby>Divers<rt class="XXL_L">様々な</rt></ruby><ruby>fot<rt class="XXS_S">写真を<br>撮る</rt></ruby>e...**<br>
+（日本語訳）様々な写真で…<br>
+<br>
+Vd. p.17 <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>detal<rt class="XXL_L">詳細</rt></ruby>oj<br>
+（日本語訳）詳細は17ページ参照<br>
+<br>
+<ruby>Spit<rt class="XXS_S">ものとも<br>しない</rt></ruby>e <ruby>la<rt class="M_M">the</rt></ruby> <ruby>pluv<rt class="XXL_L">雨</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> 29-a <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mart<rt class="XXL_L">３月</rt></ruby>o, <ruby>ses<rt class="XXL_L">六</rt></ruby> <ruby>an<rt class="M_M">会員</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> Gunma-<ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o-<ruby>Societ<rt class="XXL_L">会</rt></ruby>o <ruby>ekskurs<rt class="XL_L">遠足する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>rigard<rt class="L_L">(を)見る</rt></ruby>i <ruby>ĉeriz<rt class="XXS_S">[果]サク<br>ランボ</rt></ruby><ruby>flor<rt class="XXL_L">花</rt></ruby>ojn.<br>
+（日本語訳）3月29日の雨にもかかわらず、群馬エスペラント協会の6人の会員が桜を見るために遠足に出かけました。<br>
+<br>
+<ruby>Ili<rt class="XXS_S">それ<br>ら</rt></ruby>a <ruby>unu<rt class="XXL_L">一</rt></ruby>a <ruby>cel<rt class="M_M">目的</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>teatr<rt class="XXL_L">劇場</rt></ruby>o <ruby>konstru<rt class="M_M">(を)建造する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>en<rt class="M_M">中で</rt></ruby> 1937, <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>kontent<rt class="XXL_L">満足な</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>i <ruby>per<rt class="S_S">よって</rt></ruby> <ruby>komun<rt class="XXL_L">共通の</rt></ruby>a <ruby>fot<rt class="XXS_S">写真を<br>撮る</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>antaŭ<rt class="M_M">(~の)前に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ej<rt class="XS_S">場所</rt></ruby>o, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby><ruby>tag<rt class="XXL_L">日</rt></ruby>e <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>tut<rt class="XS_S">全部の</rt></ruby>e <ruby>rezerv<rt class="XXL_L">保留</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a.<br>
+（日本語訳）彼らの最初の目的地は1937年に建てられた劇場でしたが、その日は完全に予約されていたため、建物の前での集合写真で我慢しなければなりませんでした。<br>
+<br>
+<br>
+---<br>
+<br>
+**【2ページ目】**<br>
+<br>
+**[写真キャプション 中央]**<br>
+<ruby>Ren<rt class="XS_S">[解]腎臓</rt></ruby>KEJtiĝo の集合写真<br>
+（日本語訳）<ruby>Ren<rt class="XS_S">[解]腎臓</rt></ruby>KEJtiĝo（レンケイティーヂョ）の集合写真<br>
+<br>
+**<ruby>Resum<rt class="XXL_L">要約</rt></ruby>o: <ruby>Mi<rt class="XXL_L">私</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>Hispan<rt class="M_M">スペイン人</rt></ruby>io <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>labor<rt class="XXL_L">働く</rt></ruby><ruby>feri<rt class="L_L">休日</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o.**<br>
+（日本語訳）要約：私は今、ワーキングホリデーでスペインに住んでいます。<br>
+<br>
+**<ruby>Komenc<rt class="L_L">(を)始める</rt></ruby>e <ruby>en<rt class="M_M">中で</rt></ruby> Barcelono, <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>gast<rt class="XXL_L">客</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby> <ruby>lok<rt class="M_M">場所</rt></ruby>a <ruby>esperant<rt class="M_M">エスペラント</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby>a <ruby>par<rt class="L_L">一対</rt></ruby>o, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kvazaŭ<rt class="XS_S">まるで(~の)ように</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>aj <ruby>ge<rt class="M_M">男女</rt></ruby><ruby>av<rt class="S_S">祖父</rt></ruby>oj.**<br>
+（日本語訳）最初はバルセロナで、まるで私の祖父母のような地元のエスペランティストの夫婦のもてなしを受けました。<br>
+<br>
+**<ruby>Post<rt class="S_S">(~の)後で</rt></ruby>e <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>tut<rt class="XS_S">全部の</rt></ruby>e <ruby>surpriz<rt class="XS_S">(を不意に)驚かす</rt></ruby>e <ruby>kon<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby><ruby>generaci<rt class="XXL_L">世代</rt></ruby>anoj, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby>j <ruby>funkci<rt class="XXL_L">機能</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> Katalunan <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o-<ruby>Jun<rt class="L_L">若い</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>on.**<br>
+（日本語訳）その後、私は全く驚いたことに、カタルーニャ青年エスペラント会を運営している同世代の人たちと知り合いました。<br>
+<br>
+**<ruby>Ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>kvart<rt class="XS_S">[楽]四度音程</rt></ruby><ruby>ag<rt class="XXS_S">行動<br>する</rt></ruby>an <ruby>Ren<rt class="XS_S">[解]腎臓</rt></ruby>KEJtiĝon, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>tiom<rt class="XXS_S">そんな;あ<br>んなに</rt></ruby> <ruby>interes<rt class="XS_S">(に)興味を持たせる</rt></ruby>a <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>inspir<rt class="XXS_S">(を)心に吹<br>き込む</rt></ruby>a, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>ek<rt class="S_S">開始</rt></ruby><ruby>kov<rt class="XXS_S">抱いて<br>いる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> "<ruby>ambici<rt class="XXL_L">野心</rt></ruby>on” <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby>i ion <ruby>simil<rt class="S_S">よく似た</rt></ruby>an <ruby>ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> japana <ruby>esperant<rt class="M_M">エスペラント</rt></ruby><ruby>uj<rt class="XS_S">容器</rt></ruby>o!**<br>
+（日本語訳）彼らは4日間の<ruby>Ren<rt class="XS_S">[解]腎臓</rt></ruby>KEJtiĝo（レンケイティーヂョ）を開催しており、それはとても興味深く刺激的だったので、私は日本のエスペラント界でも同様のことをしたいという「野心」を抱くようになりました！<br>
+<br>
+**(TAKADA Ĵotaro)**<br>
+（日本語訳）（高田 城太朗）<br>
+<br>
+**La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o**<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+---<br>
+<br>
+<br>
+【3ページ目】<br>
+<br>
+<ruby>Akr<rt class="L_L">鋭い</rt></ruby>e<ruby>vid<rt class="XXS_S">見る;<br>会う</rt></ruby>e, <ruby>Akr<rt class="L_L">鋭い</rt></ruby>e<ruby>flar<rt class="XS_S">(を)嗅ぐ</rt></ruby>e – <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>ni<rt class="XS_S">私達</rt></ruby> <ruby>fos<rt class="XS_S">(を)掘る</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ni<rt class="XS_S">私達</rt></ruby>an <ruby>sulk<rt class="S_S">[農]うね</rt></ruby>on? (22)<br>
+（日本語訳）鋭い視点、鋭い閃き – 私たちはどのように自分たちの溝を掘るのか？ (22)<br>
+<br>
+Butano <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>idili<rt class="XS_S">[詩]牧歌</rt></ruby>a <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby><ruby>epok<rt class="XXL_L">時代</rt></ruby>a<br>
+（日本語訳）ブータンは牧歌的ではなく、同時代的である<br>
+<br>
+IŜIUĈI Joŝiki (<ruby>doktor<rt class="XXL_L">博士</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>anta <ruby>student<rt class="XXL_L">学生</rt></ruby>o, Gifu)<br>
+（日本語訳）石内 良季（博士課程学生、岐阜）<br>
+<br>
+[写真キャプション 左]<br>
+石内良季さんはブータンを研究している大学院生。ブータンに興味を持ったきっかけは、学部生のときに学生寮に引っ越してきたブータンからの留学生が「仙人と呼んでください」と自己紹介をしたからで…。(編集部)<br>
+（日本語訳）石内良季さんはブータンを研究している大学院生。ブータンに興味を持ったきっかけは、学部生のときに学生寮に引っ越してきたブータンからの留学生が「仙人と呼んでください」と自己紹介をしたからで…。(編集部)<br>
+<br>
+<ruby>Renkont<rt class="L_L">(に)出会う</rt></ruby>o<br>
+（日本語訳）出会い<br>
+<br>
+<ruby>Jam<rt class="XL_L">既に</rt></ruby> <ruby>proksim<rt class="XXL_L">近い</rt></ruby><ruby>um<rt class="XS_S">不定意味</rt></ruby>e <ruby>dek<rt class="XXL_L">十</rt></ruby> <ruby>jar<rt class="XXL_L">年</rt></ruby>oj <ruby>pas<rt class="XS_S">通過する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> de<ruby>post<rt class="S_S">(~の)後で</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>a <ruby>unu<rt class="XXL_L">一</rt></ruby>a <ruby>renkont<rt class="L_L">(に)出会う</rt></ruby>o <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> Butano.<br>
+（日本語訳）私が初めてブータンと出会ってから、もう約10年が経ちました。<br>
+<br>
+<ruby>Kiam<rt class="M_M">いつ(時)</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>diplom<rt class="XXL_L">免状</rt></ruby>a <ruby>student<rt class="XXL_L">学生</rt></ruby>o, <ruby>student<rt class="XXL_L">学生</rt></ruby>o <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby> Butano <ruby>trans<rt class="XS_S">(~の)向こうに</rt></ruby><ruby>lok<rt class="M_M">場所</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>pension<rt class="XXL_L">下宿屋</rt></ruby>on, <ruby>kie<rt class="XS_S">どこで</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby><ruby>temp<rt class="XXL_L">時間</rt></ruby>e <ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby>.<br>
+（日本語訳）私が学部生だった頃、ブータンからの学生が、私が当時住んでいた下宿に引っ越してきました。<br>
+<br>
+Mi <ruby>ankoraŭ<rt class="XXL_L">まだ</rt></ruby> <ruby>klar<rt class="S_S">明瞭な</rt></ruby>e <ruby>memor<rt class="S_S">(を)覚えている</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby> <ruby>ni<rt class="XS_S">私達</rt></ruby>a <ruby>unu<rt class="XXL_L">一</rt></ruby>a <ruby>renkont<rt class="L_L">(に)出会う</rt></ruby>o, <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>prezent<rt class="M_M">(を)差し出す</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>si<rt class="XS_S">自分</rt></ruby>n <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> mi: “<ruby>Nom<rt class="XXL_L">名前</rt></ruby>u <ruby>mi<rt class="XXL_L">私</rt></ruby>n <ruby>ermit<rt class="XXL_L">隠者</rt></ruby>o (japane: 仙人)”.<br>
+（日本語訳）私たちの最初の出会いで、彼が私に「私を仙人（日本語：仙人）と呼んでください」と自己紹介したことを、私は今でもはっきりと覚えています。<br>
+<br>
+Eĉ <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>sci<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kial<rt class="XXS_S">なぜ(理由<br>;原因)</rt></ruby> <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby>n.<br>
+（日本語訳）今でも、なぜ彼がそう言ったのか分かりません。<br>
+<br>
+<ruby>Sed<rt class="S_S">しかし</rt></ruby> <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>tre<rt class="XXS_S">たい<br>へん</rt></ruby> <ruby>kar<rt class="S_S">親愛な</rt></ruby>a <ruby>amik<rt class="XXL_L">友達</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>renkont<rt class="L_L">(に)出会う</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>ĉiu<rt class="XXS_S">各々の<br>;各~</rt></ruby><ruby>foj<rt class="XXL_L">回</rt></ruby>e <ruby>kiam<rt class="M_M">いつ(時)</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> Butano.<br>
+（日本語訳）しかし、彼は私にとってとても大切な友人となり、私がブータンに行くたびに彼に会っています。<br>
+<br>
+De <ruby>tiam<rt class="XXS_S">その時;<br>あの時</rt></ruby> <ruby>pas<rt class="XS_S">通過する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>dek<rt class="XXL_L">十</rt></ruby> <ruby>jar<rt class="XXL_L">年</rt></ruby>oj, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> Butanon <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>a <ruby>doktor<rt class="XXL_L">博士</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>o.<br>
+（日本語訳）それから10年が経ち、私は今、博士号取得のためにブータンを研究しています。<br>
+<br>
+Do <ruby>la<rt class="M_M">the</rt></ruby> <ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby> <ruby>jun<rt class="L_L">若い</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>ŝanĝ<rt class="S_S">(を)変える</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>pro<rt class="S_S">ために</rt></ruby> <ruby>li<rt class="S_S">彼</rt></ruby>a <ruby>renkont<rt class="L_L">(に)出会う</rt></ruby>o <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> Butano.<br>
+（日本語訳）つまり、一人の若者の人生は、ブータンとの出会いによって変わったのです。<br>
+<br>
+"<ruby>Kio<rt class="XXL_L">何</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> Butano?" – <ruby>Tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>fin<rt class="XS_S">終える</rt></ruby><ruby>fin<rt class="XS_S">終える</rt></ruby>a <ruby>demand<rt class="M_M">(を)質問する</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> mi.<br>
+（日本語訳）「ブータンとは何か？」– それが私にとっての究極の問いです。<br>
+<br>
+<ruby>Mal<rt class="S_S">正反対</rt></ruby><ruby>kaŝ<rt class="XS_S">(を)隠す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a Butano<br>
+（日本語訳）明らかにされたブータン<br>
+<br>
+Butano <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>grand<rt class="XL_L">大きい</rt></ruby>a <ruby>land<rt class="XXL_L">国</rt></ruby>o <ruby>situ<rt class="XXS_S">(地理的<br>)位置</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>a <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sud<rt class="XXL_L">南</rt></ruby>a <ruby>pied<rt class="L_L">[解]足</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> Himalaja <ruby>mont<rt class="XXL_L">山</rt></ruby>o<ruby>ĉen<rt class="XXL_L">鎖</rt></ruby>o, <ruby>ĉirkaŭ<rt class="S_S">~まわりに;約</rt></ruby><ruby>bar<rt class="L_L">障害</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>inter<rt class="S_S">(の)間に</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby> <ruby>kolos<rt class="XXL_L">巨像</rt></ruby>oj: Ĉinio <ruby>kaj<rt class="L_L">and</rt></ruby> Barato.<br>
+（日本語訳）ブータンは、ヒマラヤ山脈の南麓に位置し、中国とインドという2つの大国に挟まれた小さな国です。<br>
+<br>
+La <ruby>politik<rt class="XXL_L">政治</rt></ruby>a <ruby>sistem<rt class="XXL_L">体系</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>konstituci<rt class="XXL_L">[法]憲法</rt></ruby>a <ruby>monarki<rt class="XXL_L">君主政治</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby>a <ruby>reĝ<rt class="XXL_L">王</rt></ruby>o <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>kon<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby>a <ruby>en<rt class="M_M">中で</rt></ruby> Japanio <ruby>vizit<rt class="XXS_S">(を)訪問<br>する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>e <ruby>ĝi<rt class="XS_S">それ</rt></ruby>n <ruby>tuj<rt class="XS_S">すぐに</rt></ruby> <ruby>post<rt class="S_S">(~の)後で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ter<rt class="M_M">土地</rt></ruby><ruby>trem<rt class="L_L">震える</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> 2011, <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>aĵ<rt class="XS_S">事物</rt></ruby>o <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby><ruby>temp<rt class="XXL_L">時間</rt></ruby>e <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>font<rt class="XL_L">源泉</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>grav<rt class="M_M">重要な</rt></ruby>a <ruby>zorg<rt class="XS_S">世話をする</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>land<rt class="XXL_L">国</rt></ruby>o.<br>
+（日本語訳）政治体制は立憲君主制であり、現在の国王は2011年の地震の直後に日本を訪問したことで知られるようになりました。その出来事は当時、国内で大きな懸念の種となりました。<br>
+<br>
+[写真キャプション 中央]<br>
+<ruby>Kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>pejzaĝ<rt class="XXL_L">風景</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> Butano<br>
+（日本語訳）ブータンの田園風景<br>
+<br>
+La <ruby>rilat<rt class="XS_S">関係する</rt></ruby>o <ruby>inter<rt class="S_S">(の)間に</rt></ruby> Japanio <ruby>kaj<rt class="L_L">and</rt></ruby> Butano <ruby>komenc<rt class="L_L">(を)始める</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> 1957, <ruby>kiam<rt class="M_M">いつ(時)</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>reĝ<rt class="XXL_L">王</rt></ruby><ruby>in<rt class="XS_S">女性</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>tri<rt class="XL_L">三</rt></ruby>a <ruby>reĝ<rt class="XXL_L">王</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Butano <ruby>vizit<rt class="XXS_S">(を)訪問<br>する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> Japanion <ruby>sekret<rt class="XXL_L">秘密</rt></ruby>e <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>profesor<rt class="XXL_L">教授(人)</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> Uni<ruby>ver<rt class="S_S">本当の</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Kioto <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>temp<rt class="XXL_L">時間</rt></ruby>o <ruby>star<rt class="XS_S">立っている</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>amik<rt class="XXL_L">友達</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>ajn <ruby>rilat<rt class="XS_S">関係する</rt></ruby>ojn <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> Butano.<br>
+（日本語訳）日本とブータンの関係は1957年に始まりました。その年、ブータン第3代国王の王妃が密かに日本を訪問し、当時の京都大学の教授たちがブータンとの友好関係を築きました。<br>
+<br>
+<ruby>Tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>instig<rt class="S_S">(を)励ます</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> Nakao Sa<ruby>suk<rt class="XXL_L">汁</rt></ruby>e, <ruby>botanik<rt class="XXL_L">植物学</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby>o, <ruby>iĝ<rt class="XS_S">なる</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby>a japano <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>vizit<rt class="XXS_S">(を)訪問<br>する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> Butanon <ruby>en<rt class="M_M">中で</rt></ruby> 1958, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sekv<rt class="XS_S">(に)付き従う</rt></ruby>an <ruby>jar<rt class="XXL_L">年</rt></ruby>on <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby><ruby>don<rt class="M_M">与える</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>libr<rt class="XXL_L">本</rt></ruby>on <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>titol<rt class="XL_L">題名</rt></ruby>o: <ruby>Kaŝ<rt class="XS_S">(を)隠す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a Butano (japane:『秘境ブータン』).<br>
+（日本語訳）これがきっかけとなり、植物学者の中尾佐助は1958年に初めてブータンを訪問した日本人となり、翌年には『秘境ブータン』（日本語：『秘境ブータン』）というタイトルの本を出版しました。<br>
+<br>
+<ruby>Tiel<rt class="XXS_S">その;あ<br>の様に</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> ĉi <ruby>atribut<rt class="XXL_L">属性</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby><ruby>radik<rt class="XXL_L">根</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>kap<rt class="XXL_L">頭</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mult<rt class="M_M">多くの</rt></ruby>aj japanoj.<br>
+（日本語訳）このようにして、この属性（秘境というイメージ）が多くの日本人の頭の中に根付いたのです。<br>
+<br>
+<ruby>Kiam<rt class="M_M">いつ(時)</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>oj, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> Butanon, <ruby>oni<rt class="L_L">人々</rt></ruby> <ruby>oft<rt class="XXS_S">たび<br>たび</rt></ruby>e <ruby>demand<rt class="M_M">(を)質問する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>n: "Ĉu <ruby>oni<rt class="L_L">人々</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>facil<rt class="M_M">容易な</rt></ruby>e <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby>i <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> Butano?"<br>
+（日本語訳）私が人々にブータンを研究していると言うと、よく「ブータンには簡単に行けますか？」と聞かれます。<br>
+<br>
+<ruby>Cert<rt class="M_M">確かな</rt></ruby>e, Butano <ruby>ankoraŭ<rt class="XXL_L">まだ</rt></ruby> <ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>grav<rt class="M_M">重要な</rt></ruby>ajn <ruby>lim<rt class="M_M">境界</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>ojn <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>turism<rt class="XXL_L">観光</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mult<rt class="M_M">多くの</rt></ruby>e<ruby>kost<rt class="XS_S">(に)価する</rt></ruby>e <ruby>vojaĝ<rt class="M_M">旅行する</rt></ruby>i <ruby>tie<rt class="XS_S">そこで</rt></ruby>n.<br>
+（日本語訳）確かに、ブータンには依然として観光に関する大きな制限があり、そこへ旅行するのは費用がかかります。<br>
+<br>
+<ruby>Tamen<rt class="M_M">とはいえ;</rt></ruby>, <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ver<rt class="S_S">本当の</rt></ruby>e, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mult<rt class="M_M">多くの</rt></ruby>e <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>facil<rt class="M_M">容易な</rt></ruby>e <ruby>vojaĝ<rt class="M_M">旅行する</rt></ruby>i <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> Butano <ruby>ol<rt class="XXS_S">~より<br>も</rt></ruby> <ruby>antaŭ<rt class="M_M">(~の)前に</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby><ruby>on<rt class="M_M">分数</rt></ruby><ruby>jar<rt class="XXL_L">年</rt></ruby><ruby>cent<rt class="XXL_L">百</rt></ruby>o <ruby>kiam<rt class="M_M">いつ(時)</rt></ruby> s-ro Nakao <ruby>vizit<rt class="XXS_S">(を)訪問<br>する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby>n.<br>
+（日本語訳）しかし、中尾氏が訪問した半世紀前と比べると、現在ブータンへ旅行するのはずっと簡単になっているのは事実です。<br>
+<br>
+Butano <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>plu<rt class="S_S">さらに</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> “<ruby>kaŝ<rt class="XS_S">(を)隠す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a” <ruby>land<rt class="XXL_L">国</rt></ruby>o <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>land<rt class="XXL_L">国</rt></ruby>o, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby>n <ruby>oni<rt class="L_L">人々</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ating<rt class="M_M">(に)着く</rt></ruby>i <ruby>nur<rt class="XXS_S">ただ~<br>だけ</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby> <ruby>tag<rt class="XXL_L">日</rt></ruby>o <ruby>per<rt class="S_S">よって</rt></ruby> <ruby>aviad<rt class="XXL_L">航空</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>o.<br>
+（日本語訳）ブータンはもはや「隠された」国ではなく、飛行機でわずか1日で到達できる国なのです。<br>
+<br>
+La <ruby>bild<rt class="XXL_L">絵</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Butano <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> "<ruby>kaŝ<rt class="XS_S">(を)隠す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>land<rt class="XXL_L">国</rt></ruby>o" <ruby>ankoraŭ<rt class="XXL_L">まだ</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby><ruby>kroĉ<rt class="XS_S">ひっ掛ける</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby> <ruby>hodiaŭ<rt class="XXL_L">今日</rt></ruby>.<br>
+（日本語訳）ブータンの「隠された国」としてのイメージは、今日でも依然としてそれに付きまとっています。<br>
+<br>
+<ruby>Tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ia<rt class="XXS_S">ある<br>種の</rt></ruby> orientalisma <ruby>perspektiv<rt class="XXL_L">展望</rt></ruby>o.<br>
+（日本語訳）これはある種のオリエンタリズム的な視点です。<br>
+<br>
+<ruby>Vojaĝ<rt class="M_M">旅行する</rt></ruby>o al/en Butano <ruby>mult<rt class="M_M">多くの</rt></ruby>e<ruby>kost<rt class="XS_S">(に)価する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>pro<rt class="S_S">ために</rt></ruby> <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby><ruby>mult<rt class="M_M">多くの</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>vojaĝ<rt class="M_M">旅行する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby> Japanio <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>jun<rt class="L_L">若い</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>oj <ruby>financ<rt class="XXL_L">財政</rt></ruby>e <ruby>bon<rt class="XL_L">良い</rt></ruby><ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby>aj.<br>
+（日本語訳）ブータンへの旅行は費用がかかるため、日本からの旅行者の多くは経済的に裕福な高齢者です。<br>
+<br>
+<ruby>Mult<rt class="M_M">多くの</rt></ruby>aj <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby> <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> Butano <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>sent<rt class="XS_S">(を)感じる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>sopir<rt class="XS_S">(を)恋しがる</rt></ruby>on <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>iam<rt class="S_S">ある時</rt></ruby>a Japanio.<br>
+（日本語訳）彼らの多くは、ブータンでかつての日本への郷愁を感じたと言います。<br>
+<br>
+La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+<br>
+<br>
+---<br>
+<br>
+**【4ページ目】**<br>
+<br>
+**<ruby>Est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ver<rt class="S_S">本当の</rt></ruby>e, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> butananoj <ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>vizaĝ<rt class="XXL_L">顔</rt></ruby>ojn <ruby>simil<rt class="S_S">よく似た</rt></ruby>ajn <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby>j <ruby>de<rt class="XS_S">の;から</rt></ruby> japanoj, <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> budh<ruby>an<rt class="M_M">会員</rt></ruby>oj <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> japanoj, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> agrikulturan <ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>stil<rt class="M_M">文体</rt></ruby>on <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>riz<rt class="XS_S">[料]米</rt></ruby>o <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>baz<rt class="XL_L">基礎</rt></ruby><ruby>manĝ<rt class="S_S">(を)食べる</rt></ruby><ruby>aĵ<rt class="XS_S">事物</rt></ruby>o.**<br>
+（日本語訳）ブータン人が日本人と似た顔立ちをしていること、彼らが日本人と同じように仏教徒であること、そして米を主食とする農業生活を送っていることは事実です。<br>
+<br>
+**Ne <ruby>mir<rt class="XXS_S">不思議<br>に思う</rt></ruby><ruby>ind<rt class="L_L">価値</rt></ruby>e <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>ekzist<rt class="M_M">存在する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tia<rt class="XS_S">そんな</rt></ruby>j <ruby>simil<rt class="S_S">よく似た</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>oj <ruby>inter<rt class="S_S">(の)間に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby> <ruby>popol<rt class="XXL_L">人民</rt></ruby>oj.**<br>
+（日本語訳）両国民の間にそのような類似点が存在するのは驚くことではありません。<br>
+<br>
+**S-ro Nakao <ruby>ja<rt class="XS_S">実に</rt></ruby> <ruby>lok<rt class="M_M">場所</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> Butanon <ruby>kaj<rt class="L_L">and</rt></ruby> Japanion <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>okcident<rt class="XXL_L">西</rt></ruby>a <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>orient<rt class="XS_S">方位定める;東</rt></ruby>a <ruby>lim<rt class="M_M">境界</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> “<ruby>laŭr<rt class="XS_S">[植]月桂樹</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby><ruby>arb<rt class="XXL_L">木</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>kultur<rt class="XS_S">(を)栽培する</rt></ruby><ruby>sfer<rt class="M_M">[数]球</rt></ruby>o (japane: 照葉樹林文化論)”, <ruby>kies<rt class="XXS_S">だれの<br>(所有)</rt></ruby> <ruby>ekzist<rt class="M_M">存在する</rt></ruby>on <ruby>premis<rt class="XXL_L">前提</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>li<rt class="S_S">彼</rt></ruby>a <ruby>teori<rt class="XXL_L">理論</rt></ruby>a <ruby>hipotez<rt class="XXL_L">仮説</rt></ruby>o.**<br>
+（日本語訳）中尾氏は実際に、ブータンと日本を「照葉樹林文化圏（日本語：照葉樹林文化論）」の西端と東端に位置づけており、その存在は彼の理論的仮説を前提としています。<br>
+<br>
+**Butano <ruby>ŝanĝ<rt class="S_S">(を)変える</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>a**<br>
+（日本語訳）変化するブータン<br>
+<br>
+**<ruby>Antaŭ<rt class="M_M">(~の)前に</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>ol<rt class="XXS_S">~より<br>も</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby><ruby>on<rt class="M_M">分数</rt></ruby><ruby>jar<rt class="XXL_L">年</rt></ruby><ruby>cent<rt class="XXL_L">百</rt></ruby>o, japana <ruby>kultur<rt class="XS_S">(を)栽培する</rt></ruby>a <ruby>antropolog<rt class="XXL_L">人類学者</rt></ruby>o YONEYAMA Toshinao, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>o Ōtō (japane: 大塔村 ) <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>guberni<rt class="XXL_L">県</rt></ruby>o Nara, <ruby>skrib<rt class="M_M">(を)書く</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>jen<rt class="XXS_S">そらこ<br>こに</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>libr<rt class="XXL_L">本</rt></ruby>o *<ruby>Soci<rt class="XXL_L">社会</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o* (japane:『過疎社会』): “La <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ĉirkaŭ<rt class="S_S">~まわりに;約</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mont<rt class="XXL_L">山</rt></ruby>oj <ruby>alt<rt class="S_S">高い</rt></ruby>aj <ruby>ĉirkaŭ<rt class="S_S">~まわりに;約</rt></ruby> 800 <ruby>ĝis<rt class="XS_S">(~)まで</rt></ruby> 1 000 <ruby>metr<rt class="XS_S">[単]メートル</rt></ruby>oj, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>okup<rt class="XS_S">占めている</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>val<rt class="S_S">[地]谷</rt></ruby><ruby>fund<rt class="XXL_L">底</rt></ruby>on <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>mont<rt class="XXL_L">山</rt></ruby>o<ruby>flank<rt class="XXL_L">側</rt></ruby>on.**<br>
+（日本語訳）半世紀以上前、日本の文化人類学者である米山俊直氏は、奈良県の大塔村（日本語：大塔村）で調査を行い、著書『過疎社会』（日本語：『過疎社会』）に次のように記しました。「その村は標高約800メートルから1000メートルの高い山々に囲まれ、谷底と山腹を占めている。」<br>
+<br>
+**[写真キャプション 左]**<br>
+<ruby>Tradici<rt class="XXL_L">伝統</rt></ruby>aj bu<ruby>tan<rt class="S_S">なめす</rt></ruby>aj <ruby>dom<rt class="XXL_L">家</rt></ruby>oj<br>
+（日本語訳）伝統的なブータンの家<br>
+<br>
+**<ruby>Vilaĝ<rt class="XXL_L">村</rt></ruby>o Ōto <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>us<rt class="XS_S">条件法</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby>i <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> Butano <ruby>de<rt class="XS_S">の;から</rt></ruby> Japanio.”**<br>
+（日本語訳）「大塔村は日本のブータンのようであるかもしれない。」<br>
+<br>
+**La <ruby>cel<rt class="M_M">目的</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> s-ro Yoneyama <ruby>vizit<rt class="XXS_S">(を)訪問<br>する</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>on <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> Japanio, <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>prefer<rt class="S_S">(を)より好む</rt></ruby>e <ruby>ol<rt class="XXS_S">~より<br>も</rt></ruby> <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby>, <ruby>li<rt class="S_S">彼</rt></ruby>an <ruby>atent<rt class="M_M">注意深い</rt></ruby>on <ruby>for<rt class="XS_S">離れて</rt></ruby><ruby>log<rt class="XS_S">気を引く</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>pejzaĝ<rt class="XXL_L">風景</rt></ruby>o.**<br>
+（日本語訳）米山氏がその村を訪れた目的は、日本の農村の過疎化を調査することでしたが、それよりもむしろ、彼の注意は田園風景に引きつけられました。<br>
+<br>
+**Do <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>rimark<rt class="M_M">(に)気づく</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby>: “La <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tut<rt class="XS_S">全部の</rt></ruby>e <ruby>simil<rt class="S_S">よく似た</rt></ruby>a <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> Butano <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> Himalajo.”**<br>
+（日本語訳）そこで彼はこう気づきました。「その村はヒマラヤのブータンと全く同じである。」<br>
+<br>
+**<ruby>Tamen<rt class="M_M">とはいえ;</rt></ruby>, <ruby>pas<rt class="XS_S">通過する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>du<rt class="XXL_L">二</rt></ruby><ruby>on<rt class="M_M">分数</rt></ruby><ruby>jar<rt class="XXL_L">年</rt></ruby><ruby>cent<rt class="XXL_L">百</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>situaci<rt class="XXL_L">事態</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> Butano <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>tut<rt class="XS_S">全部の</rt></ruby>e <ruby>simil<rt class="S_S">よく似た</rt></ruby>a <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>mez<rt class="M_M">まん中</rt></ruby><ruby>mont<rt class="XXL_L">山</rt></ruby>a <ruby>region<rt class="XL_L">[地]地方</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Japanio, <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>o Ōto.**<br>
+（日本語訳）しかし、半世紀が経ち、現在のブータンの状況は、大塔村のような日本の中山間地域の農村と全く同じになりました。<br>
+<br>
+**<ruby>Ali<rt class="S_S">他の</rt></ruby><ruby>vort<rt class="M_M">[文]語</rt></ruby>e, <ruby>sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>problem<rt class="XXL_L">問題</rt></ruby>oj <ruby>asoci<rt class="XXL_L">協会</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>aj <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>kresk<rt class="XS_S">(に)成長する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>grav<rt class="M_M">重要な</rt></ruby>aj <ruby>problem<rt class="XXL_L">問題</rt></ruby>oj <ruby>en<rt class="M_M">中で</rt></ruby> Butano.**<br>
+（日本語訳）言い換えれば、過疎化と人口減少に伴う問題が、現在ブータンで深刻な問題となっているのです。<br>
+<br>
+**<ruby>Fon<rt class="L_L">背景</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>kuŝ<rt class="XXS_S">横たわっ<br>ている</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>divers<rt class="XXL_L">様々な</rt></ruby>aj <ruby>faktor<rt class="XXL_L">要因</rt></ruby>oj, <ruby>inkluziv<rt class="XXL_L">含んだ</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>materi<rt class="XXL_L">物質</rt></ruby>aj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ekonomi<rt class="XXL_L">経済</rt></ruby>aj <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>egal<rt class="M_M">等しい</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>oj <ruby>inter<rt class="S_S">(の)間に</rt></ruby> <ruby>urb<rt class="XXL_L">市</rt></ruby>a <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a areoj <ruby>kaŭz<rt class="XXL_L">原因</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>aj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>last<rt class="S_S">最後の</rt></ruby>a<ruby>temp<rt class="XXL_L">時間</rt></ruby>a <ruby>evolu<rt class="M_M">進化する</rt></ruby><ruby>tendenc<rt class="XXL_L">傾向</rt></ruby>o, <ruby>eduk<rt class="XS_S">(を)教育する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o, <ruby>medicin<rt class="XXL_L">医学</rt></ruby>o, <ruby>inform<rt class="S_S">(を)通報する</rt></ruby><ruby>flu<rt class="XS_S">流れる</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> infrastrukturo.**<br>
+（日本語訳）その背景には、近年の開発傾向、教育、医療、情報格差、インフラ整備などによって引き起こされた都市部と農村部の物質的・経済的格差を含む様々な要因があります。<br>
+<br>
+**<ruby>Viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>e <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby>a <ruby>epok<rt class="XXL_L">時代</rt></ruby>o**<br>
+（日本語訳）同じ時代に生きる<br>
+<br>
+**"Mia <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>o <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>aper<rt class="L_L">現れる</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby>," <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby><ruby>an<rt class="M_M">会員</rt></ruby>o, <ruby>baldaŭ<rt class="L_L">まもなく</rt></ruby> <ruby>post<rt class="S_S">(~の)後で</rt></ruby> <ruby>kiam<rt class="M_M">いつ(時)</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>komenc<rt class="L_L">(を)始める</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>an <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>orient<rt class="XS_S">方位定める;東</rt></ruby>a Butano.**<br>
+（日本語訳）「私の村は消えるだろう」と、私が東ブータンでの調査を始めて間もなく、ある村人が私に言いました。<br>
+<br>
+**[写真キャプション 右]**<br>
+En <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ĉef<rt class="XXL_L">主</rt></ruby><ruby>urb<rt class="XXL_L">市</rt></ruby>o <ruby>Tim<rt class="S_S">恐れる</rt></ruby>puo<br>
+（日本語訳）首都ティンプーにて<br>
+<br>
+**Mi <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>sur<rt class="XXS_S">(~の)<br>上に</rt></ruby>l<ruby>kamp<rt class="XXL_L">野原</rt></ruby>an <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a Butano <ruby>dum<rt class="S_S">(~する)間</rt></ruby> <ruby>proksim<rt class="XXL_L">近い</rt></ruby><ruby>um<rt class="XS_S">不定意味</rt></ruby>e <ruby>du<rt class="XXL_L">二</rt></ruby> <ruby>jar<rt class="XXL_L">年</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> 2022 <ruby>ĝis<rt class="XS_S">(~)まで</rt></ruby> 2024.**<br>
+（日本語訳）私は2022年から2024年までの約2年間、ブータンの農村部で現地調査を行いました。<br>
+<br>
+**La areo <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>orient<rt class="XS_S">方位定める;東</rt></ruby>a Butano <ruby>kie<rt class="XS_S">どこで</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>unu<rt class="XXL_L">一</rt></ruby> <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> areoj <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>plej<rt class="XL_L">最も</rt></ruby> <ruby>rapid<rt class="XXL_L">速い</rt></ruby>e <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>kresk<rt class="XS_S">(に)成長する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>a <ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mult<rt class="M_M">多くの</rt></ruby>aj <ruby>vak<rt class="XXS_S">あいて<br>いる</rt></ruby>aj <ruby>dom<rt class="XXL_L">家</rt></ruby>oj, <ruby>for<rt class="XS_S">離れて</rt></ruby><ruby>las<rt class="XS_S">手放す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>aj <ruby>kultur<rt class="XS_S">(を)栽培する</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>oj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>dezert<rt class="XXL_L">砂漠</rt></ruby>aj <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby>oj.**<br>
+（日本語訳）その地域は東ブータンにあり、最も急速に人口が減少している地域の一つで、多くの空き家、放棄された耕作地、廃村があります。<br>
+<br>
+**En <ruby>rapid<rt class="XXL_L">速い</rt></ruby>e <ruby>ŝanĝ<rt class="S_S">(を)変える</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>a <ruby>soci<rt class="XXL_L">社会</rt></ruby>o, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>vilaĝ<rt class="XXL_L">村</rt></ruby><ruby>an<rt class="M_M">会員</rt></ruby>oj <ruby>ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby>a <ruby>ŝanĝ<rt class="S_S">(を)変える</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>i.**<br>
+（日本語訳）急速に変化する社会において、村人の生活もまた変化を余儀なくされています。<br>
+<br>
+**Mi <ruby>nun<rt class="XXL_L">今</rt></ruby><ruby>temp<rt class="XXL_L">時間</rt></ruby>e <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>histori<rt class="XXL_L">歴史</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>kamp<rt class="XXL_L">野原</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>a <ruby>orient<rt class="XS_S">方位定める;東</rt></ruby>a Butano <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>influ<rt class="XXS_S">影響を<br>与える</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>kresk<rt class="XS_S">(に)成長する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o <ruby>sur<rt class="XXS_S">(~の)<br>上に</rt></ruby> <ruby>lok<rt class="M_M">場所</rt></ruby>aj <ruby>komun<rt class="XXL_L">共通の</rt></ruby><ruby>um<rt class="XS_S">不定意味</rt></ruby>oj.**<br>
+（日本語訳）私は現在、東ブータンの農村の歴史と、人口減少が地域社会に与える影響について研究しています。<br>
+<br>
+**<ruby>Kio<rt class="XXL_L">何</rt></ruby>n <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>prov<rt class="S_S">(を)試す</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby>i <ruby>en<rt class="M_M">中で</rt></ruby> ĉi <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>artikol<rt class="M_M">記事;冠詞</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> Butano <ruby>tut<rt class="XS_S">全部の</rt></ruby>e <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> “<ruby>mister<rt class="XXL_L">神秘</rt></ruby>a <ruby>land<rt class="XXL_L">国</rt></ruby>o” <ruby>aŭ<rt class="XS_S">または</rt></ruby> “<ruby>tradici<rt class="XXL_L">伝統</rt></ruby>a <ruby>soci<rt class="XXL_L">社会</rt></ruby>o <ruby>post<rt class="S_S">(~の)後で</rt></ruby><ruby>las<rt class="XS_S">手放す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>pas<rt class="XS_S">通過する</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o”.**<br>
+（日本語訳）この記事で私が言いたかったことは、ブータンは決して「神秘の国」でも「過去に取り残された伝統社会」でもないということです。<br>
+<br>
+**<ruby>Mal<rt class="S_S">正反対</rt></ruby>e, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>nun<rt class="XXL_L">今</rt></ruby>aj butananoj <ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby>a <ruby>epok<rt class="XXL_L">時代</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby><ruby>front<rt class="XXL_L">正面</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby>ajn defiojn <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> japanoj.**<br>
+（日本語訳）それどころか、現在のブータン人は日本人と同じ時代に生き、同じ課題に直面しています。<br>
+<br>
+**Mia <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> Butano <ruby>komenc<rt class="L_L">(を)始める</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>ĝust<rt class="M_M">正しい</rt></ruby>e <ruby>per<rt class="S_S">よって</rt></ruby> ĉi <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>koncept<rt class="XXL_L">概念</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby><ruby>temp<rt class="XXL_L">時間</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o.**<br>
+（日本語訳）私のブータン研究は、まさにこの同時代性という概念から始まりました。<br>
+<br>
+**Se <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>de<rt class="XS_S">の;から</rt></ruby><ruby>nov<rt class="S_S">新しい</rt></ruby>e <ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>ŝanc<rt class="XXL_L">機会</rt></ruby>on, <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>cert<rt class="M_M">確かな</rt></ruby>e <ruby>skrib<rt class="M_M">(を)書く</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>detal<rt class="XXL_L">詳細</rt></ruby>a <ruby>en<rt class="M_M">中で</rt></ruby><ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>a <ruby>esplor<rt class="S_S">(を)探求する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o.**<br>
+（日本語訳）もし再び機会があれば、私の研究の詳細な内容について必ず書きます。<br>
+<br>
+**La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o**<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+<br>
+<br>
+---<br>
+<br>
+**【5ページ目】**<br>
+<br>
+**<ruby>Neniam<rt class="S_S">決して~ないtd></rt></ruby> eĉ <ruby>unu<rt class="XXL_L">一</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>on! (2)**<br>
+（日本語訳）核兵器は一発たりとも許さない！ (2)<br>
+<br>
+**— <ruby>Preleg<rt class="S_S">(を)講演する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Nobel<rt class="XXL_L">貴族</rt></ruby>-<ruby>Premi<rt class="XXL_L">賞品</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>Pac<rt class="XL_L">平和</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> 2024 —**<br>
+（日本語訳）— 2024年ノーベル平和賞受賞講演 —<br>
+<br>
+**<ruby>Tan<rt class="S_S">なめす</rt></ruby>aka <ruby>Ter<rt class="M_M">土地</rt></ruby><ruby>um<rt class="XS_S">不定意味</rt></ruby>i <ruby>de<rt class="XS_S">の;から</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo, <ruby>Traduk<rt class="S_S">(を)翻訳する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>de<rt class="XS_S">の;から</rt></ruby> H<ruby>or<rt class="XS_S">[化]金</rt></ruby>i Jasuo**<br>
+（日本語訳）日本被団協 田中熙巳、翻訳：堀泰雄<br>
+<br>
+**2024年ノーベル平和賞講演 (2)**<br>
+（日本語訳）2024年ノーベル平和賞講演 (2)<br>
+<br>
+**日本被団協 田中熙巳、エスペラント訳 堀泰雄**<br>
+（日本語訳）日本被団協 田中熙巳、エスペラント訳 堀泰雄<br>
+<br>
+**(<ruby>kopi<rt class="XXS_S">(を)複写<br>する</rt></ruby><ruby>rajt<rt class="L_L">権利</rt></ruby>o-<ruby>atest<rt class="XS_S">(を)証明する</rt></ruby>o)**<br>
+（日本語訳）（著作権証明）<br>
+<br>
+**Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo <ruby>Nobel<rt class="XXL_L">貴族</rt></ruby> Lec<ruby>tur<rt class="XXL_L">塔</rt></ruby>e, de<ruby>liver<rt class="XXS_S">(を)供給<br>する</rt></ruby>ed by <ruby>Ter<rt class="M_M">土地</rt></ruby><ruby>um<rt class="XS_S">不定意味</rt></ruby>i <ruby>Tan<rt class="S_S">なめす</rt></ruby>aka, 2024**<br>
+（日本語訳）日本被団協ノーベル講演、田中熙巳による、2024年<br>
+<br>
+**(La <ruby>Nobel<rt class="XXL_L">貴族</rt></ruby>-<ruby>premi<rt class="XXL_L">賞品</rt></ruby>a <ruby>Preleg<rt class="S_S">(を)講演する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo, <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Ter<rt class="M_M">土地</rt></ruby><ruby>um<rt class="XS_S">不定意味</rt></ruby>i <ruby>Tan<rt class="S_S">なめす</rt></ruby>aka, 2024)**<br>
+（日本語訳）（日本被団協のノーベル賞講演、田中熙巳による、2024年）<br>
+<br>
+**© The <ruby>Nobel<rt class="XXL_L">貴族</rt></ruby> Foun<ruby>dat<rt class="L_L">日付</rt></ruby>ion 2024 (La <ruby>Nobel<rt class="XXL_L">貴族</rt></ruby>-Fonduso 2024)**<br>
+（日本語訳）© ノーベル財団 2024年（ノーベル財団 2024年）<br>
+<br>
+**Ni Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo <ruby>daŭr<rt class="XXL_L">継続</rt></ruby>e kampanj<ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>pet<rt class="XS_S">(を)頼む</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>e <ruby>ni<rt class="XS_S">私達</rt></ruby>an <ruby>reg<rt class="XS_S">統治する</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>on, <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>ajn <ruby>ŝtat<rt class="XL_L">国家</rt></ruby>ojn <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ali<rt class="S_S">他の</rt></ruby>ajn <ruby>ŝtat<rt class="XL_L">国家</rt></ruby>ojn, <ruby>tuj<rt class="XS_S">すぐに</rt></ruby> <ruby>for<rt class="XS_S">離れて</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i nukleajn <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>ojn.**<br>
+（日本語訳）私たち被団協は、私たちの政府、核保有国、その他の国々に対し、直ちに核兵器を廃絶するよう求め、運動を続けています。<br>
+<br>
+**En 1977, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>inter<rt class="S_S">(の)間に</rt></ruby><ruby>naci<rt class="XXL_L">国民</rt></ruby>a simpozio <ruby>pri<rt class="XS_S">ついて</rt></ruby> “La <ruby>Real<rt class="M_M">現実の</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>aj <ruby>Plu<rt class="S_S">さらに</rt></ruby><ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Fakt<rt class="XL_L">事実</rt></ruby>a <ruby>Situaci<rt class="XXL_L">事態</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>aj <ruby>Plu<rt class="S_S">さらに</rt></ruby><ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj”*⁷ <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> Japanio <ruby>organiz<rt class="M_M">(を)組織する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> NRO-oj <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>rilat<rt class="XS_S">関係する</rt></ruby>oj <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>Unu<rt class="XXL_L">一</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>Naci<rt class="XXL_L">国民</rt></ruby>oj, <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>klar<rt class="S_S">明瞭な</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>real<rt class="M_M">現実の</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> damaĝoj <ruby>kaŭz<rt class="XXL_L">原因</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>aj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>oj <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>oj.**<br>
+（日本語訳）1977年、「被爆者の実相と被爆者の実情」*⁷に関する国際シンポジウムが、国連と関係のあるNGOの主催により日本で開催され、原子爆弾が人間に与えた被害の実態を明らかにしました。<br>
+<br>
+**<ruby>Ĉirkaŭ<rt class="S_S">~まわりに;約</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>temp<rt class="XXL_L">時間</rt></ruby>o, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>minac<rt class="L_L">(を)脅す</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> nuklea <ruby>milit<rt class="S_S">戦争する</rt></ruby>o <ruby>kresk<rt class="XS_S">(に)成長する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>Eŭrop<rt class="S_S">ヨーロッパ</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>grand<rt class="XL_L">大きい</rt></ruby>aj mitingoj <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>kelk<rt class="S_S">幾つかの</rt></ruby>aj <ruby>cent<rt class="XXL_L">百</rt></ruby>oj <ruby>da<rt class="XXL_L">の</rt></ruby> <ruby>mil<rt class="XXL_L">千</rt></ruby>oj <ruby>da<rt class="XXL_L">の</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>oj <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>divers<rt class="XXL_L">様々な</rt></ruby>aj <ruby>land<rt class="XXL_L">国</rt></ruby>oj, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ven<rt class="XS_S">(に)来る</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>ni<rt class="XS_S">私達</rt></ruby> <ruby>pet<rt class="XS_S">(を)頼む</rt></ruby>oj <ruby>preleg<rt class="S_S">(を)講演する</rt></ruby>i <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> damaĝoj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>oj <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby>j <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>ven<rt class="XS_S">(に)来る</rt></ruby>ohj.**<br>
+（日本語訳）その頃、ヨーロッパでは核戦争の脅威が高まり、様々な国で数十万人が参加する大規模な集会が開かれ、それらの集会で原子爆弾の被害について講演してほしいとの依頼が私たちに来ました。<br>
+<br>
+**En 1978 <ruby>kaj<rt class="L_L">and</rt></ruby> 1982 <ruby>preskaŭ<rt class="XXL_L">ほとんど</rt></ruby> 40 <ruby>reprezent<rt class="L_L">(を)代表する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo <ruby>part<rt class="XL_L">部分</rt></ruby>o-<ruby>pren<rt class="XS_S">(を)手に取る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Special<rt class="XXL_L">特別の</rt></ruby>a <ruby>Ĝeneral<rt class="XXL_L">全般の</rt></ruby>a <ruby>Asemble<rt class="XXL_L">総会</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>Mal<rt class="S_S">正反対</rt></ruby><ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Unu<rt class="XXL_L">一</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>Naci<rt class="XXL_L">国民</rt></ruby>oj*⁸, <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>a <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ĉef<rt class="XXL_L">主</rt></ruby><ruby>sid<rt class="XXS_S">座って<br>いる</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Unu<rt class="XXL_L">一</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>Naci<rt class="XXL_L">国民</rt></ruby>oj <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>Nov<rt class="S_S">新しい</rt></ruby><ruby>jork<rt class="XXS_S">[地名]ヨ<br>ーク</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>krom<rt class="S_S">(の)ほかに</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>parol<rt class="S_S">話しをする</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ĝeneral<rt class="XXL_L">全般の</rt></ruby>a <ruby>asemble<rt class="XXL_L">総会</rt></ruby>o, <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>parol<rt class="S_S">話しをする</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>oj <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>divers<rt class="XXL_L">様々な</rt></ruby>aj <ruby>lok<rt class="M_M">場所</rt></ruby>oj.**<br>
+（日本語訳）1978年と1982年には、日本被団協の代表約40名が、ニューヨークの国連本部で開催された国連軍縮特別総会*⁸に参加し、総会での演説のほか、様々な場所で原子爆弾について語りました。<br>
+<br>
+**En <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Revizi<rt class="XS_S">(を)校閲する</rt></ruby>a <ruby>Konferenc<rt class="XXL_L">会議</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby>a <ruby>Prepar<rt class="S_S">(を)用意する</rt></ruby>a <ruby>Komitat<rt class="M_M">(実行)委員会</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Traktat<rt class="XL_L">[政]条約</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> Ne-<ruby>Dis<rt class="M_M">分散</rt></ruby><ruby>vast<rt class="XXL_L">広い</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nukleaj <ruby>Arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj (NPT)*⁹, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>reprezent<rt class="L_L">(を)代表する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo <ruby>sukces<rt class="XL_L">成功する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>si<rt class="XS_S">自分</rt></ruby> <ruby>okaz<rt class="L_L">起こる</rt></ruby>ojn <ruby>parol<rt class="S_S">話しをする</rt></ruby>i, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>dum<rt class="S_S">(~する)間</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>revizi<rt class="XS_S">(を)校閲する</rt></ruby>a <ruby>konferenc<rt class="XXL_L">会議</rt></ruby>o, <ruby>ekspozici<rt class="XXL_L">展覧会</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>oj <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>vestibl<rt class="XL_L">[建]玄関</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ĉef<rt class="XXL_L">主</rt></ruby><ruby>sid<rt class="XXS_S">座って<br>いる</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Unu<rt class="XXL_L">一</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>Naci<rt class="XXL_L">国民</rt></ruby>oj <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>grand<rt class="XL_L">大きい</rt></ruby>aj <ruby>sukces<rt class="XL_L">成功する</rt></ruby>o.**<br>
+（日本語訳）核兵器不拡散条約（NPT）*⁹の再検討会議とその準備委員会において、日本被団協の代表は発言の機会を得ることに成功し、再検討会議の期間中には、国連本部のロビーで原子爆弾に関する展示を行い、大きな成功を収めました。<br>
+<br>
+**En 2012 <ruby>la<rt class="M_M">the</rt></ruby> norvega <ruby>reg<rt class="XS_S">統治する</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o <ruby>propon<rt class="S_S">(を)提案する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>okaz<rt class="L_L">起こる</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i “<ruby>Konferenc<rt class="XXL_L">会議</rt></ruby>on <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Human<rt class="L_L">人間的な</rt></ruby>a <ruby>Efik<rt class="XXS_S">効果を<br>あげる</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nukleaj <ruby>Arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj”*¹⁰ <ruby>okaz<rt class="L_L">起こる</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Prepar<rt class="S_S">(を)用意する</rt></ruby>a <ruby>Komitat<rt class="M_M">(実行)委員会</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Revizi<rt class="XS_S">(を)校閲する</rt></ruby>a <ruby>Konferenc<rt class="XXL_L">会議</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> NPT*¹¹, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ĉe<rt class="XXS_S">とこ<br>ろで</rt></ruby> <ruby>ties<rt class="XXS_S">それ;あ<br>れの</rt></ruby> <ruby>tri<rt class="XL_L">三</rt></ruby> <ruby>sekv<rt class="XS_S">(に)付き従う</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>konferenc<rt class="XXL_L">会議</rt></ruby>oj ekde 2013, <ruby>oni<rt class="L_L">人々</rt></ruby> <ruby>pren<rt class="XS_S">(を)手に取る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>serioz<rt class="L_L">まじめな</rt></ruby>e <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atest<rt class="XS_S">(を)証明する</rt></ruby>ojn <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>aj <ruby>viktim<rt class="S_S">[宗]いけにえ</rt></ruby>oj, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>konduk<rt class="XL_L">(を)導く</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>real<rt class="M_M">現実の</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>inter<rt class="S_S">(の)間に</rt></ruby><ruby>trakt<rt class="XS_S">(を)取り扱う</rt></ruby>aj <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>sid<rt class="XXS_S">座って<br>いる</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> “<ruby>Traktat<rt class="XL_L">[政]条約</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Mal<rt class="S_S">正反対</rt></ruby><ruby>permes<rt class="M_M">(を)許可する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nukleaj <ruby>Arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj”.**<br>
+（日本語訳）2012年、ノルウェー政府は、NPT再検討会議準備委員会*¹¹の際に「核兵器の人道的影響に関する会議」*¹⁰を開催することを提案し、2013年からのその後の3回の会議では、原子爆弾の犠牲者の証言が真剣に受け止められ、それが「核兵器禁止条約」の交渉会議の実現につながりました。<br>
+<br>
+**En <ruby>april<rt class="XXL_L">４月</rt></ruby>o 2016 <ruby>la<rt class="M_M">the</rt></ruby> “<ruby>Inter<rt class="S_S">(の)間に</rt></ruby><ruby>naci<rt class="XXL_L">国民</rt></ruby>a <ruby>Sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>skrib<rt class="M_M">(を)書く</rt></ruby>o-Kampanjo <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>Mal<rt class="S_S">正反対</rt></ruby><ruby>permes<rt class="M_M">(を)許可する</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>For<rt class="XS_S">離れて</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nukleaj <ruby>Arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj”*¹² <ruby>propon<rt class="S_S">(を)提案する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>de<rt class="XS_S">の;から</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>postul<rt class="S_S">(を)要求する</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>a <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>aj <ruby>viktim<rt class="S_S">[宗]いけにえ</rt></ruby>oj <ruby>tra<rt class="XS_S">通って</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mond<rt class="XXL_L">世界</rt></ruby>o, <ruby>signif<rt class="XS_S">(を)意味する</rt></ruby>e <ruby>dis<rt class="M_M">分散</rt></ruby><ruby>volv<rt class="S_S">(を)巻く</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>ol<rt class="XXS_S">~より<br>も</rt></ruby> 13,7 <ruby>milion<rt class="XXL_L">百万</rt></ruby>oj <ruby>da<rt class="XXL_L">の</rt></ruby> <ruby>sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>skrib<rt class="M_M">(を)書く</rt></ruby>oj <ruby>prezent<rt class="M_M">(を)差し出す</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>aj <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>Unu<rt class="XXL_L">一</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>Naci<rt class="XXL_L">国民</rt></ruby>oj.**<br>
+（日本語訳）2016年4月、日本被団協が提案し、世界中の原子爆弾の犠牲者が要求した「核兵器禁止・廃絶を求める国際署名」*¹²は、国連に提出された1370万筆以上の署名をもって大きく発展しました。<br>
+<br>
+***7 被爆の実相と被爆者の実情、*8 国連軍縮特別総会、*9 核兵器不拡散条約の再検討会議、*10 核兵器の人道的影響に関する会議、*11 NPT再検討会議準備委員会、*12 核兵器の禁止・廃絶を求める国際署名**<br>
+（日本語訳）*7 被爆の実相と被爆者の実情、*8 国連軍縮特別総会、*9 核兵器不拡散条約の再検討会議、*10 核兵器の人道的影響に関する会議、*11 NPT再検討会議準備委員会、*12 核兵器の禁止・廃絶を求める国際署名<br>
+<br>
+**La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o**<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+<br>
+---<br>
+<br>
+**【6ページ目】**<br>
+<br>
+**<ruby>Est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>grand<rt class="XL_L">大きい</rt></ruby>a <ruby>ĝoj<rt class="L_L">喜ぶ</rt></ruby>o, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Traktat<rt class="XL_L">[政]条約</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Mal<rt class="S_S">正反対</rt></ruby><ruby>permes<rt class="M_M">(を)許可する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nukleaj <ruby>Arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj*¹³ <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>pro<rt class="S_S">ために</rt></ruby><ruby>mul<rt class="S_S">[動]ラバ</rt></ruby>gita <ruby>la<rt class="M_M">the</rt></ruby> 7-an <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>juli<rt class="M_M">７月</rt></ruby>o 2017 <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>sub<rt class="XS_S">(~の)下に</rt></ruby><ruby>ten<rt class="XS_S">支え持つ</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> 122 <ruby>land<rt class="XXL_L">国</rt></ruby>oj.**<br>
+（日本語訳）核兵器禁止条約*¹³が、122カ国の支持を得て2017年7月7日に公布されたことは大きな喜びです。<br>
+<br>
+**Nu, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>teori<rt class="XXL_L">理論</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> nuklea <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>instig<rt class="S_S">(を)励ます</rt></ruby>o <ruby>premis<rt class="XXL_L">前提</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>posed<rt class="S_S">(を)所有する</rt></ruby>on <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>uz<rt class="S_S">使う</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> nukleaj <ruby>ari<rt class="XS_S">アリア</rt></ruby><ruby>mil<rt class="XXL_L">千</rt></ruby>oj.**<br>
+（日本語訳）さて、核抑止論は核兵器の保有と使用を前提としています。<br>
+<br>
+**Ni, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>viktim<rt class="S_S">[宗]いけにえ</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> a<ruby>tomb<rt class="XXL_L">墓</rt></ruby>omdoj, <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby><ruby>kor<rt class="XXL_L">心</rt></ruby>e <ruby>dezir<rt class="M_M">(を)望む</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>de<rt class="XS_S">の;から</rt></ruby><ruby>pend<rt class="S_S">掛っている</rt></ruby>u <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>tia<rt class="XS_S">そんな</rt></ruby> <ruby>teori<rt class="XXL_L">理論</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>posed<rt class="S_S">(を)所有する</rt></ruby>u eĉ <ruby>unu<rt class="XXL_L">一</rt></ruby> nuklean <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>on.**<br>
+（日本語訳）私たち、原子爆弾の犠牲者は、人類がそのような理論に依存せず、一発の核兵器も保有しないことを心から願っています。<br>
+<br>
+**<ruby>Imag<rt class="XS_S">(を)想像する</rt></ruby>u, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> 4 000 nukleaj <ruby>kap<rt class="XXL_L">頭</rt></ruby>oj <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tuj<rt class="XS_S">すぐに</rt></ruby> lanĉ<ruby>ebl<rt class="L_L">可能</rt></ruby>aj.**<br>
+（日本語訳）4,000発の核弾頭が即座に発射可能であると想像してみてください。<br>
+<br>
+**<ruby>Tio<rt class="XXS_S">それ;<br>あれ</rt></ruby> <ruby>signif<rt class="XS_S">(を)意味する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>tuj<rt class="XS_S">すぐに</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>us<rt class="XS_S">条件法</rt></ruby> <ruby>aper<rt class="L_L">現れる</rt></ruby>i damaĝoj <ruby>cent<rt class="XXL_L">百</rt></ruby><ruby>foj<rt class="XXL_L">回</rt></ruby>e <ruby>aŭ<rt class="XS_S">または</rt></ruby> eĉ <ruby>mil<rt class="XXL_L">千</rt></ruby><ruby>foj<rt class="XXL_L">回</rt></ruby>e <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>grand<rt class="XL_L">大きい</rt></ruby>aj <ruby>ol<rt class="XXS_S">~より<br>も</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby>j <ruby>en<rt class="M_M">中で</rt></ruby> Hiroŝimo <ruby>kaj<rt class="L_L">and</rt></ruby> Nagasako.**<br>
+（日本語訳）それは、広島や長崎の被害の百倍、あるいは千倍もの被害が即座に発生しうることを意味します。<br>
+<br>
+**Vi <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>us<rt class="XS_S">条件法</rt></ruby> <ruby>viktim<rt class="S_S">[宗]いけにえ</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>i <ruby>iam<rt class="S_S">ある時</rt></ruby> <ruby>ajn<rt class="XXS_S">であろ<br>うと</rt></ruby> <ruby>aŭ<rt class="XS_S">または</rt></ruby> <ruby>vi<rt class="XXXS_S">あな<br>た(<br>達)</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>us<rt class="XS_S">条件法</rt></ruby> <ruby>iĝ<rt class="XS_S">なる</rt></ruby>i <ruby>atenc<rt class="XS_S">危害を加える</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>oj.**<br>
+（日本語訳）あなたはいつでも犠牲者になる可能性もあれば、加害者になる可能性もあるのです。<br>
+<br>
+**<ruby>Tial<rt class="XXS_S">それ<br>ゆえ</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>dezir<rt class="M_M">(を)望む</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>tra<rt class="XS_S">通って</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>tut<rt class="XS_S">全部の</rt></ruby>a <ruby>mond<rt class="XXL_L">世界</rt></ruby>o <ruby>ĉiu<rt class="XXS_S">各々の<br>;各~</rt></ruby>j <ruby>diskut<rt class="S_S">(を)討議する</rt></ruby>u <ruby>kio<rt class="XXL_L">何</rt></ruby>n <ruby>ni<rt class="XS_S">私達</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby>i <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>for<rt class="XS_S">離れて</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i nukleajn <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>ojn <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>postul<rt class="S_S">(を)要求する</rt></ruby>u <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>reg<rt class="XS_S">統治する</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>oj <ruby>real<rt class="M_M">現実の</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> ĉi <ruby>cel<rt class="M_M">目的</rt></ruby>o.**<br>
+（日本語訳）したがって、私は、世界中のすべての人々が核兵器を廃絶するために何ができるかを議論し、各国政府にこの目標の実現を要求することを願っています。<br>
+<br>
+**La <ruby>nun<rt class="XXL_L">今</rt></ruby>a averaĝa <ruby>aĝ<rt class="M_M">年齢</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>aj <ruby>viktim<rt class="S_S">[宗]いけにえ</rt></ruby>oj <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> 85 <ruby>jar<rt class="XXL_L">年</rt></ruby>oj.**<br>
+（日本語訳）現在、原子爆弾の犠牲者の平均年齢は85歳です。<br>
+<br>
+**<ruby>Post<rt class="S_S">(~の)後で</rt></ruby> 10 <ruby>jar<rt class="XXL_L">年</rt></ruby>oj, <ruby>nur<rt class="XXS_S">ただ~<br>だけ</rt></ruby> <ruby>kelk<rt class="S_S">幾つかの</rt></ruby>aj <ruby>hom<rt class="XXL_L">人</rt></ruby>oj <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>atest<rt class="XS_S">(を)証明する</rt></ruby>i <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>oj <ruby>rekt<rt class="XS_S">まっすぐな</rt></ruby>e <ruby>spert<rt class="XS_S">経験を積んだ</rt></ruby><ruby>int<rt class="XXS_S">能動;<br>完了</rt></ruby>aj <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>a<ruby>don<rt class="M_M">与える</rt></ruby>.**<br>
+（日本語訳）10年後には、原子爆弾を直接体験したことを証言できる人はほんのわずかしかいなくなるでしょう。<br>
+<br>
+**De <ruby>nun<rt class="XXL_L">今</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>esper<rt class="XS_S">(を)希望する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ven<rt class="XS_S">(に)来る</rt></ruby><ruby>ont<rt class="XXS_S">能動;<br>将然</rt></ruby>a <ruby>generaci<rt class="XXL_L">世代</rt></ruby>o <ruby>el<rt class="XXS_S">中か<br>ら</rt></ruby><ruby>pens<rt class="XXL_L">思う</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>manier<rt class="XXL_L">やり方</rt></ruby>ojn <ruby>plu<rt class="S_S">さらに</rt></ruby><ruby>konstru<rt class="M_M">(を)建造する</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mov<rt class="M_M">動かす</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on, <ruby>entrepren<rt class="XXL_L">(を)企てる</rt></ruby>i<ruby>tan<rt class="S_S">なめす</rt></ruby> <ruby>de<rt class="XS_S">の;から</rt></ruby> ni.**<br>
+（日本語訳）これからは、次の世代が、私たちが始めた運動を継続していく方法を考え出してくれることを期待しています。<br>
+<br>
+**<ruby>Por<rt class="S_S">ために</rt></ruby> <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby> <ruby>sekv<rt class="XS_S">(に)付き従う</rt></ruby>inda <ruby>ekzempl<rt class="XXL_L">例</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> NPO "Ne <ruby>plu<rt class="S_S">さらに</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>ojn - <ruby>societ<rt class="XXL_L">会</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>hered<rt class="S_S">(を)相続する</rt></ruby>i <ruby>memor<rt class="S_S">(を)覚えている</rt></ruby>ojn <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>viktim<rt class="S_S">[宗]いけにえ</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o”*¹⁴.**<br>
+（日本語訳）彼らにとって従うべき模範となるのは、NPO法人「ノーモア・ヒバクシャ – 被爆者の記憶を継承する会」*¹⁴です。<br>
+<br>
+**Ĝi <ruby>labor<rt class="XXL_L">働く</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby>e <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>konserv<rt class="M_M">(を)保存する</rt></ruby>i <ruby>dokument<rt class="XXL_L">文書</rt></ruby>ojn <ruby>de<rt class="XS_S">の;から</rt></ruby> Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo-<ruby>mov<rt class="M_M">動かす</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o, <ruby>atest<rt class="XS_S">(を)証明する</rt></ruby>ojn <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>plu<rt class="S_S">さらに</rt></ruby><ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>oj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ag<rt class="XXS_S">行動<br>する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>ojn <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>fili<rt class="S_S">支部</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> Nihon Hi<ruby>dank<rt class="XS_S">(に)感謝する</rt></ruby>yo.**<br>
+（日本語訳）このNPOは、日本被団協と協力して、被団協運動の資料、原子爆弾の生存者の証言、日本被団協の支部活動を保存しています。<br>
+<br>
+**<ruby>Preskaŭ<rt class="XXL_L">ほとんど</rt></ruby> 15 <ruby>jar<rt class="XXL_L">年</rt></ruby>ojn ekde <ruby>la<rt class="M_M">the</rt></ruby> <ruby>fond<rt class="XS_S">(を)創立する</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>o, <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>societ<rt class="XXL_L">会</rt></ruby>o <ruby>persist<rt class="XXL_L">頑張る</rt></ruby>e <ruby>labor<rt class="XXL_L">働く</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby>j <ruby>cel<rt class="M_M">目的</rt></ruby>oj.**<br>
+（日本語訳）設立から約15年間、この団体はこれらの目的のために粘り強く活動しています。<br>
+<br>
+**Mi <ruby>esper<rt class="XS_S">(を)希望する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby> lanĉos <ruby>mov<rt class="M_M">動かす</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>on, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>util<rt class="XS_S">有用な</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>u <ruby>la<rt class="M_M">the</rt></ruby> <ruby>kolekt<rt class="XL_L">収集品</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>ajn <ruby>material<rt class="XXL_L">材料</rt></ruby>ojn <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>kler<rt class="XS_S">教養ある</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>ekster<rt class="L_L">(の)外で</rt></ruby>a <ruby>publik<rt class="XXL_L">公衆</rt></ruby>o.**<br>
+（日本語訳）収集された資料を一般市民の啓発に活用する運動を彼らが開始することを期待しています。<br>
+<br>
+**Mi <ruby>ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>dezir<rt class="M_M">(を)望む</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>societ<rt class="XXL_L">会</rt></ruby>o <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>u <ruby>organiz<rt class="M_M">(を)組織する</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>konkret<rt class="XL_L">具体的な</rt></ruby>aj <ruby>ag<rt class="XXS_S">行動<br>する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>oj <ruby>plen<rt class="XS_S">いっぱいの</rt></ruby><ruby>fort<rt class="L_L">強い</rt></ruby>e <ruby>labor<rt class="XXL_L">働く</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>e <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>dis<rt class="M_M">分散</rt></ruby><ruby>kon<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>real<rt class="M_M">現実の</rt></ruby><ruby>aĵ<rt class="XS_S">事物</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>o, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>ĝi<rt class="XS_S">それ</rt></ruby> <ruby>dis<rt class="M_M">分散</rt></ruby><ruby>volv<rt class="S_S">(を)巻く</rt></ruby>u <ruby>si<rt class="XS_S">自分</rt></ruby>ajn <ruby>ag<rt class="XXS_S">行動<br>する</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby>ojn <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>nur<rt class="XXS_S">ただ~<br>だけ</rt></ruby> <ruby>en<rt class="M_M">中で</rt></ruby> Japanio <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>ekster<rt class="L_L">(の)外で</rt></ruby><ruby>land<rt class="XXL_L">国</rt></ruby>e.**<br>
+（日本語訳）また、この団体が、原子爆弾の実態を広めるために全力で具体的な活動を行う組織となり、日本国内だけでなく海外でも活動を展開することを願っています。<br>
+<br>
+**<ruby>Kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>cel<rt class="M_M">目的</rt></ruby>o <ruby>pli<rt class="S_S">より</rt></ruby> <ruby>universal<rt class="XXL_L">普遍的な</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Traktat<rt class="XL_L">[政]条約</rt></ruby>on <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>Mal<rt class="S_S">正反対</rt></ruby><ruby>permes<rt class="M_M">(を)許可する</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> Nukleaj <ruby>Arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>formul<rt class="XXL_L">書式</rt></ruby>i <ruby>inter<rt class="S_S">(の)間に</rt></ruby><ruby>naci<rt class="XXL_L">国民</rt></ruby>an <ruby>traktat<rt class="XL_L">[政]条約</rt></ruby>on <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>for<rt class="XS_S">離れて</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> nukleaj <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj, <ruby>ni<rt class="XS_S">私達</rt></ruby> <ruby>instig<rt class="S_S">(を)励ます</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>vi<rt class="XXXS_S">あな<br>た(<br>達)</rt></ruby>n, <ruby>ĉiu<rt class="XXS_S">各々の<br>;各~</rt></ruby>j <ruby>hom<rt class="XXL_L">人</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mond<rt class="XXL_L">世界</rt></ruby>o, <ruby>kre<rt class="XS_S">創造する</rt></ruby>i <ruby>okaz<rt class="L_L">起こる</rt></ruby>ojn <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>ĉiu<rt class="XXS_S">各々の<br>;各~</rt></ruby> <ruby>land<rt class="XXL_L">国</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>hav<rt class="XXS_S">持って<br>いる</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i <ruby>atest<rt class="XS_S">(を)証明する</rt></ruby>ojn <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>spert<rt class="XS_S">経験を積んだ</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>bomb<rt class="XXL_L">爆弾</rt></ruby>oj, <ruby>tiel<rt class="XXS_S">その;あ<br>の様に</rt></ruby> <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>oj <ruby>pov<rt class="S_S">できる</rt></ruby>u <ruby>kompren<rt class="L_L">(を)理解する</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>human<rt class="L_L">人間的な</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> nukleaj <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj <ruby>real<rt class="M_M">現実の</rt></ruby>e <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>sent<rt class="XS_S">(を)感じる</rt></ruby>o<ruby>plen<rt class="XS_S">いっぱいの</rt></ruby>e.**<br>
+（日本語訳）核兵器禁止条約をより普遍的なものとし、核兵器廃絶のための国際条約を策定することを目的として、私たちは、世界中のすべての人々に、各国で原子爆弾の経験に関する証言を共有する機会を設け、人々が核兵器の非人道性を現実的かつ感情的に理解できるようにすることを促します。<br>
+<br>
+**<ruby>Precip<rt class="S_S">特に;主要な</rt></ruby>e <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>esper<rt class="XS_S">(を)希望する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>firm<rt class="M_M">堅固な</rt></ruby>an <ruby>en<rt class="M_M">中で</rt></ruby><ruby>radik<rt class="XXL_L">根</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>kred<rt class="XS_S">(を)信じる</rt></ruby>o, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> nukleaj <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>nek<rt class="XXS_S">~もまた<br>~ない</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>ekzist<rt class="M_M">存在する</rt></ruby>i <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o, <ruby>inter<rt class="S_S">(の)間に</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>civit<rt class="XS_S">自治都市</rt></ruby><ruby>an<rt class="M_M">会員</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>atom<rt class="XXL_L">原子</rt></ruby><ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>aj <ruby>ŝtat<rt class="XL_L">国家</rt></ruby>oj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ili<rt class="XXS_S">それ<br>ら</rt></ruby>aj alianc<ruby>an<rt class="M_M">会員</rt></ruby>oj, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby> <ruby>kred<rt class="XS_S">(を)信じる</rt></ruby>o <ruby>serv<rt class="M_M">仕える</rt></ruby><ruby>os<rt class="XS_S">未来形</rt></ruby> <ruby>kiel<rt class="XXS_S">いかに;の<br>ように</rt></ruby> <ruby>fort<rt class="L_L">強い</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>ŝanĝ<rt class="S_S">(を)変える</rt></ruby>i <ruby>la<rt class="M_M">the</rt></ruby> nukleajn <ruby>politik<rt class="XXL_L">政治</rt></ruby>ojn <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>tiu<rt class="XXS_S">その;あ<br>のひと</rt></ruby>j <ruby>reg<rt class="XS_S">統治する</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>oj.**<br>
+（日本語訳）特に、核兵器は人類と共存できないし、共存すべきではないという信念が、核保有国とその同盟国の市民の間にしっかりと根付き、その信念がそれらの政府の核政策を変える力となることを期待しています。<br>
+<br>
+**Ne <ruby>las<rt class="XS_S">手放す</rt></ruby>u <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o <ruby>detru<rt class="XS_S">(を)破壊する</rt></ruby>u <ruby>si<rt class="XS_S">自分</rt></ruby>n <ruby>per<rt class="S_S">よって</rt></ruby> nukleaj <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj!!**<br>
+（日本語訳）人類が核兵器によって自らを滅ぼすことのないように！！<br>
+<br>
+**Ni <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>labor<rt class="XXL_L">働く</rt></ruby>u <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>kre<rt class="XS_S">創造する</rt></ruby>i <ruby>hom<rt class="XXL_L">人</rt></ruby>an <ruby>soci<rt class="XXL_L">社会</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>mond<rt class="XXL_L">世界</rt></ruby>o <ruby>sen<rt class="XS_S">(~)なしで</rt></ruby> nukleaj <ruby>arm<rt class="XS_S">武器;武装</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>oj <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>milit<rt class="S_S">戦争する</rt></ruby>oj!!**<br>
+（日本語訳）核兵器も戦争もない世界の人間社会を創造するために協力しましょう！！<br>
+<br>
+**(<ruby>fin<rt class="XS_S">終える</rt></ruby>o)**<br>
+（日本語訳）（終わり）<br>
+<br>
+***13 核兵器禁止条約、*14 NPO 法人・ノーモア・ヒバクシャ記憶遺産を継承する会**<br>
+（日本語訳）*13 核兵器禁止条約、*14 NPO 法人・ノーモア・ヒバクシャ記憶遺産を継承する会<br>
+<br>
+**La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o**<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+<br>
+<br>
+---<br>
+<br>
+**【7ページ目】**<br>
+<br>
+**K R U C V O R T O**<br>
+（日本語訳）クロスワード<br>
+<br>
+**[クロスワードパズル]**<br>
+<br>
+**<ruby>Uz<rt class="S_S">使う</rt></ruby>u <ruby>vort<rt class="M_M">[文]語</rt></ruby>ojn <ruby>sen<rt class="XS_S">(~)なしで</rt></ruby><ruby>fin<rt class="XS_S">終える</rt></ruby>aĵe.**<br>
+（日本語訳）不定形（辞書形）の単語を使いなさい。<br>
+<br>
+**出題:MiMa**<br>
+（日本語訳）出題：ミマ<br>
+<br>
+**<ruby>Horizontal<rt class="XXL_L">水平</rt></ruby>e**<br>
+（日本語訳）横方向<br>
+<br>
+**1. <ruby>En<rt class="M_M">中で</rt></ruby> □□□□□□□o <ruby>viv<rt class="XXS_S">生きて<br>いる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>fabel<rt class="XXL_L">童話</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby>o And<ruby>er<rt class="S_S">粒子</rt></ruby><ruby>sen<rt class="XS_S">(~)なしで</rt></ruby>.**<br>
+（日本語訳）1. □□□□□□□には童話作家アンデルセンが住んでいた。<br>
+<br>
+**6. <ruby>Mi<rt class="XXL_L">私</rt></ruby> <ruby>pren<rt class="XS_S">(を)手に取る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>mon<rt class="XXL_L">金銭</rt></ruby>on □□ <ruby>mi<rt class="XXL_L">私</rt></ruby>a <ruby>mon<rt class="XXL_L">金銭</rt></ruby><ruby>uj<rt class="XS_S">容器</rt></ruby>o.**<br>
+（日本語訳）6. 私は財布□□お金を取り出した。<br>
+<br>
+**7. □□ <ruby>ali<rt class="S_S">他の</rt></ruby>a <ruby>pren<rt class="XS_S">(を)手に取る</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>ni<rt class="XS_S">私達</rt></ruby>an <ruby>kat<rt class="S_S">[動]猫</rt></ruby>on.**<br>
+（日本語訳）7. □□他の人が私たちの猫を連れて行った。<br>
+<br>
+**8. <ruby>Ŝi<rt class="XS_S">彼女</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>a □□□<ruby>edz<rt class="XXL_L">夫</rt></ruby><ruby>in<rt class="XS_S">女性</rt></ruby>o.**<br>
+（日本語訳）8. 彼女は私の□□□妻です。<br>
+<br>
+**9. Japanoj <ruby>am<rt class="S_S">愛する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>trink<rt class="S_S">(を)飲む</rt></ruby>i <ruby>verd<rt class="XXL_L">緑の</rt></ruby>an □□on.**<br>
+（日本語訳）9. 日本人は緑□□を飲むのが好きです。<br>
+<br>
+**11. et ↔ □□□**<br>
+（日本語訳）11. 小さい ↔ □□□<br>
+<br>
+**12. □□□as <ruby>aŭskult<rt class="XL_L">(を)聴く</rt></ruby>i <ruby>tio<rt class="XXS_S">それ;<br>あれ</rt></ruby>n, <ruby>kio<rt class="XXL_L">何</rt></ruby>n <ruby>li<rt class="S_S">彼</rt></ruby> <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>.**<br>
+（日本語訳）12. 彼は彼が言うことを□□□聞いている。<br>
+<br>
+**14. <ruby>Ir<rt class="XXS_S">行<br>く</rt></ruby>u □□□ <ruby>la<rt class="M_M">the</rt></ruby> <ruby>tunel<rt class="S_S">トンネル</rt></ruby>o.**<br>
+（日本語訳）14. トンネル□□□進め。<br>
+<br>
+**15. □□□ <ruby>ne<rt class="M_M">ない</rt></ruby><ruby>kon<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby>a <ruby>traf<rt class="XXS_S">(に)命中<br>する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>motor<rt class="M_M">モーター</rt></ruby>on <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>aviad<rt class="XXL_L">航空</rt></ruby><ruby>il<rt class="XXS_S">道<br>具</rt></ruby>o.**<br>
+（日本語訳）15. 未知の□□□が飛行機のエンジンに衝突した。<br>
+<br>
+**17. <ruby>Mi<rt class="XXL_L">私</rt></ruby> <ruby>manĝ<rt class="S_S">(を)食べる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> du□□on <ruby>da<rt class="XXL_L">の</rt></ruby> <ruby>pom<rt class="M_M">リンゴ</rt></ruby>o.**<br>
+（日本語訳）17. 私はリンゴを二□□食べた。<br>
+<br>
+**18. <ruby>Mari<rt class="M_M">マリア</rt></ruby>a <ruby>kaŝ<rt class="XS_S">(を)隠す</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>vin<rt class="XXS_S">ぶど<br>う酒</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> □□□□□□o.**<br>
+（日本語訳）18. マリアはワインを□□□□□□に隠した。<br>
+<br>
+**<ruby>Vertikal<rt class="XXL_L">[数]鉛直</rt></ruby>e**<br>
+（日本語訳）縦方向<br>
+<br>
+**1. <ruby>Kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>zorg<rt class="XS_S">世話をする</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>dent<rt class="XXL_L">歯</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>a <ruby>kat<rt class="S_S">[動]猫</rt></ruby>o? <ruby>Best<rt class="XXL_L">動物</rt></ruby><ruby>kurac<rt class="XS_S">(を)治療する</rt></ruby><ruby>ist<rt class="XS_S">従事者</rt></ruby>o <ruby>aŭ<rt class="XS_S">または</rt></ruby> □□□□□□□o?**<br>
+（日本語訳）1. 私の猫の歯の世話をするのは誰？獣医それとも□□□□□□□？<br>
+<br>
+**2. <ruby>Kosm<rt class="L_L">[天]宇宙</rt></ruby>o<ruby>ŝip<rt class="XXL_L">船</rt></ruby>o <ruby>re<rt class="S_S">再び</rt></ruby><ruby>ven<rt class="XS_S">(に)来る</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> □□ <ruby>la<rt class="M_M">the</rt></ruby> <ruby>Ter<rt class="M_M">土地</rt></ruby>o.**<br>
+（日本語訳）2. 宇宙船が地球□□戻ってくる。<br>
+<br>
+**3. <ruby>La<rt class="M_M">The</rt></ruby> □□□a <ruby>Voj<rt class="XXL_L">道</rt></ruby>o, <ruby>t.e.<rt class="S_S">つまり</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> Galaksio.**<br>
+（日本語訳）3. □□□の道、つまり銀河。<br>
+<br>
+**4. "<ruby>Kie<rt class="XS_S">どこで</rt></ruby> □□ <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>?" "Mi <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>sci<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>."**<br>
+（日本語訳）4. 「□□はどこですか？」「分かりません。」<br>
+<br>
+**5. <ruby>Ni<rt class="XS_S">私達</rt></ruby>a □□□□□□□o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>sen<rt class="XS_S">(~)なしで</rt></ruby><ruby>kompat<rt class="M_M">(を)あわれむ</rt></ruby>a.**<br>
+（日本語訳）5. 私たちの□□□□□□□は無慈悲だ。<br>
+<br>
+**10. <ruby>Oni<rt class="L_L">人々</rt></ruby> <ruby>parol<rt class="S_S">話しをする</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> japanan □□ Japanio.**<br>
+（日本語訳）10. 日本□□日本語が話されている。<br>
+<br>
+**11. □□□□o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>di<rt class="XL_L">神</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>am<rt class="S_S">愛する</rt></ruby>o <ruby>en<rt class="M_M">中で</rt></ruby> greka mitologio.**<br>
+（日本語訳）11. □□□□はギリシャ神話の愛の神です。<br>
+<br>
+**13. <ruby>Mi<rt class="XXL_L">私</rt></ruby> <ruby>dev<rt class="L_L">must</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> □□□i, <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>vi<rt class="XXXS_S">あな<br>た(<br>達)</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>stult<rt class="M_M">愚鈍な</rt></ruby>a.**<br>
+（日本語訳）13. あなたが愚かであることを私は□□□なければならない。<br>
+<br>
+**16. <ruby>Aŭgust<rt class="XXL_L">８月</rt></ruby>o <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> □□a <ruby>monat<rt class="L_L">(暦の)月</rt></ruby>o.**<br>
+（日本語訳）16. 8月は□□番目の月です。<br>
+<br>
+**[2月号(出題 MiMa)の解答・当選者]**<br>
+（日本語訳）[2月号(出題 MiMa)の解答・当選者]<br>
+**<RUBY>PACIFIK<RT CLASS="S_S">[地名]太平洋</RT></RUBY>**<br>
+**OL N LU**<br>
+**L <RUBY>EST<RT CLASS="XXS_S">(~)で<BR>ある</RT></RUBY> N**<br>
+**F <RUBY>TRU<RT CLASS="XXL_L">穴</RT></RUBY> O**<br>
+**<RUBY>ALARM<RT CLASS="XXL_L">警報</RT></RUBY>**<br>
+**IR B E**<br>
+**<RUBY>DENT<RT CLASS="XXL_L">歯</RT></RUBY><RUBY>IST<RT CLASS="XS_S">従事者</RT></RUBY>**<br>
+（日本語訳）<br>
+**正解は<RUBY>AMBICI<RT CLASS="XXL_L">野心</RT></RUBY>Oでした。応募総数は6通。5通が正解でした。正解者の中から抽選で、調布市の新谷さんと高知市の曽田さんに図書カードをお送りしました。**<br>
+（日本語訳）正解は<RUBY>AMBICI<RT CLASS="XXL_L">野心</RT></RUBY>Oでした。応募総数は6通。5通が正解でした。正解者の中から抽選で、調布市の新谷さんと高知市の曽田さんに図書カードをお送りしました。<br>
+<br>
+**お便りから**<br>
+（日本語訳）お便りから<br>
+<br>
+**Demenco <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>patr<rt class="XXL_L">父</rt></ruby><ruby>in<rt class="XS_S">女性</rt></ruby>o**<br>
+（日本語訳）母の認知症<br>
+<br>
+**Mi <ruby>leg<rt class="XS_S">(を)読む</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>artikol<rt class="M_M">記事;冠詞</rt></ruby>on “<ruby>Tiel<rt class="XXS_S">その;あ<br>の様に</rt></ruby> progresis <ruby>la<rt class="M_M">the</rt></ruby> demenco <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>a <ruby>patr<rt class="XXL_L">父</rt></ruby><ruby>in<rt class="XS_S">女性</rt></ruby>o” <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>januar<rt class="XXL_L">１月</rt></ruby>a n-ro (p.8-9).**<br>
+（日本語訳）1月号（8-9ページ）の「こうして母の認知症は進行した」という記事を読みました。<br>
+<br>
+**Mi <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby><ruby>bedaŭr<rt class="S_S">(を)残念に思う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby>, <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>tre<rt class="XXS_S">たい<br>へん</rt></ruby> <ruby>bon<rt class="XL_L">良い</rt></ruby>e <ruby>far<rt class="XXS_S">(を)す<br>る</rt></ruby><ruby>it<rt class="XXXS_S">受動<br>完<br>了</rt></ruby>e!**<br>
+（日本語訳）お悔やみ申し上げますが、とてもよく書かれていました！<br>
+<br>
+**(Sa<ruby>gam<rt class="S_S">[楽]音階</rt></ruby>i<ruby>har<rt class="XXL_L">毛</rt></ruby>a • <ruby>Ton<rt class="XS_S">[楽]楽音</rt></ruby>y LÁSZLÓ)**<br>
+（日本語訳）（相模原・トニー・ラースロー）<br>
+<br>
+**Mi <ruby>vol<rt class="XXS_S">意志が<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>dir<rt class="XXS_S">(を)言<br>う</rt></ruby>i <ruby>ke<rt class="XXS_S">という<br>こと</rt></ruby> <ruby>kor<rt class="XXL_L">心</rt></ruby><ruby>tuŝ<rt class="S_S">触れる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>n <ruby>la<rt class="M_M">the</rt></ruby> <ruby>tekst<rt class="XXL_L">本文</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>spert<rt class="XS_S">経験を積んだ</rt></ruby>oj <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>patr<rt class="XXL_L">父</rt></ruby><ruby>in<rt class="XS_S">女性</rt></ruby>o (<ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>aŭtor<rt class="XXL_L">作者</rt></ruby>o, <ruby>kompren<rt class="L_L">(を)理解する</rt></ruby><ruby>ebl<rt class="L_L">可能</rt></ruby>e) <ruby>sur<rt class="XXS_S">(~の)<br>上に</rt></ruby><ruby>voj<rt class="XXL_L">道</rt></ruby>e <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>rest<rt class="XL_L">残り</rt></ruby><ruby>ad<rt class="XXS_S">継続<br>行為</rt></ruby><ruby>ej<rt class="XS_S">場所</rt></ruby>o <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>jun<rt class="L_L">若い</rt></ruby><ruby>ul<rt class="XL_L">人</rt></ruby>oj.(...)**<br>
+（日本語訳）母（そしてもちろん著者）の老人ホームへの道のりでの経験についての文章に感動したと言いたいです。（中略）<br>
+<br>
+**<ruby>Ankaŭ<rt class="M_M">(~も)また</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>an <ruby>patr<rt class="XXL_L">父</rt></ruby><ruby>in<rt class="XS_S">女性</rt></ruby>on <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>fin<rt class="XS_S">終える</rt></ruby>aj <ruby>jar<rt class="XXL_L">年</rt></ruby>oj <ruby>traf<rt class="XXS_S">(に)命中<br>する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> demenco; <ruby>la<rt class="M_M">the</rt></ruby> <ruby>simptom<rt class="XXL_L">[医]症状</rt></ruby>oj <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>laŭ<rt class="S_S">沿って</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>moder<rt class="XXL_L">適度の</rt></ruby>e <ruby>sever<rt class="XL_L">厳しい</rt></ruby>aj, <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>percept<rt class="XXL_L">[哲]知覚</rt></ruby>o <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>grad<rt class="XXL_L">程度</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>sever<rt class="XL_L">厳しい</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby><ruby>pend<rt class="S_S">掛っている</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>vid<rt class="XXS_S">見る;<br>会う</rt></ruby><ruby>punkt<rt class="XXL_L">点</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>taks<rt class="XXS_S">(を)評価<br>する</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>o.**<br>
+（日本語訳）私の母も晩年に認知症を患いました。私から見ると症状は中程度でしたが、重症度の認識は評価者の視点によります。<br>
+<br>
+**(Barato • <ruby>Pro<rt class="S_S">ために</rt></ruby><ruby>bal<rt class="S_S">舞踏会</rt></ruby> DASGUPTA)**<br>
+（日本語訳）（インド・プロバル・ダスグプタ）<br>
+<br>
+**「トランプ/ゼレンスキー」の記事**<br>
+（日本語訳）「トランプ/ゼレンスキー」の記事<br>
+<br>
+**本誌4月号(p.17)の「トランプ/ゼレンス**<br>
+（日本語訳）本誌4月号(p.17)の「トランプ/ゼレンス<br>
+<br>
+**La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o**<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+<br>
+<br>
+---<br>
+<br>
+**【8ページ目】**<br>
+<br>
+**キー ~決裂の言語的含意」を読んで感動しました。秋には豊中エスペラント会として公民館祭に展示を出すので、その際に大きく取り上げるつもりです。公民館祭の展示は、従来から無難な PR 記事が多くなる傾向がありました。昨年はウクライナとのメールのやり取りを展示しましたが、「中立」を主張して展示に干渉するお役人が出てきました。公的機関へ遠慮ばかりしていてはいけないと思うので、今年秋の展示ではぜひこの記事を使います。(箕面市・佐野寛)**<br>
+（日本語訳）キー ～決裂の言語的含意」を読んで感動しました。秋には豊中エスペラント会として公民館祭に展示を出すので、その際に大きく取り上げるつもりです。公民館祭の展示は、従来から無難な PR 記事が多くなる傾向がありました。昨年はウクライナとのメールのやり取りを展示しましたが、「中立」を主張して展示に干渉するお役人が出てきました。公的機関へ遠慮ばかりしていてはいけないと思うので、今年秋の展示ではぜひこの記事を使います。(箕面市・佐野寛)<br>
+<br>
+**おわび**<br>
+（日本語訳）おわび<br>
+<br>
+**2月号のクイズで <ruby>Horizontal<rt class="XXL_L">水平</rt></ruby>e のヒント 15 番の正解が①“<ruby>Decid<rt class="XS_S">(を)決定する</rt></ruby>u <ruby>klar<rt class="S_S">明瞭な</rt></ruby>e <ruby>ĉu<rt class="S_S">~か?</rt></ruby> <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby>u <ruby>aŭ<rt class="XS_S">または</rt></ruby> ne”となっていますが、文法的には②“ĉu <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby>i <ruby>aŭ<rt class="XS_S">または</rt></ruby> ne”が正解です。<ruby>Ekzerc<rt class="S_S">(を)訓練する</rt></ruby><ruby>ar<rt class="S_S">集団</rt></ruby>o での用法が規範です。**<br>
+（日本語訳）2月号のクイズで <ruby>Horizontal<rt class="XXL_L">水平</rt></ruby>e のヒント 15 番の正解が①“<ruby>Decid<rt class="XS_S">(を)決定する</rt></ruby>u <ruby>klar<rt class="S_S">明瞭な</rt></ruby>e <ruby>ĉu<rt class="S_S">~か?</rt></ruby> <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby>u <ruby>aŭ<rt class="XS_S">または</rt></ruby> ne”（行くか行かないかはっきり決めなさい）となっていますが、文法的には②“ĉu <ruby>ir<rt class="XXS_S">行<br>く</rt></ruby>i <ruby>aŭ<rt class="XS_S">または</rt></ruby> ne”（行くか行かないか）が正解です。『エスペラント基礎練習帳』での用法が規範です。<br>
+<br>
+**また <ruby>Vertikal<rt class="XXL_L">[数]鉛直</rt></ruby>e のヒント1番は③“Ĉu <ruby>Zamenhof<rt class="M_M">[人名]ザメンホフ</rt></ruby> <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>pol<rt class="XXS_S">ポーラ<br>ンド人</rt></ruby>o?” – “<ruby>Jes<rt class="M_M">はい</rt></ruby>”が正解になっていますが、④ザメンホフは厳密にはユダヤ人でポーランド人ではありません。ザメンホフ自身“Mi <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>rus<rt class="XS_S">ロシア人</rt></ruby><ruby>land<rt class="XXL_L">国</rt></ruby>a <ruby>hebre<rt class="S_S">ヘブライ人</rt></ruby>o”, “Vi <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>mi<rt class="XXL_L">私</rt></ruby>n <ruby>nom<rt class="XXL_L">名前</rt></ruby>i '<ruby>Fil<rt class="XS_S">息子</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>pol<rt class="XXS_S">ポーラ<br>ンド人</rt></ruby>a <ruby>land<rt class="XXL_L">国</rt></ruby>o' (...) <ruby>sed<rt class="S_S">しかし</rt></ruby> <ruby>ne<rt class="M_M">ない</rt></ruby> <ruby>nom<rt class="XXL_L">名前</rt></ruby>u <ruby>mi<rt class="XXL_L">私</rt></ruby>n ‘<ruby>Pol<rt class="XXS_S">ポーラ<br>ンド人</rt></ruby>o’”と述べています。編集部のチェックもれをおわびいたします。ただいずれも①③を正解にしないとクイズが成立しないので、これらを正解として左ページのとおり「2月号の解答」を作成しています。(編集部)**<br>
+（日本語訳）また <ruby>Vertikal<rt class="XXL_L">[数]鉛直</rt></ruby>e のヒント1番は③「ザメンホフはポーランド人ですか？」「はい」が正解になっていますが、④ザメンホフは厳密にはユダヤ人でポーランド人ではありません。ザメンホフ自身「私はロシア在住のヘブライ人です」「あなたは私を『ポーランドの地の息子』と呼んでもよい（中略）しかし私を『ポーランド人』とは呼ばないでください」と述べています。編集部のチェックもれをおわびいたします。ただいずれも①③を正解にしないとクイズが成立しないので、これらを正解として左ページのとおり「2月号の解答」を作成しています。(編集部)<br>
+<br>
+**<ruby>Sin<rt class="XXL_L">懐</rt></ruby><ruby>prezent<rt class="M_M">(を)差し出す</rt></ruby>o**<br>
+（日本語訳）自己紹介<br>
+<br>
+**— 新入会員から ―**<br>
+（日本語訳）— 新入会員から ―<br>
+<br>
+**Mi <ruby>kre<rt class="XS_S">創造する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>film<rt class="XS_S">フィルム</rt></ruby><ruby>et<rt class="XS_S">弱小</rt></ruby>ojn <ruby>pri<rt class="XS_S">ついて</rt></ruby> Japanio!**<br>
+（日本語訳）私は日本についての短いビデオを作りました！<br>
+<br>
+**E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo**<br>
+（日本語訳）エミーニョ<br>
+<br>
+**<ruby>Salut<rt class="XS_S">(に)挨拶する</rt></ruby>on, <ruby>leg<rt class="XS_S">(を)読む</rt></ruby><ruby>ant<rt class="XXS_S">能動;<br>継続</rt></ruby>oj!**<br>
+（日本語訳）読者の皆さん、こんにちは！<br>
+<br>
+**Mi <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo (V<ruby>ale<rt class="S_S">並木道</rt></ruby>rie <RUBY>TE<RT CLASS="XL_L">茶</RT></RUBY>O), singapurano, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby> <ruby>trans<rt class="XS_S">(~の)向こうに</rt></ruby><ruby>loĝ<rt class="XS_S">(に)住む</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> Japanio <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>aŭgust<rt class="XXL_L">８月</rt></ruby>o 2017.**<br>
+（日本語訳）私はエミーニョ（ヴァレリー・テオ）です。シンガポール人で、2017年8月に日本に引っ越してきました。<br>
+<br>
+**Mi <ruby>renkont<rt class="L_L">(に)出会う</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>on <ruby>per<rt class="S_S">よって</rt></ruby>e <ruby>de<rt class="XS_S">の;から</rt></ruby> Tokipono <ruby>en<rt class="M_M">中で</rt></ruby> <ruby>aŭgust<rt class="XXL_L">８月</rt></ruby>o 2021.**<br>
+（日本語訳）私は2021年8月にトキポナを通じてエスペラントに出会いました。<br>
+<br>
+**La <ruby>regul<rt class="XXL_L">規則</rt></ruby><ruby>ec<rt class="S_S">性質</rt></ruby>o <ruby>de<rt class="XS_S">の;から</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o <ruby>tre<rt class="XXS_S">たい<br>へん</rt></ruby> <ruby>plaĉ<rt class="S_S">気に入る</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> mi, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>hom<rt class="XXL_L">人</rt></ruby>oj, <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby>j <ruby>uz<rt class="S_S">使う</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>lingv<rt class="XXL_L">言語</rt></ruby>on, <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>tiel<rt class="XXS_S">その;あ<br>の様に</rt></ruby> <ruby>afabl<rt class="XS_S">愛想のよい</rt></ruby>aj.**<br>
+（日本語訳）エスペラントの規則性はとても気に入っていますし、この言語を使う人々はとても親切です。<br>
+<br>
+**<ruby>Per<rt class="S_S">よって</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o <ruby>mi<rt class="XXL_L">私</rt></ruby> <ruby>pov<rt class="S_S">できる</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> <ruby>renkont<rt class="L_L">(に)出会う</rt></ruby>i <ruby>mult<rt class="M_M">多くの</rt></ruby>ajn <ruby>divers<rt class="XXL_L">様々な</rt></ruby>ajn <ruby>hom<rt class="XXL_L">人</rt></ruby>ojn, <ruby>kun<rt class="XS_S">(~と)共に</rt></ruby> <ruby>kiu<rt class="XXS_S">だれ;<br>どれ</rt></ruby>j <ruby>est<rt class="XXS_S">(~)で<br>ある</rt></ruby><ruby>us<rt class="XS_S">条件法</rt></ruby> <ruby>tre<rt class="XXS_S">たい<br>へん</rt></ruby> <ruby>mal<rt class="S_S">正反対</rt></ruby><ruby>facil<rt class="M_M">容易な</rt></ruby>e <ruby>kon<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>at<rt class="XXS_S">受動<br>継続</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby>i <ruby>sen<rt class="XS_S">(~)なしで</rt></ruby> <ruby>la<rt class="M_M">the</rt></ruby> <ruby>lingv<rt class="XXL_L">言語</rt></ruby>o.**<br>
+（日本語訳）エスペラントのおかげで、この言語なしでは知り合うのが非常に難しかったであろう多くの様々な人々と出会うことができました。<br>
+<br>
+**Mi <ruby>klopod<rt class="L_L">奔走する</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>ĉiu<rt class="XXS_S">各々の<br>;各~</rt></ruby><ruby>tag<rt class="XXL_L">日</rt></ruby>e <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>pli<rt class="S_S">より</rt></ruby><ruby>bon<rt class="XL_L">良い</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i <ruby>mi<rt class="XXL_L">私</rt></ruby>an <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>on, <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>last<rt class="S_S">最後の</rt></ruby>a<ruby>temp<rt class="XXL_L">時間</rt></ruby>e <ruby>kre<rt class="XS_S">創造する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby> Ju<ruby>tub<rt class="XXL_L">管</rt></ruby>o-<ruby>kanal<rt class="XXL_L">運河</rt></ruby>on <ruby>por<rt class="S_S">ために</rt></ruby> <ruby>ekzerc<rt class="S_S">(を)訓練する</rt></ruby>i <ruby>mi<rt class="XXL_L">私</rt></ruby>n <ruby>pri<rt class="XS_S">ついて</rt></ruby> <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>o <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>sam<rt class="M_M">同一の</rt></ruby><ruby>temp<rt class="XXL_L">時間</rt></ruby>e <ruby>dis<rt class="M_M">分散</rt></ruby><ruby>kon<rt class="XXS_S">知って<br>いる</rt></ruby><ruby>ig<rt class="XXS_S">させ<br>る</rt></ruby>i Japanion <ruby>al<rt class="XXS_S">~の方<br>へ</rt></ruby> <ruby>ali<rt class="S_S">他の</rt></ruby><ruby>land<rt class="XXL_L">国</rt></ruby><ruby>an<rt class="M_M">会員</rt></ruby>oj.**<br>
+（日本語訳）私は毎日エスペラントを上達させるよう努めており、最近ではエスペラントの練習をし、同時に日本を外国の人々に紹介するためにYou<ruby>Tub<rt class="XXL_L">管</rt></ruby>eチャンネルを作成しました。<br>
+<br>
+**Se <ruby>vi<rt class="XXXS_S">あな<br>た(<br>達)</rt></ruby> <ruby>interes<rt class="XS_S">(に)興味を持たせる</rt></ruby><ruby>iĝ<rt class="XS_S">なる</rt></ruby><ruby>us<rt class="XS_S">条件法</rt></ruby>, <ruby>bon<rt class="XL_L">良い</rt></ruby><ruby>vol<rt class="XXS_S">意志が<br>ある</rt></ruby>u <ruby>vizit<rt class="XXS_S">(を)訪問<br>する</rt></ruby>i “E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo <ruby>en<rt class="M_M">中で</rt></ruby> Japanio”.**<br>
+（日本語訳）もしご興味があれば、「E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo <ruby>en<rt class="M_M">中で</rt></ruby> Japanio」（日本のエミーニョ）を訪れてみてください。<br>
+<br>
+**<ruby>Krom<rt class="S_S">(の)ほかに</rt></ruby> <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby>i <ruby>Esperant<rt class="M_M">エスペラント</rt></ruby>on, <ruby>mi<rt class="XXL_L">私</rt></ruby>aj <ruby>ali<rt class="S_S">他の</rt></ruby>aj <ruby>ŝat<rt class="XXS_S">価値を<br>認める</rt></ruby><ruby>okup<rt class="XS_S">占めている</rt></ruby>oj <ruby>inkluziv<rt class="XXL_L">含んだ</rt></ruby><ruby>as<rt class="XS_S">現在形</rt></ruby> <ruby>lern<rt class="XXS_S">(を)学習<br>する</rt></ruby>i ŝ<ruby>am<rt class="S_S">愛する</rt></ruby><ruby>is<rt class="XXS_S">過去<br>形</rt></ruby>enon, <ruby>la<rt class="M_M">the</rt></ruby> <ruby>hispan<rt class="M_M">スペイン人</rt></ruby>an <ruby>kaj<rt class="L_L">and</rt></ruby> <ruby>tabl<rt class="XS_S">テーブル</rt></ruby>otenison.**<br>
+（日本語訳）エスペラントを学ぶこと以外に、私の他の趣味は三味線、スペイン語、卓球を学ぶことです。<br>
+<br>
+**[You<ruby>Tub<rt class="XXL_L">管</rt></ruby>eチャンネルのスクリーンショット]**<br>
+E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo <ruby>en<rt class="M_M">中で</rt></ruby> Japanio<br>
+（日本語訳）日本のエミーニョ<br>
+<br>
+**読者の皆様、こんにちは! 私はエミーニョです。シンガポール出身で、2017年8月に日本へ移住しました。私はトキポナを通じて2021年8月にエスペラントと出会いました。エスペラントの規則的な文法がとても気に入っていますし、この言語を使う人々はとても親切です。エスペラントのおかげで、普段ならなかなか知り合えないような、さまざまな人々と出会うことができました。**<br>
+（日本語訳）読者の皆様、こんにちは! 私はエミーニョです。シンガポール出身で、2017年8月に日本へ移住しました。私はトキポナを通じて2021年8月にエスペラントと出会いました。エスペラントの規則的な文法がとても気に入っていますし、この言語を使う人々はとても親切です。エスペラントのおかげで、普段ならなかなか知り合えないような、さまざまな人々と出会うことができました。<br>
+<br>
+**私は毎日エスペラントの上達に努めており、最近は You<ruby>Tub<rt class="XXL_L">管</rt></ruby>e チャンネルを始めました。エスペラントの練習をしながら、日本のことを海外の人々に紹介するためです。もし興味をお持ちでしたら、ぜひ“E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo <ruby>en<rt class="M_M">中で</rt></ruby> Japanio”を訪れてみてください!**<br>
+（日本語訳）私は毎日エスペラントの上達に努めており、最近は You<ruby>Tub<rt class="XXL_L">管</rt></ruby>e チャンネルを始めました。エスペラントの練習をしながら、日本のことを海外の人々に紹介するためです。もし興味をお持ちでしたら、ぜひ“E<ruby>mi<rt class="XXL_L">私</rt></ruby>njo <ruby>en<rt class="M_M">中で</rt></ruby> Japanio”を訪れてみてください!<br>
+<br>
+**エスペラントを学ぶこと以外では、三味線やスペイン語、卓球を学ぶことが趣味です。**<br>
+（日本語訳）エスペラントを学ぶこと以外では、三味線やスペイン語、卓球を学ぶことが趣味です。<br>
+<br>
+**◎エス文・日文ともにエミーニョさん提供(編)。**<br>
+（日本語訳）◎エスペラント文・日本語文ともにエミーニョさん提供（編集部）。<br>
+<br>
+**La <ruby>Revu<rt class="S_S">専門雑誌</rt></ruby>o <ruby>Orient<rt class="XS_S">方位定める;東</rt></ruby>a 2025 <ruby>maj<rt class="XL_L">５月</rt></ruby>o**<br>
+（日本語訳）東方評論 2025年5月号<br>
+<br>
+---<br>
+<br>
+<br>
+</p></body></html>
